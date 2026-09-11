@@ -311,7 +311,7 @@
 						},
 						{
 							"Type": "NodeLinkTitle",
-							"Data": "源于思考，饮水思源"
+							"Data": "源于思考，饮水Sedge"
 						},
 						{
 							"Type": "NodeCloseParen"
@@ -705,7 +705,7 @@
 			"Children": [
 				{
 					"Type": "NodeText",
-					"Data": "如果需要默认将插入的资源文件放置在文档同级 assets 文件夹下，则需要先手动创建名为 assets 的文件夹，这样思源会优先选择该 assets 文件夹来存放资源文件。"
+					"Data": "如果需要默认将插入的资源文件放置在文档同级 assets 文件夹下，则需要先手动创建名为 assets 的文件夹，这样Sedge会优先选择该 assets 文件夹来存放资源文件。"
 				}
 			]
 		},
@@ -964,7 +964,7 @@
 								},
 								{
 									"Type": "NodeText",
-									"Data": "​ 中，这样思源才能直接调用 "
+									"Data": "​ 中，这样Sedge才能直接调用 "
 								},
 								{
 									"Type": "NodeTextMark",
@@ -1019,7 +1019,7 @@
 							"Children": [
 								{
 									"Type": "NodeText",
-									"Data": "思源并不会启用所有已安装的语言包，因为语言包太多的话会导致 OCR 缓慢甚至超时返回空结果，并且占用过多的系统资源，所以默认最多只会启用 "
+									"Data": "Sedge并不会启用所有已安装的语言包，因为语言包太多的话会导致 OCR 缓慢甚至超时返回空结果，并且占用过多的系统资源，所以默认最多只会启用 "
 								},
 								{
 									"Type": "NodeTextMark",
@@ -1265,7 +1265,7 @@
 							"Children": [
 								{
 									"Type": "NodeText",
-									"Data": "退出思源后在文件系统上修改该文件（请注意 JSON 格式的正确性）"
+									"Data": "退出Sedge后在文件系统上修改该文件（请注意 JSON 格式的正确性）"
 								}
 							]
 						}

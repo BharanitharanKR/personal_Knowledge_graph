@@ -34,7 +34,7 @@
 			"Children": [
 				{
 					"Type": "NodeText",
-					"Data": "The AI agent can do more than answer questions. It can use SiYuan's built-in tools, skills, MCP services, and plugin capabilities to search, read, and operate on the knowledge base. It works through tasks step by step and requests confirmation before changing data."
+					"Data": "The AI agent can do more than answer questions. It can use Sedge's built-in tools, skills, MCP services, and plugin capabilities to search, read, and operate on the knowledge base. It works through tasks step by step and requests confirmation before changing data."
 				}
 			]
 		},
@@ -789,7 +789,7 @@
 				},
 				{
 					"Type": "NodeText",
-					"Data": " This setting is for external MCP services called by the agent. To connect an external MCP client to SiYuan, see "
+					"Data": " This setting is for external MCP services called by the agent. To connect an external MCP client to Sedge, see "
 				},
 				{
 					"Type": "NodeTextMark",

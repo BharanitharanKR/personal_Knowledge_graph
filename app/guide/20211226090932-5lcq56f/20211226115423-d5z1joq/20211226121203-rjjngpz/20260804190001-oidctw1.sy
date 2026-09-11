@@ -34,7 +34,7 @@
 			"Children": [
 				{
 					"Type": "NodeText",
-					"Data": "OIDC（OpenID Connect）登入可以讓思源透過既有的身分提供者完成單一登入，並與瀏覽器鎖屏密碼配合使用。支援的提供者包括 Custom、Google、Microsoft 和 GitHub。"
+					"Data": "OIDC（OpenID Connect）登入可以讓Sedge透過既有的身分提供者完成單一登入，並與瀏覽器鎖屏密碼配合使用。支援的提供者包括 Custom、Google、Microsoft 和 GitHub。"
 				}
 			]
 		},
@@ -302,7 +302,7 @@
 							"Children": [
 								{
 									"Type": "NodeText",
-									"Data": "Google：填寫 Google OAuth 用戶端 ID 和用戶端密鑰，簽發者位址由思源自動使用 Google 的固定位址"
+									"Data": "Google：填寫 Google OAuth 用戶端 ID 和用戶端密鑰，簽發者位址由Sedge自動使用 Google 的固定位址"
 								}
 							]
 						}
@@ -362,7 +362,7 @@
 							"Children": [
 								{
 									"Type": "NodeText",
-									"Data": "GitHub：填寫 OAuth App 的用戶端 ID 和用戶端密鑰；思源會自動調整預設授權範圍"
+									"Data": "GitHub：填寫 OAuth App 的用戶端 ID 和用戶端密鑰；Sedge會自動調整預設授權範圍"
 								}
 							]
 						}
@@ -462,7 +462,7 @@
 							"Children": [
 								{
 									"Type": "NodeText",
-									"Data": "本機瀏覽器和桌面端：回呼位址使用思源目前的本機存取通訊協定；啟用 HTTPS 時為 "
+									"Data": "本機瀏覽器和桌面端：回呼位址使用Sedge目前的本機存取通訊協定；啟用 HTTPS 時為 "
 								},
 								{
 									"Type": "NodeTextMark",
@@ -769,7 +769,7 @@
 				},
 				{
 					"Type": "NodeText",
-					"Data": "。思源會開啟系統瀏覽器，只有完成一次真實登入並通過准入規則後才會啟用新設定；驗證失敗時原設定繼續生效。修改 OIDC 設定會使既有 OIDC 會話失效，使用者需要重新登入。"
+					"Data": "。Sedge會開啟系統瀏覽器，只有完成一次真實登入並通過准入規則後才會啟用新設定；驗證失敗時原設定繼續生效。修改 OIDC 設定會使既有 OIDC 會話失效，使用者需要重新登入。"
 				}
 			]
 		},
@@ -851,7 +851,7 @@
 							"Children": [
 								{
 									"Type": "NodeText",
-									"Data": "桌面端：透過系統瀏覽器完成驗證，思源會等待並接收登入結果"
+									"Data": "桌面端：透過系統瀏覽器完成驗證，Sedge會等待並接收登入結果"
 								}
 							]
 						}
@@ -890,7 +890,7 @@
 								},
 								{
 									"Type": "NodeText",
-									"Data": " 返回思源；身分提供者必須支援此自訂回呼"
+									"Data": " 返回Sedge；身分提供者必須支援此自訂回呼"
 								}
 							]
 						}
@@ -971,7 +971,7 @@
 			"Children": [
 				{
 					"Type": "NodeText",
-					"Data": "環境變數在核心啟動時生效。遠端 Docker 部署還必須保留瀏覽器鎖屏密碼、有效 OIDC 設定或明確啟用驗證繞過，否則思源會拒絕啟動，以免工作空間在無驗證狀態下暴露。"
+					"Data": "環境變數在核心啟動時生效。遠端 Docker 部署還必須保留瀏覽器鎖屏密碼、有效 OIDC 設定或明確啟用驗證繞過，否則Sedge會拒絕啟動，以免工作空間在無驗證狀態下暴露。"
 				}
 			]
 		},
@@ -1058,7 +1058,7 @@
 							"Children": [
 								{
 									"Type": "NodeText",
-									"Data": "身分提供者探索失敗：檢查 Custom 或 Microsoft 的簽發者位址是否正確、是否使用 HTTPS，以及思源能否存取 Discovery 位址"
+									"Data": "身分提供者探索失敗：檢查 Custom 或 Microsoft 的簽發者位址是否正確、是否使用 HTTPS，以及Sedge能否存取 Discovery 位址"
 								}
 							]
 						}

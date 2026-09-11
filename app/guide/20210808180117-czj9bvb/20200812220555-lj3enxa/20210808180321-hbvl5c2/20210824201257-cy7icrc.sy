@@ -34,7 +34,7 @@
 			"Children": [
 				{
 					"Type": "NodeText",
-					"Data": "挂件是思源内核伺服的静态网页，它通过 API 存取数据，通过 "
+					"Data": "挂件是Sedge内核伺服的静态网页，它通过 API 存取数据，通过 "
 				},
 				{
 					"Type": "NodeTextMark",

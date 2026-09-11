@@ -37,12 +37,12 @@
 			"Children": [
 				{
 					"Type": "NodeText",
-					"Data": "ブラウザやハイパーリンクに対応している他のソフトウェアなど、別の場所から SiYuan デスクトップアプリケーションを起動したい場合は、"
+					"Data": "ブラウザやハイパーリンクに対応している他のソフトウェアなど、別の場所から Sedge デスクトップアプリケーションを起動したい場合は、"
 				},
 				{
 					"Type": "NodeTextMark",
 					"TextMarkType": "code",
-					"TextMarkTextContent": "siyuan://"
+					"TextMarkTextContent": "sedge://"
 				},
 				{
 					"Type": "NodeText",
@@ -82,7 +82,7 @@
 				{
 					"Type": "NodeTextMark",
 					"TextMarkType": "code",
-					"TextMarkTextContent": "siyuan://blocks/{id}"
+					"TextMarkTextContent": "sedge://blocks/{id}"
 				},
 				{
 					"Type": "NodeText",
@@ -214,7 +214,7 @@
 								{
 									"Type": "NodeTextMark",
 									"TextMarkType": "code",
-									"TextMarkTextContent": "siyuan://"
+									"TextMarkTextContent": "sedge://"
 								},
 								{
 									"Type": "NodeText",

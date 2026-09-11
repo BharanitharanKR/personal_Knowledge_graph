@@ -116,7 +116,7 @@ jobs:
         config:
           - os: ubuntu-24.04
             name: ubuntu build linux
-            kernel_path: "../app/kernel-linux/SiYuan-Kernel"
+            kernel_path: "../app/kernel-linux/Sedge-Kernel"
             build_args_prefix: "-s -w -X"
             build_args_suffix: "Mode=prod"
             electron_args: "dist-linux"
@@ -126,7 +126,7 @@ jobs:
             e2e_shards: ""
           - os: macos-latest
             name: macos build mac.dmg
-            kernel_path: "../app/kernel-darwin/SiYuan-Kernel"
+            kernel_path: "../app/kernel-darwin/Sedge-Kernel"
             build_args_prefix: "-s -w -X"
             build_args_suffix: "Mode=prod"
             electron_args: "dist-darwin"
@@ -136,7 +136,7 @@ jobs:
             e2e_shards: "main:6806"
           - os: macos-latest
             name: macos build mac-arm64.dmg
-            kernel_path: "../app/kernel-darwin-arm64/SiYuan-Kernel"
+            kernel_path: "../app/kernel-darwin-arm64/Sedge-Kernel"
             build_args_prefix: "-s -w -X"
             build_args_suffix: "Mode=prod"
             electron_args: "dist-darwin-arm64"
@@ -146,7 +146,7 @@ jobs:
             e2e_shards: "editor:6807"
           - os: windows-latest
             name: windows build win.exe
-            kernel_path: "../app/kernel/SiYuan-Kernel.exe"
+            kernel_path: "../app/kernel/Sedge-Kernel.exe"
             build_args_prefix: "-s -w -X"
             build_args_suffix: "Mode=prod"
             electron_args: "dist"

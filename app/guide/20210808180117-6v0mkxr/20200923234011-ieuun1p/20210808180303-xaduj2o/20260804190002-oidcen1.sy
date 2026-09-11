@@ -34,7 +34,7 @@
 			"Children": [
 				{
 					"Type": "NodeText",
-					"Data": "OIDC (OpenID Connect) login lets SiYuan use an existing identity provider for single sign-on alongside the browser lock screen password. Supported providers are Custom, Google, Microsoft, and GitHub."
+					"Data": "OIDC (OpenID Connect) login lets Sedge use an existing identity provider for single sign-on alongside the browser lock screen password. Supported providers are Custom, Google, Microsoft, and GitHub."
 				}
 			]
 		},
@@ -302,7 +302,7 @@
 							"Children": [
 								{
 									"Type": "NodeText",
-									"Data": "Google: enter the Google OAuth client ID and client secret; SiYuan uses Google's fixed issuer URL automatically"
+									"Data": "Google: enter the Google OAuth client ID and client secret; Sedge uses Google's fixed issuer URL automatically"
 								}
 							]
 						}
@@ -362,7 +362,7 @@
 							"Children": [
 								{
 									"Type": "NodeText",
-									"Data": "GitHub: enter the OAuth App client ID and client secret; SiYuan adapts the default scopes automatically"
+									"Data": "GitHub: enter the OAuth App client ID and client secret; Sedge adapts the default scopes automatically"
 								}
 							]
 						}
@@ -462,7 +462,7 @@
 							"Children": [
 								{
 									"Type": "NodeText",
-									"Data": "Local browser and desktop: the callback uses SiYuan's current local access scheme. With HTTPS enabled, use "
+									"Data": "Local browser and desktop: the callback uses Sedge's current local access scheme. With HTTPS enabled, use "
 								},
 								{
 									"Type": "NodeTextMark",
@@ -769,7 +769,7 @@
 				},
 				{
 					"Type": "NodeText",
-					"Data": ". SiYuan opens the system browser and activates the new configuration only after a real login satisfies the claim rules. The previous configuration remains active if verification fails. Changing the OIDC configuration invalidates existing OIDC sessions and requires users to sign in again."
+					"Data": ". Sedge opens the system browser and activates the new configuration only after a real login satisfies the claim rules. The previous configuration remains active if verification fails. Changing the OIDC configuration invalidates existing OIDC sessions and requires users to sign in again."
 				}
 			]
 		},
@@ -821,7 +821,7 @@
 							"Children": [
 								{
 									"Type": "NodeText",
-									"Data": "Browser: select OIDC sign-in on the login page; after authentication, SiYuan returns to the original address"
+									"Data": "Browser: select OIDC sign-in on the login page; after authentication, Sedge returns to the original address"
 								}
 							]
 						}
@@ -851,7 +851,7 @@
 							"Children": [
 								{
 									"Type": "NodeText",
-									"Data": "Desktop: authentication runs in the system browser while SiYuan waits for the result"
+									"Data": "Desktop: authentication runs in the system browser while Sedge waits for the result"
 								}
 							]
 						}
@@ -890,7 +890,7 @@
 								},
 								{
 									"Type": "NodeText",
-									"Data": " returns to SiYuan; the provider must support this custom callback"
+									"Data": " returns to Sedge; the provider must support this custom callback"
 								}
 							]
 						}
@@ -971,7 +971,7 @@
 			"Children": [
 				{
 					"Type": "NodeText",
-					"Data": "Environment variables take effect when the kernel starts. A remote Docker deployment must also retain a browser lock screen password, a valid OIDC configuration, or an explicit authentication bypass. Otherwise, SiYuan refuses to start to avoid exposing the workspace without authentication."
+					"Data": "Environment variables take effect when the kernel starts. A remote Docker deployment must also retain a browser lock screen password, a valid OIDC configuration, or an explicit authentication bypass. Otherwise, Sedge refuses to start to avoid exposing the workspace without authentication."
 				}
 			]
 		},
@@ -1058,7 +1058,7 @@
 							"Children": [
 								{
 									"Type": "NodeText",
-									"Data": "Provider discovery failure: check the Custom or Microsoft issuer URL, HTTPS usage, and whether SiYuan can reach the Discovery endpoint"
+									"Data": "Provider discovery failure: check the Custom or Microsoft issuer URL, HTTPS usage, and whether Sedge can reach the Discovery endpoint"
 								}
 							]
 						}

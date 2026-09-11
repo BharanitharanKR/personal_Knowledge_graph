@@ -1868,7 +1868,7 @@
 							"Children": [
 								{
 									"Type": "NodeText",
-									"Data": "发布思源"
+									"Data": "发布Sedge"
 								}
 							]
 						}
@@ -2526,7 +2526,7 @@
 					"TextMarkType": "block-ref",
 					"TextMarkBlockRefID": "20201204181006-7bkppue",
 					"TextMarkBlockRefSubtype": "s",
-					"TextMarkTextContent": "思源模板"
+					"TextMarkTextContent": "Sedge模板"
 				},
 				{
 					"Type": "NodeText",

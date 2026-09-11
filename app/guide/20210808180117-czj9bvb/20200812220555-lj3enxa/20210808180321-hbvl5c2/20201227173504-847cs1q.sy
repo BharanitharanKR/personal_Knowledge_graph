@@ -34,7 +34,7 @@
 			"Children": [
 				{
 					"Type": "NodeText",
-					"Data": "在服务器上伺服思源最简单的方案是通过 Docker 部署。"
+					"Data": "在服务器上伺服Sedge最简单的方案是通过 Docker 部署。"
 				}
 			]
 		},

@@ -37,7 +37,7 @@
 			"Children": [
 				{
 					"Type": "NodeText",
-					"Data": "ウィジェットは、SiYuan Kernel サーバーによって提供される静的な Web ページです。API を介してデータにアクセスし、"
+					"Data": "ウィジェットは、Sedge Kernel サーバーによって提供される静的な Web ページです。API を介してデータにアクセスし、"
 				},
 				{
 					"Type": "NodeTextMark",

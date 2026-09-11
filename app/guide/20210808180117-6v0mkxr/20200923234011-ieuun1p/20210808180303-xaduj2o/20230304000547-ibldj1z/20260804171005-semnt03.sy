@@ -233,7 +233,7 @@
 			"Children": [
 				{
 					"Type": "NodeText",
-					"Data": "After the embedding model is enabled, SiYuan generates vectors for eligible blocks in the background. Vectors are updated automatically when content is created or changed."
+					"Data": "After the embedding model is enabled, Sedge generates vectors for eligible blocks in the background. Vectors are updated automatically when content is created or changed."
 				}
 			]
 		},

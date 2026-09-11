@@ -37,7 +37,7 @@
 			"Children": [
 				{
 					"Type": "NodeText",
-					"Data": "サーバー上で SiYuan を稼働させる最も簡単な方法は Docker を使うことです:"
+					"Data": "サーバー上で Sedge を稼働させる最も簡単な方法は Docker を使うことです:"
 				}
 			]
 		},

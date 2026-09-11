@@ -34,7 +34,7 @@
 			"Children": [
 				{
 					"Type": "NodeText",
-					"Data": "OIDC（OpenID Connect）登录可以让思源通过已有的身份提供商完成单点登录，并与浏览器锁屏密码配合使用。支持的提供商包括 Custom、Google、Microsoft 和 GitHub。"
+					"Data": "OIDC（OpenID Connect）登录可以让Sedge通过已有的身份提供商完成单点登录，并与浏览器锁屏密码配合使用。支持的提供商包括 Custom、Google、Microsoft 和 GitHub。"
 				}
 			]
 		},
@@ -302,7 +302,7 @@
 							"Children": [
 								{
 									"Type": "NodeText",
-									"Data": "Google：填写 Google OAuth 客户端 ID 和客户端密钥，签发者地址由思源自动使用 Google 的固定地址"
+									"Data": "Google：填写 Google OAuth 客户端 ID 和客户端密钥，签发者地址由Sedge自动使用 Google 的固定地址"
 								}
 							]
 						}
@@ -362,7 +362,7 @@
 							"Children": [
 								{
 									"Type": "NodeText",
-									"Data": "GitHub：填写 OAuth App 的客户端 ID 和客户端密钥；思源会自动调整默认授权范围"
+									"Data": "GitHub：填写 OAuth App 的客户端 ID 和客户端密钥；Sedge会自动调整默认授权范围"
 								}
 							]
 						}
@@ -462,7 +462,7 @@
 							"Children": [
 								{
 									"Type": "NodeText",
-									"Data": "本机浏览器和桌面端：回调地址使用思源当前本机访问协议；启用 HTTPS 时为 "
+									"Data": "本机浏览器和桌面端：回调地址使用Sedge当前本机访问协议；启用 HTTPS 时为 "
 								},
 								{
 									"Type": "NodeTextMark",
@@ -769,7 +769,7 @@
 				},
 				{
 					"Type": "NodeText",
-					"Data": "。思源会打开系统浏览器，只有完成一次真实登录并通过准入规则后才会激活新配置；验证失败时原配置继续生效。修改 OIDC 配置会使已有 OIDC 会话失效，用户需要重新登录。"
+					"Data": "。Sedge会打开系统浏览器，只有完成一次真实登录并通过准入规则后才会激活新配置；验证失败时原配置继续生效。修改 OIDC 配置会使已有 OIDC 会话失效，用户需要重新登录。"
 				}
 			]
 		},
@@ -851,7 +851,7 @@
 							"Children": [
 								{
 									"Type": "NodeText",
-									"Data": "桌面端：通过系统浏览器完成认证，思源会等待并接收登录结果"
+									"Data": "桌面端：通过系统浏览器完成认证，Sedge会等待并接收登录结果"
 								}
 							]
 						}
@@ -890,7 +890,7 @@
 								},
 								{
 									"Type": "NodeText",
-									"Data": " 返回思源；身份提供商必须支持该自定义回调"
+									"Data": " 返回Sedge；身份提供商必须支持该自定义回调"
 								}
 							]
 						}
@@ -971,7 +971,7 @@
 			"Children": [
 				{
 					"Type": "NodeText",
-					"Data": "环境变量在内核启动时生效。远程 Docker 部署还必须保留浏览器锁屏密码、有效 OIDC 配置或明确启用认证绕过，否则思源会拒绝启动，以免工作空间在无认证状态下暴露。"
+					"Data": "环境变量在内核启动时生效。远程 Docker 部署还必须保留浏览器锁屏密码、有效 OIDC 配置或明确启用认证绕过，否则Sedge会拒绝启动，以免工作空间在无认证状态下暴露。"
 				}
 			]
 		},
@@ -1058,7 +1058,7 @@
 							"Children": [
 								{
 									"Type": "NodeText",
-									"Data": "身份提供商发现失败：检查 Custom 或 Microsoft 的签发者地址是否正确、是否使用 HTTPS，以及思源能否访问 Discovery 地址"
+									"Data": "身份提供商发现失败：检查 Custom 或 Microsoft 的签发者地址是否正确、是否使用 HTTPS，以及Sedge能否访问 Discovery 地址"
 								}
 							]
 						}

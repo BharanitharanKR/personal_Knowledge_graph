@@ -1396,7 +1396,7 @@
 							"Children": [
 								{
 									"Type": "NodeText",
-									"Data": "Custom themes inherit variables from the built-in themes. Override only the variables you need, and review renamed or removed variables when SiYuan is updated."
+									"Data": "Custom themes inherit variables from the built-in themes. Override only the variables you need, and review renamed or removed variables when Sedge is updated."
 								}
 							]
 						}

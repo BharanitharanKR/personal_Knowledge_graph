@@ -1866,7 +1866,7 @@
 							"Children": [
 								{
 									"Type": "NodeText",
-									"Data": "Release SiYuan"
+									"Data": "Release Sedge"
 								}
 							]
 						}
@@ -2534,7 +2534,7 @@
 					"TextMarkType": "block-ref",
 					"TextMarkBlockRefID": "20201204184532-3qm9l8n",
 					"TextMarkBlockRefSubtype": "s",
-					"TextMarkTextContent": "SiYuan template"
+					"TextMarkTextContent": "Sedge template"
 				},
 				{
 					"Type": "NodeText",

@@ -1768,7 +1768,7 @@
 				},
 				{
 					"Type": "NodeText",
-					"Data": " runs only when a template is inserted manually in the editor. After rendering, SiYuan first shows the complete child document tree that will be created and creates it only after confirmation; canceling inserts no template content and creates no documents. A child is always created even when a sibling has the same title; existing documents are never reused or overwritten. A single undo removes both the inserted template content and every child document created by that insertion. A single plan can create at most 128 documents, and its declared child document tree can be at most 16 levels deep. The resulting absolute file tree depth is still subject to the “Allows creation of sub-documents deeper than 7 levels” setting."
+					"Data": " runs only when a template is inserted manually in the editor. After rendering, Sedge first shows the complete child document tree that will be created and creates it only after confirmation; canceling inserts no template content and creates no documents. A child is always created even when a sibling has the same title; existing documents are never reused or overwritten. A single undo removes both the inserted template content and every child document created by that insertion. A single plan can create at most 128 documents, and its declared child document tree can be at most 16 levels deep. The resulting absolute file tree depth is still subject to the “Allows creation of sub-documents deeper than 7 levels” setting."
 				}
 			]
 		},

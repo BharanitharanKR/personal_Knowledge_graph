@@ -34,7 +34,7 @@
 			"Children": [
 				{
 					"Type": "NodeText",
-					"Data": "思源提供 AI 編輯、AI 智能體和語意搜尋功能。使用這些功能前，需要依照實際用途設定相應的 API 提供商和模型。"
+					"Data": "Sedge提供 AI 編輯、AI 智能體和語意搜尋功能。使用這些功能前，需要依照實際用途設定相應的 API 提供商和模型。"
 				}
 			]
 		},
@@ -356,7 +356,7 @@
 			"Children": [
 				{
 					"Type": "NodeText",
-					"Data": "MCP 服務可讓支援 MCP 的用戶端透過標準協定呼叫思源提供的工具。設定與使用方式請參閱 "
+					"Data": "MCP 服務可讓支援 MCP 的用戶端透過標準協定呼叫Sedge提供的工具。設定與使用方式請參閱 "
 				},
 				{
 					"Type": "NodeTextMark",

@@ -34,7 +34,7 @@
 			"Children": [
 				{
 					"Type": "NodeText",
-					"Data": "SiYuan には CLI（Command Line Interface）が内蔵されており、カーネルサービスを起動せずにワークスペースデータへ直接アクセスできます。スクリプト処理、一括管理、AI エージェントと連携したノートデータの読み書きに適しています。"
+					"Data": "Sedge には CLI（Command Line Interface）が内蔵されており、カーネルサービスを起動せずにワークスペースデータへ直接アクセスできます。スクリプト処理、一括管理、AI エージェントと連携したノートデータの読み書きに適しています。"
 				}
 			]
 		},
@@ -53,7 +53,7 @@
 				{
 					"Type": "NodeTextMark",
 					"TextMarkType": "code",
-					"TextMarkTextContent": "siyuan [グローバルフラグ] &lt;コマンド&gt; [パラメータ]"
+					"TextMarkTextContent": "sedge [グローバルフラグ] &lt;コマンド&gt; [パラメータ]"
 				},
 				{
 					"Type": "NodeText",
@@ -91,7 +91,7 @@
 				{
 					"Type": "NodeTextMark",
 					"TextMarkType": "code",
-					"TextMarkTextContent": "&lt;インストールディレクトリ&gt;/resources/kernel/SiYuan-Kernel"
+					"TextMarkTextContent": "&lt;インストールディレクトリ&gt;/resources/kernel/Sedge-Kernel"
 				},
 				{
 					"Type": "NodeText",
@@ -207,7 +207,7 @@
 								},
 								{
 									"Type": "NodeCodeBlockCode",
-									"Data": "# Microsoft Store 版のみ — PowerShell で一度実行\n$shimDir = \"$env:LOCALAPPDATA\\Microsoft\\WindowsApps\"   # デフォルトで PATH に含まれる\n@(\n    '@echo off'\n    'setlocal'\n    'set \"ROOT=\"'\n    'for /f \"delims=\" %%i in (''powershell -NoProfile -Command \"(Get-AppxPackage *SiYuan*).InstallLocation\"'') do set \"ROOT=%%i\"'\n    'if not defined ROOT goto :noshim'\n    '\"%ROOT%\\app\\resources\\kernel\\SiYuan-Kernel.exe\" %*'\n    'exit /b %ERRORLEVEL%'\n    ':noshim'\n    '1>&2 echo siyuan: Microsoft Store 版が見つかりません'\n    'exit /b 1'\n) | Set-Content \"$shimDir\\siyuan.cmd\"\n"
+									"Data": "# Microsoft Store 版のみ — PowerShell で一度実行\n$shimDir = \"$env:LOCALAPPDATA\\Microsoft\\WindowsApps\"   # デフォルトで PATH に含まれる\n@(\n    '@echo off'\n    'setlocal'\n    'set \"ROOT=\"'\n    'for /f \"delims=\" %%i in (''powershell -NoProfile -Command \"(Get-AppxPackage *Sedge*).InstallLocation\"'') do set \"ROOT=%%i\"'\n    'if not defined ROOT goto :noshim'\n    '\"%ROOT%\\app\\resources\\kernel\\Sedge-Kernel.exe\" %*'\n    'exit /b %ERRORLEVEL%'\n    ':noshim'\n    '1>&2 echo siyuan: Microsoft Store 版が見つかりません'\n    'exit /b 1'\n) | Set-Content \"$shimDir\\siyuan.cmd\"\n"
 								},
 								{
 									"Type": "NodeCodeBlockFenceCloseMarker",
@@ -286,7 +286,7 @@
 								},
 								{
 									"Type": "NodeCodeBlockCode",
-									"Data": "ln -s /Applications/SiYuan.app/Contents/Resources/kernel/SiYuan-Kernel /usr/local/bin/siyuan\n"
+									"Data": "ln -s /Applications/Sedge.app/Contents/Resources/kernel/Sedge-Kernel /usr/local/bin/siyuan\n"
 								},
 								{
 									"Type": "NodeCodeBlockFenceCloseMarker",
@@ -346,7 +346,7 @@
 								},
 								{
 									"Type": "NodeCodeBlockCode",
-									"Data": "ln -s <インストールディレクトリ>/resources/kernel/SiYuan-Kernel /usr/local/bin/siyuan\n"
+									"Data": "ln -s <インストールディレクトリ>/resources/kernel/Sedge-Kernel /usr/local/bin/siyuan\n"
 								},
 								{
 									"Type": "NodeCodeBlockFenceCloseMarker",
@@ -502,7 +502,7 @@
 								{
 									"Type": "NodeTextMark",
 									"TextMarkType": "code",
-									"TextMarkTextContent": "~/SiYuan"
+									"TextMarkTextContent": "~/Sedge"
 								},
 								{
 									"Type": "NodeText",
@@ -1622,7 +1622,7 @@
 				},
 				{
 					"Type": "NodeCodeBlockCode",
-					"Data": "siyuan --help           # 利用可能なすべてのコマンドを一覧\nsiyuan block --help     # block サブコマンドのパラメータを確認\n"
+					"Data": "sedge --help           # 利用可能なすべてのコマンドを一覧\nsiyuan block --help     # block サブコマンドのパラメータを確認\n"
 				},
 				{
 					"Type": "NodeCodeBlockFenceCloseMarker",
@@ -1814,7 +1814,7 @@
 				},
 				{
 					"Type": "NodeCodeBlockCode",
-					"Data": "siyuan workspace list\nsiyuan workspace info\n"
+					"Data": "sedge workspace list\nsiyuan workspace info\n"
 				},
 				{
 					"Type": "NodeCodeBlockFenceCloseMarker",
@@ -2354,7 +2354,7 @@
 				},
 				{
 					"Type": "NodeCodeBlockCode",
-					"Data": "siyuan notebook list\nsiyuan notebook create --name \"マイノートブック\"\nsiyuan notebook remove --id notebook-id\nsiyuan notebook rename --id notebook-id --name \"新しい名前\"\nsiyuan notebook open --id notebook-id\nsiyuan notebook close --id notebook-id\nsiyuan notebook set-icon --id notebook-id --icon \"1f4ca\"\nsiyuan notebook random-icon --id notebook-id\nsiyuan notebook random-icon\n"
+					"Data": "sedge notebook list\nsiyuan notebook create --name \"マイノートブック\"\nsiyuan notebook remove --id notebook-id\nsiyuan notebook rename --id notebook-id --name \"新しい名前\"\nsiyuan notebook open --id notebook-id\nsiyuan notebook close --id notebook-id\nsiyuan notebook set-icon --id notebook-id --icon \"1f4ca\"\nsiyuan notebook random-icon --id notebook-id\nsiyuan notebook random-icon\n"
 				},
 				{
 					"Type": "NodeCodeBlockFenceCloseMarker",
@@ -3150,7 +3150,7 @@
 				},
 				{
 					"Type": "NodeCodeBlockCode",
-					"Data": "siyuan document list --notebook notebook-id\nsiyuan document list --notebook notebook-id --hpath \"/フォルダ\"\n\nsiyuan document create --notebook notebook-id --title \"新規ドキュメント\"\nsiyuan document create --notebook notebook-id --title \"新規ドキュメント\" --path \"/フォルダ\"\nsiyuan document create --notebook notebook-id --title \"新規ドキュメント\" --markdown \"# タイトル\"\n\nsiyuan document get --id doc-id\nsiyuan document remove --id doc-id\nsiyuan document rename --id doc-id --title \"新しいタイトル\"\nsiyuan document duplicate --id doc-id\nsiyuan document info --id doc-id\nsiyuan document search \"キーワード\"\n\nsiyuan document move --id doc-id --notebook target-nb\nsiyuan document move --id doc-id --notebook target-nb --hpath \"/移動先フォルダ\"\n"
+					"Data": "sedge document list --notebook notebook-id\nsiyuan document list --notebook notebook-id --hpath \"/フォルダ\"\n\nsiyuan document create --notebook notebook-id --title \"新規ドキュメント\"\nsiyuan document create --notebook notebook-id --title \"新規ドキュメント\" --path \"/フォルダ\"\nsiyuan document create --notebook notebook-id --title \"新規ドキュメント\" --markdown \"# タイトル\"\n\nsiyuan document get --id doc-id\nsiyuan document remove --id doc-id\nsiyuan document rename --id doc-id --title \"新しいタイトル\"\nsiyuan document duplicate --id doc-id\nsiyuan document info --id doc-id\nsiyuan document search \"キーワード\"\n\nsiyuan document move --id doc-id --notebook target-nb\nsiyuan document move --id doc-id --notebook target-nb --hpath \"/移動先フォルダ\"\n"
 				},
 				{
 					"Type": "NodeCodeBlockFenceCloseMarker",
@@ -4177,7 +4177,7 @@
 				},
 				{
 					"Type": "NodeCodeBlockCode",
-					"Data": "siyuan block get --id block-id\nsiyuan block children --id block-id\nsiyuan block breadcrumb --id block-id\nsiyuan block dom --id block-id\nsiyuan block kramdown --id block-id\nsiyuan block kramdown --id block-id --mode md\nsiyuan block stat --id doc-id\n\nsiyuan block insert --parent parent-id --data \"# 新しい見出し\"\nsiyuan block insert --parent parent-id --file ./content.md\nsiyuan block insert --parent parent-id --data \"段落\" --previous sibling-id\n\nsiyuan block append --parent parent-id --data \"- リスト項目\"\nsiyuan block append --parent parent-id --file ./content.md\n\nsiyuan block prepend --parent parent-id --data \"> 引用\"\n\nsiyuan block update --id block-id --data \"変更後の内容\"\nsiyuan block update --id block-id --file ./content.md\n\nsiyuan block delete --id block-id\n\nsiyuan block move --id block-id --parent target-id\nsiyuan block move --id block-id --parent target-id --previous sibling-id\n\nsiyuan block batch-get --ids \"id1,id2,id3\"\nsiyuan block batch-kramdown --ids \"id1,id2,id3\"\nsiyuan block update --id block-id --data \"updated content\" --lock-type\n"
+					"Data": "sedge block get --id block-id\nsiyuan block children --id block-id\nsiyuan block breadcrumb --id block-id\nsiyuan block dom --id block-id\nsiyuan block kramdown --id block-id\nsiyuan block kramdown --id block-id --mode md\nsiyuan block stat --id doc-id\n\nsiyuan block insert --parent parent-id --data \"# 新しい見出し\"\nsiyuan block insert --parent parent-id --file ./content.md\nsiyuan block insert --parent parent-id --data \"段落\" --previous sibling-id\n\nsiyuan block append --parent parent-id --data \"- リスト項目\"\nsiyuan block append --parent parent-id --file ./content.md\n\nsiyuan block prepend --parent parent-id --data \"> 引用\"\n\nsiyuan block update --id block-id --data \"変更後の内容\"\nsiyuan block update --id block-id --file ./content.md\n\nsiyuan block delete --id block-id\n\nsiyuan block move --id block-id --parent target-id\nsiyuan block move --id block-id --parent target-id --previous sibling-id\n\nsiyuan block batch-get --ids \"id1,id2,id3\"\nsiyuan block batch-kramdown --ids \"id1,id2,id3\"\nsiyuan block update --id block-id --data \"updated content\" --lock-type\n"
 				},
 				{
 					"Type": "NodeCodeBlockFenceCloseMarker",
@@ -4933,7 +4933,7 @@
 				},
 				{
 					"Type": "NodeCodeBlockCode",
-					"Data": "siyuan search \"キーワード\"\nsiyuan search \"キーワード\" --notebook box1 --notebook box2\nsiyuan search \"キーワード\" --path \"/ディレクトリ\"\nsiyuan search \"キーワード\" --type document --type heading\nsiyuan search \"キーワード\" --subtype o --subtype u\nsiyuan search \"キーワード\" --method 2\nsiyuan search \"キーワード\" --order-by 4 --page 1 --page-size 20\nsiyuan search \"キーワード\" --group-by 1\n"
+					"Data": "sedge search \"キーワード\"\nsiyuan search \"キーワード\" --notebook box1 --notebook box2\nsiyuan search \"キーワード\" --path \"/ディレクトリ\"\nsiyuan search \"キーワード\" --type document --type heading\nsiyuan search \"キーワード\" --subtype o --subtype u\nsiyuan search \"キーワード\" --method 2\nsiyuan search \"キーワード\" --order-by 4 --page 1 --page-size 20\nsiyuan search \"キーワード\" --group-by 1\n"
 				},
 				{
 					"Type": "NodeCodeBlockFenceCloseMarker",
@@ -4974,7 +4974,7 @@
 				},
 				{
 					"Type": "NodeCodeBlockCode",
-					"Data": "siyuan search \"キーワード\" --asset\nsiyuan search \"キーワード\" --asset --ext pdf --ext docx\nsiyuan search \"キーワード\" --asset --method 3 --order-by 3\n"
+					"Data": "sedge search \"キーワード\" --asset\nsiyuan search \"キーワード\" --asset --ext pdf --ext docx\nsiyuan search \"キーワード\" --asset --method 3 --order-by 3\n"
 				},
 				{
 					"Type": "NodeCodeBlockFenceCloseMarker",
@@ -5015,7 +5015,7 @@
 				},
 				{
 					"Type": "NodeCodeBlockCode",
-					"Data": "siyuan search \"assets/report.pdf\" --get-asset\nsiyuan search \"assets/report.pdf\" --get-asset --format json\n"
+					"Data": "sedge search \"assets/report.pdf\" --get-asset\nsiyuan search \"assets/report.pdf\" --get-asset --format json\n"
 				},
 				{
 					"Type": "NodeCodeBlockFenceCloseMarker",
@@ -8099,7 +8099,7 @@
 				},
 				{
 					"Type": "NodeCodeBlockCode",
-					"Data": "siyuan repo list\nsiyuan repo list --tag --page 1\nsiyuan repo create --memo \"アップグレード前のバックアップ\"\nsiyuan repo tag --id snapshot-id --name \"v1.0\"\nsiyuan repo untag --name \"v1.0\"\nsiyuan repo checkout --id snapshot-id\nsiyuan repo diff --left id1 --right id2\nsiyuan repo search \"キーワード\"\nsiyuan repo purge\nsiyuan repo file get --id file-id\nsiyuan repo file rollback --id file-id\nsiyuan repo file open --id file-id\nsiyuan repo file export --id file-id\n"
+					"Data": "sedge repo list\nsiyuan repo list --tag --page 1\nsiyuan repo create --memo \"アップグレード前のバックアップ\"\nsiyuan repo tag --id snapshot-id --name \"v1.0\"\nsiyuan repo untag --name \"v1.0\"\nsiyuan repo checkout --id snapshot-id\nsiyuan repo diff --left id1 --right id2\nsiyuan repo search \"キーワード\"\nsiyuan repo purge\nsiyuan repo file get --id file-id\nsiyuan repo file rollback --id file-id\nsiyuan repo file open --id file-id\nsiyuan repo file export --id file-id\n"
 				},
 				{
 					"Type": "NodeCodeBlockFenceCloseMarker",
@@ -9391,7 +9391,7 @@
 				},
 				{
 					"Type": "NodeCodeBlockCode",
-					"Data": "siyuan asset upload --id doc-id --file ./image.png --file ./doc.pdf\nsiyuan asset unused\nsiyuan asset clean\nsiyuan asset clean --path \"assets/xxx.png\"\nsiyuan asset stat --path \"assets/image/xxx.png\"\n"
+					"Data": "sedge asset upload --id doc-id --file ./image.png --file ./doc.pdf\nsiyuan asset unused\nsiyuan asset clean\nsiyuan asset clean --path \"assets/xxx.png\"\nsiyuan asset stat --path \"assets/image/xxx.png\"\n"
 				},
 				{
 					"Type": "NodeCodeBlockFenceCloseMarker",
@@ -12563,7 +12563,7 @@
 				},
 				{
 					"Type": "NodeCodeBlockCode",
-					"Data": "siyuan file list /temp\nsiyuan file read /temp/readme.md\nsiyuan file write /temp/new.txt --file ./localfile.txt\nsiyuan file delete /temp/temp\nsiyuan file rename /temp/old /temp/new\nsiyuan file copy /temp/src /temp/dst\nsiyuan file grep --pattern \"TODO\" --path /temp\nsiyuan file grep --pattern \"func \" --path /temp --include \"*.go\" --context 2\nsiyuan file find /temp --include \"*.md\"\nsiyuan file stat /temp/readme.md\n"
+					"Data": "sedge file list /temp\nsiyuan file read /temp/readme.md\nsiyuan file write /temp/new.txt --file ./localfile.txt\nsiyuan file delete /temp/temp\nsiyuan file rename /temp/old /temp/new\nsiyuan file copy /temp/src /temp/dst\nsiyuan file grep --pattern \"TODO\" --path /temp\nsiyuan file grep --pattern \"func \" --path /temp --include \"*.go\" --context 2\nsiyuan file find /temp --include \"*.md\"\nsiyuan file stat /temp/readme.md\n"
 				},
 				{
 					"Type": "NodeCodeBlockFenceCloseMarker",
@@ -12709,7 +12709,7 @@
 				},
 				{
 					"Type": "NodeCodeBlockCode",
-					"Data": "siyuan serve --wd /path/to/workspace --port 6806\nsiyuan serve --wd /path/to/workspace --port 6806 --readonly true\nsiyuan serve --wd /path/to/workspace --port 6806 --accessAuthCode \"secret\" --lang ja --ssl\n"
+					"Data": "sedge serve --wd /path/to/workspace --port 6806\nsiyuan serve --wd /path/to/workspace --port 6806 --readonly true\nsiyuan serve --wd /path/to/workspace --port 6806 --accessAuthCode \"secret\" --lang ja --ssl\n"
 				},
 				{
 					"Type": "NodeCodeBlockFenceCloseMarker",

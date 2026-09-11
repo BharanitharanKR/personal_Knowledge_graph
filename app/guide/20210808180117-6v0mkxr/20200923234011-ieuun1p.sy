@@ -31,7 +31,7 @@
 					"Children": [
 						{
 							"Type": "NodeText",
-							"Data": "When you close SiYuan, the User Guide will be automatically deleted. You can click "
+							"Data": "When you close Sedge, the User Guide will be automatically deleted. You can click "
 						},
 						{
 							"Type": "NodeTextMark",
@@ -65,7 +65,7 @@
 			"Children": [
 				{
 					"Type": "NodeText",
-					"Data": "If you are using SiYuan for the first time, start with the steps below, then explore the rest of the guide as needed."
+					"Data": "If you are using Sedge for the first time, start with the steps below, then explore the rest of the guide as needed."
 				}
 			]
 		},
@@ -325,7 +325,7 @@
 					"TextMarkType": "block-ref",
 					"TextMarkBlockRefID": "20230415111951-vt4y4gg",
 					"TextMarkBlockRefSubtype": "s",
-					"TextMarkTextContent": "SiYuan"
+					"TextMarkTextContent": "Sedge"
 				},
 				{
 					"Type": "NodeText",
@@ -2667,7 +2667,7 @@
 			"Children": [
 				{
 					"Type": "NodeText",
-					"Data": "We hope that in the coming time, SiYuan can become an efficient tool for your life and study, helping you achieve more goals and plans🙏"
+					"Data": "We hope that in the coming time, Sedge can become an efficient tool for your life and study, helping you achieve more goals and plans🙏"
 				}
 			]
 		}

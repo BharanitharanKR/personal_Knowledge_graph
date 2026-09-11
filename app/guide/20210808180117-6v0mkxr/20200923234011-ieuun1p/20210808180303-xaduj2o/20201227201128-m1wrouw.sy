@@ -34,7 +34,7 @@
 			"Children": [
 				{
 					"Type": "NodeText",
-					"Data": "The easiest way to serve SiYuan on a server is to deploy it through Docker."
+					"Data": "The easiest way to serve Sedge on a server is to deploy it through Docker."
 				}
 			]
 		},

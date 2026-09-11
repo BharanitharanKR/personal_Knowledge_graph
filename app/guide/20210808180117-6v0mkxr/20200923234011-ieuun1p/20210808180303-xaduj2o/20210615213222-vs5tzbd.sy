@@ -886,7 +886,7 @@
 							"Children": [
 								{
 									"Type": "NodeText",
-									"Data": "Exit SiYuan, and then make a full copy and backup of the entire workspace to avoid data loss caused by subsequent misoperations"
+									"Data": "Exit Sedge, and then make a full copy and backup of the entire workspace to avoid data loss caused by subsequent misoperations"
 								}
 							]
 						}
@@ -964,7 +964,7 @@
 							"Children": [
 								{
 									"Type": "NodeText",
-									"Data": "Reindex manually after starting SiYuan"
+									"Data": "Reindex manually after starting Sedge"
 								}
 							]
 						}

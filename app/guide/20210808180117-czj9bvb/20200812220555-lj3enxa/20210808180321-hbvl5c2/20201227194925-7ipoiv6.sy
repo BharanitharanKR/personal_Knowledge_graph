@@ -33,7 +33,7 @@
 			"Children": [
 				{
 					"Type": "NodeText",
-					"Data": "思源还通过 MCP 向外部客户端提供工具，连接方式和权限说明请参阅 "
+					"Data": "Sedge还通过 MCP 向外部客户端提供工具，连接方式和权限说明请参阅 "
 				},
 				{
 					"Type": "NodeTextMark",
