@@ -20,7 +20,7 @@ import {openSearch} from "../search/spread";
 import {openRecentDocs} from "../business/openRecentDocs";
 import {openHistory} from "../history/history";
 import {newFile} from "../util/newFile";
-import {mountHelp, newNotebook} from "../util/mount";
+import {newNotebook} from "../util/mount";
 import {Constants} from "../constants";
 import {fetchPost} from "../util/fetch";
 import {isWindow} from "../util/functions";
@@ -287,10 +287,6 @@ export const newCenterEmptyTab = (app: App) => {
             <svg class="b3-list-item__graphic"><use xlink:href="#iconNewNoteBook"></use></svg>
             <span>${window.siyuan.languages.newNotebook}</span>
         </div>
-        <div class="b3-list-item${window.siyuan.config.readonly ? " fn__none" : ""}" id="editorEmptyHelp">
-            <svg class="b3-list-item__graphic"><use xlink:href="#iconHelp"></use></svg>
-            <span>${window.siyuan.languages.userGuide}</span>
-        </div>
     </div>
 </div>`,
         callback(tab: Tab) {
@@ -322,11 +318,6 @@ export const newCenterEmptyTab = (app: App) => {
                         break;
                     } else if (target.id === "editorEmptyNewNotebook") {
                         newNotebook();
-                        event.stopPropagation();
-                        event.preventDefault();
-                        break;
-                    } else if (target.id === "editorEmptyHelp") {
-                        mountHelp();
                         event.stopPropagation();
                         event.preventDefault();
                         break;

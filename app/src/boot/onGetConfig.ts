@@ -24,7 +24,6 @@ import {showMessage} from "../dialog/message";
 import {replaceLocalPath} from "../editor/rename";
 import {initBar} from "../layout/topBar";
 import {openSetting} from "../config";
-import {mountHelp} from "../util/mount";
 import {openChangelog} from "./openChangelog";
 import type {App} from "../index";
 import {initWindowEvent} from "./globalEvent/event";
@@ -208,9 +207,6 @@ export const initWindow = async (app: App) => {
     });
     ipcRenderer.on(Constants.SIYUAN_OPEN_SETTING, () => {
         openSetting(app);
-    });
-    ipcRenderer.on(Constants.SIYUAN_OPEN_HELP, () => {
-        mountHelp();
     });
     ipcRenderer.on(Constants.SIYUAN_SAVE_CLOSE, (event, close) => {
         if (isWindow()) {

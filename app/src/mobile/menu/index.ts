@@ -1,6 +1,6 @@
 import {popSearch} from "./search";
 import {closeModel, closePanel, MOBILE_MENU_CLOSE_EVENT} from "../util/closePanel";
-import {mountHelp, newDailyNote, newEncryptedNotebook, newNotebook} from "../../util/mount";
+import {newDailyNote, newEncryptedNotebook, newNotebook} from "../../util/mount";
 import {exitSiYuan, lockScreen, processSync} from "../../dialog/processSystem";
 import {openHistory} from "../../history/history";
 import {syncGuide} from "../../sync/syncGuide";
@@ -350,9 +350,6 @@ export const initRightMenu = (app: App) => {
         <div class="b3-menu__group-title">${window.siyuan.languages.mobileMenuSettingsAndHelp}</div>
         <div class="b3-menu__group-items">
             ${getSettingTabsMenuHTML()}
-            <div class="b3-menu__item${window.siyuan.config.readonly ? " fn__none" : ""}" id="menuHelp">
-                <svg class="b3-menu__icon"><use xlink:href="#iconHelp"></use></svg><span class="b3-menu__label">${window.siyuan.languages.userGuide}</span>
-            </div>
             <a class="b3-menu__item" href="${"zh-CN" === window.siyuan.config.lang ? "https://ld246.com/article/1649901726096" : "https://liuyun.io/article/1686530886208"}" target="_blank">
                 <svg class="b3-menu__icon"><use xlink:href="#iconFeedback"></use></svg>
                 <span class="b3-menu__label">${window.siyuan.languages.feedback}</span>
@@ -593,11 +590,6 @@ export const initRightMenu = (app: App) => {
                 break;
             } else if (target.id === "menuPlugin") {
                 openTopBarMenu(app);
-                event.preventDefault();
-                event.stopPropagation();
-                break;
-            } else if (target.id === "menuHelp") {
-                mountHelp();
                 event.preventDefault();
                 event.stopPropagation();
                 break;

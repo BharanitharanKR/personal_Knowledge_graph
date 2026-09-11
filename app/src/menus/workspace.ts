@@ -4,7 +4,7 @@ import {ipcRenderer} from "electron";
 /// #endif
 import {openHistory} from "../history/history";
 import {getOpenNotebookCount, originalPath, pathPosix, useShell} from "../util/pathName";
-import {fetchNewDailyNote, mountHelp, newDailyNote} from "../util/mount";
+import {fetchNewDailyNote, newDailyNote} from "../util/mount";
 import {fetchPost} from "../util/fetch";
 import {Constants} from "../constants";
 import {
@@ -663,15 +663,6 @@ export const workspaceMenu = (app: App, rect: DOMRect) => {
             }
             window.siyuan.menus.menu.append(new MenuItem({id: "separator_2", type: "separator"}).element);
         }
-        window.siyuan.menus.menu.append(new MenuItem({
-            id: "userGuide",
-            label: window.siyuan.languages.userGuide,
-            icon: "iconHelp",
-            ignore: window.siyuan.config.readonly,
-            click: () => {
-                mountHelp();
-            }
-        }).element);
         window.siyuan.menus.menu.append(new MenuItem({
             id: "feedback",
             label: window.siyuan.languages.feedback,

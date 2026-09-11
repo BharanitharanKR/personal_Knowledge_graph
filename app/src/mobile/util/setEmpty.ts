@@ -1,4 +1,4 @@
-import {mountHelp, newNotebook} from "../../util/mount";
+import {newNotebook} from "../../util/mount";
 import {newFile} from "../../util/newFile";
 import {getOpenNotebookCount} from "../../util/pathName";
 import {popSearch} from "../menu/search";
@@ -43,9 +43,6 @@ export const setEmpty = (app: App) => {
 </div>
 <div class="b3-list-item" id="emptyNewNotebook${window.siyuan.config.readonly ? " fn__none" : ""}">
     <svg class="b3-list-item__graphic"><use xlink:href="#iconNewNoteBook"></use></svg><span class="fn__space"></span><span class="b3-list-item__text">${window.siyuan.languages.newNotebook}</span>
-</div>
-<div class="b3-list-item${window.siyuan.config.readonly ? " fn__none" : ""}" id="emptyHelp">
-    <svg class="b3-list-item__graphic"><use xlink:href="#iconHelp"></use></svg><span class="fn__space"></span><span class="b3-list-item__text">${window.siyuan.languages.userGuide}</span>
 </div>`;
     emptyElement.addEventListener("click", (event) => {
         let target = event.target as HTMLElement;
@@ -72,11 +69,6 @@ export const setEmpty = (app: App) => {
                 break;
             } else if (target.id === "emptyNewNotebook") {
                 newNotebook();
-                event.stopPropagation();
-                event.preventDefault();
-                break;
-            } else if (target.id === "emptyHelp") {
-                mountHelp();
                 event.stopPropagation();
                 event.preventDefault();
                 break;
