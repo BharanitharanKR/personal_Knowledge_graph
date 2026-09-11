@@ -96,7 +96,7 @@ describe("link opening plugin events", () => {
             },
         ]);
 
-        assert.equal(emitOpenLink(app, {href: "siyuan://blocks/id", originalHref: "siyuan://blocks/id"}), true);
+        assert.equal(emitOpenLink(app, {href: "sedge://blocks/id", originalHref: "sedge://blocks/id"}), true);
         assert.deepEqual(calls, [1, 2]);
     });
 

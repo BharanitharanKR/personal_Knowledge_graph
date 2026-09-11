@@ -64,7 +64,7 @@ func TestSystemPromptDocumentsBlockReferenceSyntax(t *testing.T) {
 	if !strings.Contains(systemPrompt, `Never use ((<blockID>)) or [[<blockID>]]`) {
 		t.Fatal("system prompt does not reject block references without anchor text or bracketed block IDs")
 	}
-	if !strings.Contains(systemPrompt, `in chat responses use [title](siyuan://blocks/<blockID>)`) {
+	if !strings.Contains(systemPrompt, `in chat responses use [title](sedge://blocks/<blockID>)`) {
 		t.Fatal("system prompt does not distinguish note-content block references from chat-response links")
 	}
 }

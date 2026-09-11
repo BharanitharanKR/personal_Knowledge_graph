@@ -976,9 +976,9 @@ func renderTemplateSource(p, id string, mode TemplateRenderMode, content *string
 			}
 		} else if treenode.IsBlockLink(n) {
 			// 块超链接指向模板内部块时成套改写
-			defID := strings.TrimPrefix(n.TextMarkAHref, "siyuan://blocks/")
+			defID := strings.TrimPrefix(n.TextMarkAHref, "sedge://blocks/")
 			if newDefID, internal := blockIDs[defID]; internal {
-				n.TextMarkAHref = "siyuan://blocks/" + newDefID
+				n.TextMarkAHref = "sedge://blocks/" + newDefID
 			}
 		} else if ast.NodeBlockQueryEmbedScript == n.Type {
 			// 嵌入块查询脚本中引用模板内部块时成套改写

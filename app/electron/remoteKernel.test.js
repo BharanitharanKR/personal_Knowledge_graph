@@ -294,7 +294,7 @@ test("remote mode only opens web URLs through the operating system", () => {
     assert.equal(isAllowedRemoteExternalURL("http://example.com/path"), true);
     assert.equal(isAllowedRemoteExternalURL("file:///tmp/document"), false);
     assert.equal(isAllowedRemoteExternalURL("javascript:alert(1)"), false);
-    assert.equal(isAllowedRemoteExternalURL("siyuan://blocks/20200101000000-abcdefg"), false);
+    assert.equal(isAllowedRemoteExternalURL("sedge://blocks/20200101000000-abcdefg"), false);
     assert.equal(isAllowedRemoteExternalURL("not a URL"), false);
 });
 

@@ -3670,7 +3670,7 @@ export class WYSIWYG {
                     event.preventDefault();
                     linkMenu(protyle, target);
                     if (window.siyuan.config.editor.floatWindowMode === 0 &&
-                        target.getAttribute("data-href")?.startsWith("siyuan://blocks")) {
+                        target.getAttribute("data-href")?.startsWith("sedge://blocks")) {
                         // 阻止 popover
                         target.setAttribute("prevent-popover", "true");
                         setTimeout(() => {
@@ -4544,7 +4544,7 @@ export class WYSIWYG {
             }
 
             const blockRefElement = hasClosestByAttribute(event.target, "data-type", "block-ref");
-            const siyuanURIInfo = aLink.startsWith("siyuan://blocks/") ? parseSiYuanUriInfo(aLink) : undefined;
+            const siyuanURIInfo = aLink.startsWith("sedge://blocks/") ? parseSiYuanUriInfo(aLink) : undefined;
             if (siyuanURIInfo?.avItemID && (range.toString() === "" || event.shiftKey)) {
                 event.stopPropagation();
                 event.preventDefault();
@@ -4552,7 +4552,7 @@ export class WYSIWYG {
                 processSiYuanUri(protyle.app, aLink);
                 return;
             }
-            if (blockRefElement || aLink.startsWith("siyuan://blocks/")) {
+            if (blockRefElement || aLink.startsWith("sedge://blocks/")) {
                 event.stopPropagation();
                 event.preventDefault();
                 hideElements(["dialog", "toolbar"], protyle);

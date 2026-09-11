@@ -370,10 +370,10 @@ export const copyTextByType = async (ids: string[],
         } else if (type === "blockEmbed") {
             text += `{{select * from blocks where id='${id}'}}`;
         } else if (type === "protocol") {
-            text += `siyuan://blocks/${id}`;
+            text += `sedge://blocks/${id}`;
         } else if (type === "protocolMd") {
             const response = await fetchSyncPost("/api/block/getRefText", {id});
-            text += `[${response.data.replace("[", "\\[").replace("]", "\\]")}](siyuan://blocks/${id})`;
+            text += `[${response.data.replace("[", "\\[").replace("]", "\\]")}](sedge://blocks/${id})`;
         } else if (type === "hPath") {
             const response = await fetchSyncPost("/api/filetree/getHPathByID", {id});
             if (response.code !== 0 || typeof response.data !== "string") {

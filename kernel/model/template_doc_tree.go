@@ -343,8 +343,8 @@ func rewriteTemplateDocTreeRootRefs(root *ast.Node, oldID, newID string) {
 			if refID := node.ChildByType(ast.NodeBlockRefID); nil != refID && refID.TokensStr() == oldID {
 				refID.Tokens = []byte(newID)
 			}
-		} else if treenode.IsBlockLink(node) && node.TextMarkAHref == "siyuan://blocks/"+oldID {
-			node.TextMarkAHref = "siyuan://blocks/" + newID
+		} else if treenode.IsBlockLink(node) && node.TextMarkAHref == "sedge://blocks/"+oldID {
+			node.TextMarkAHref = "sedge://blocks/" + newID
 		} else if ast.NodeBlockQueryEmbedScript == node.Type {
 			node.Tokens = []byte(strings.ReplaceAll(string(node.Tokens), oldID, newID))
 		}

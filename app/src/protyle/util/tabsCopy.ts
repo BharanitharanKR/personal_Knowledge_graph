@@ -15,10 +15,10 @@ export const remapTabsDOMIDs = (root: Element, ids: Map<string, string>) => {
             link.dataset.id = ids.get(link.dataset.id);
         }
         const href = link.dataset.href;
-        if (href?.startsWith("siyuan://blocks/")) {
-            const id = href.substring("siyuan://blocks/".length);
+        if (href?.startsWith("sedge://blocks/")) {
+            const id = href.substring("sedge://blocks/".length);
             if (ids.has(id)) {
-                link.dataset.href = "siyuan://blocks/" + ids.get(id);
+                link.dataset.href = "sedge://blocks/" + ids.get(id);
             }
         }
     });

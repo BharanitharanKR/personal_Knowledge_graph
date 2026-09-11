@@ -944,7 +944,7 @@ export const initWindowOpenOverride = (app: App, openExternal?: (url: string) =>
             openExternal(urlStr);
             return null;
         }
-        // 浏览器可通过 window.open("siyuan://blocks/20221031001313-rk7sd0e", "_blank") 打开本地客户端
+        // 浏览器可通过 window.open("sedge://blocks/20221031001313-rk7sd0e", "_blank") 打开本地客户端
         return originalOpen.call(window, url, target, features);
     };
 };
@@ -971,7 +971,7 @@ export const initNativeDialogOverride = () => {
     window.confirm = function (message: string): boolean {
         try {
             const buttonIndex = ipcRenderer.sendSync(Constants.SIYUAN_CONFIRM_DIALOG, {
-                title: window.siyuan?.languages?.siyuanNote || "SiYuan",
+                title: window.siyuan?.languages?.siyuanNote || "Sedge",
                 message,
                 buttons: [window.siyuan?.languages?.cancel || "Cancel", window.siyuan?.languages?.confirm || "OK"],
                 cancelId: 0,

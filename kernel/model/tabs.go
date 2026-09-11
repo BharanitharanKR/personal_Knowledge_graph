@@ -26,9 +26,9 @@ func remapTabTitleBlockIDs(root *ast.Node, ids map[string]string) {
 				node.TextMarkBlockRefID = mapped
 			}
 		} else if treenode.IsBlockLink(node) {
-			id := strings.TrimPrefix(node.TextMarkAHref, "siyuan://blocks/")
+			id := strings.TrimPrefix(node.TextMarkAHref, "sedge://blocks/")
 			if mapped := ids[id]; "" != mapped {
-				node.TextMarkAHref = "siyuan://blocks/" + mapped
+				node.TextMarkAHref = "sedge://blocks/" + mapped
 			}
 		}
 		return ast.WalkContinue

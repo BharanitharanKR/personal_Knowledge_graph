@@ -326,9 +326,9 @@ func renderTemplateDocTreeMarkdown(markdown []byte, boxID string) (*parse.Tree, 
 				}
 			}
 		} else if treenode.IsBlockLink(node) {
-			defID := strings.TrimPrefix(node.TextMarkAHref, "siyuan://blocks/")
+			defID := strings.TrimPrefix(node.TextMarkAHref, "sedge://blocks/")
 			if newDefID, internal := blockIDs[defID]; internal {
-				node.TextMarkAHref = "siyuan://blocks/" + newDefID
+				node.TextMarkAHref = "sedge://blocks/" + newDefID
 			}
 		} else if ast.NodeBlockQueryEmbedScript == node.Type {
 			for oldID, newID := range blockIDs {

@@ -9,9 +9,9 @@ describe("remote kernel detection", () => {
     });
 
     it("detects the remote command line argument", () => {
-        assert.equal(hasRemoteArgument(["SiYuan", "--remote=https://example.com"]), true);
-        assert.equal(hasRemoteArgument(["SiYuan", "--remote"]), true);
-        assert.equal(hasRemoteArgument(["SiYuan", "--remote-proxy=https://example.com"]), false);
+        assert.equal(hasRemoteArgument(["Sedge", "--remote=https://example.com"]), true);
+        assert.equal(hasRemoteArgument(["Sedge", "--remote"]), true);
+        assert.equal(hasRemoteArgument(["Sedge", "--remote-proxy=https://example.com"]), false);
     });
 
     it("uses the command line as a fallback", () => {
@@ -42,7 +42,7 @@ describe("external URL capabilities", () => {
         assert.equal(isExternalURLAllowed("javascript:alert(1)", true), false);
         assert.equal(isExternalURLAllowed("file:///tmp/note.txt", true), false);
         assert.equal(isExternalURLAllowed("data:text/html,<script>alert(1)</script>", true), false);
-        assert.equal(isExternalURLAllowed("siyuan://blocks/20260903150000-abcdefg", true), false);
+        assert.equal(isExternalURLAllowed("sedge://blocks/20260903150000-abcdefg", true), false);
         assert.equal(isExternalURLAllowed("not a URL", true), false);
     });
 

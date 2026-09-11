@@ -516,7 +516,7 @@ if (remoteKernelTarget) {
     }
 }
 
-const initialSiYuanOpenURL = process.argv.find((arg) => arg.startsWith("siyuan://"));
+const initialSiYuanOpenURL = process.argv.find((arg) => arg.startsWith("sedge://"));
 if (remoteKernelTarget && !remoteKernelArgError && initialSiYuanOpenURL) {
     pendingRemoteOpenURLs.push(initialSiYuanOpenURL);
 }
@@ -665,17 +665,17 @@ if (!app.requestSingleInstanceLock()) {
     return;
 }
 
-// 开发环境下 Windows 需显式传入 Electron 可执行文件路径和 main.js 路径，否则 siyuan:// 会被当作相对路径
+// 开发环境下 Windows 需显式传入 Electron 可执行文件路径和 main.js 路径，否则 sedge:// 会被当作相对路径
 if (isDevEnv && process.defaultApp && process.argv.length >= 2) {
     const mainScript = path.resolve(process.argv[1]);
     if (process.platform === "win32") {
         app.removeAsDefaultProtocolClient("siyuan", process.execPath, [mainScript]);
-        app.setAsDefaultProtocolClient("siyuan", process.execPath, [mainScript]);
+        app.setAsDefaultProtocolClient("sedge", process.execPath, [mainScript]);
     } else {
-        app.setAsDefaultProtocolClient("siyuan");
+        app.setAsDefaultProtocolClient("sedge");
     }
 } else {
-    app.setAsDefaultProtocolClient("siyuan");
+    app.setAsDefaultProtocolClient("sedge");
 }
 
 app.commandLine.appendSwitch("auto-detect", "false");
@@ -700,7 +700,7 @@ for (let i = argStart; i < process.argv.length; i++) {
     if (arg.startsWith("--workspace=") || arg.startsWith("--openAsHidden") || arg.startsWith("--port=") ||
         arg.startsWith("--safe-mode=") || arg.startsWith("--lang=") || arg === "--remote" ||
         arg.startsWith("--remote=") ||
-        arg.startsWith("siyuan://")) {
+        arg.startsWith("sedge://")) {
         // 跳过内置参数
         if (arg.startsWith("--openAsHidden")) {
             openAsHidden = true;
@@ -897,7 +897,7 @@ const getAppWindow = () => {
 };
 
 const setNonDarwinApplicationMenu = () => {
-    const productName = "SiYuan";
+    const productName = "Sedge";
     const template = [{
         label: productName, submenu: [{
             label: `About ${productName}`, role: "about",
@@ -2024,7 +2024,7 @@ const initMainWindow = (kernel = kernelPort, remoteAuthenticated = true) => {
 
     // 创建主窗体
     const currentWindow = new BrowserWindow({
-        title: "SiYuan",
+        title: "Sedge",
         show: false,
         width: windowState.width,
         height: windowState.height,
@@ -2163,7 +2163,7 @@ const initMainWindow = (kernel = kernelPort, remoteAuthenticated = true) => {
             }
             return;
         }
-        let siyuanOpenURL = process.argv.find((arg) => arg.startsWith("siyuan://"));
+        let siyuanOpenURL = process.argv.find((arg) => arg.startsWith("sedge://"));
         if (siyuanOpenURL) {
             if (currentWindow.isMinimized()) {
                 currentWindow.restore();
@@ -3418,7 +3418,7 @@ app.whenReady().then(() => {
         const wndBounds = getWindowByContentId(event.sender.id).getBounds();
         const wndScreen = screen.getDisplayNearestPoint({x: wndBounds.x, y: wndBounds.y});
         const printWin = new BrowserWindow({
-            title: "SiYuan",
+            title: "Sedge",
             show: true,
             width: Math.floor(wndScreen.size.width * 0.8),
             height: Math.floor(wndScreen.size.height * 0.8),
@@ -3493,7 +3493,7 @@ app.whenReady().then(() => {
         const mainBounds = mainWindow.getBounds();
         const mainScreen = screen.getDisplayNearestPoint({x: mainBounds.x, y: mainBounds.y});
         const win = new BrowserWindow({
-            title: "SiYuan",
+            title: "Sedge",
             show: true,
             trafficLightPosition: {x: 8, y: 13},
             width: Math.floor(data.width || mainScreen.size.width * 0.7),
@@ -4041,7 +4041,7 @@ app.on("open-url", async (event, url) => { // for macOS
         writeLog("ignored URL while installing update");
         return;
     }
-    if (url.startsWith("siyuan://")) {
+    if (url.startsWith("sedge://")) {
         if (remoteKernelTarget) {
             const mainWorkspace = workspaces[0];
             if (mainWorkspace?.browserWindow && !mainWorkspace.browserWindow.isDestroyed() &&
@@ -4088,7 +4088,7 @@ app.on("second-instance", (event, argv) => {
     }
     const secondRemoteArg = getArgFrom(argv, "--remote");
     if (secondRemoteArg !== undefined || remoteKernelTarget) {
-        const siyuanURL = argv.find((arg) => arg.startsWith("siyuan://"));
+        const siyuanURL = argv.find((arg) => arg.startsWith("sedge://"));
         const localTargetRequested = getArgFrom(argv, "--workspace") !== undefined ||
             getArgFrom(argv, "--port") !== undefined;
         let secondRemoteOrigin;
@@ -4161,7 +4161,7 @@ app.on("second-instance", (event, argv) => {
         return;
     }
 
-    const siyuanURL = argv.find((arg) => arg.startsWith("siyuan://"));
+    const siyuanURL = argv.find((arg) => arg.startsWith("sedge://"));
     workspaces.forEach(item => {
         if (item.browserWindow && !item.browserWindow.isDestroyed() && siyuanURL) {
             item.browserWindow.webContents.send("siyuan-open-url", siyuanURL);

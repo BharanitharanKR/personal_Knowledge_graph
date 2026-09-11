@@ -93,7 +93,7 @@ func ListInvalidBlockRefs(page, pageSize int, excludeBoxIDs, excludeDocIDs []str
 
 						if ast.NodeTextMark == n.Type {
 							if n.IsTextMarkType("a") {
-								if after, ok := strings.CutPrefix(n.TextMarkAHref, "siyuan://blocks/"); ok {
+								if after, ok := strings.CutPrefix(n.TextMarkAHref, "sedge://blocks/"); ok {
 									defID := after
 									if strings.Contains(defID, "?") {
 										defID = strings.Split(defID, "?")[0]

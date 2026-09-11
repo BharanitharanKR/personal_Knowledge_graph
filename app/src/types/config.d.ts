@@ -286,7 +286,7 @@ declare namespace Config {
     }
 
     /**
-     * SiYuan API related configuration
+     * Sedge API related configuration
      */
     export interface IAPI {
         /**
@@ -296,7 +296,7 @@ declare namespace Config {
     }
 
     /**
-     * SiYuan appearance related configuration
+     * Sedge appearance related configuration
      */
     export interface IAppearance {
         /** 全局默认字体，按优先级从高到低排列 */
@@ -448,7 +448,7 @@ declare namespace Config {
         | "zh-TW";
 
     /**
-     * SiYuan bazaar related configuration
+     * Sedge bazaar related configuration
      */
     export interface IBazaar {
         /**
@@ -462,7 +462,7 @@ declare namespace Config {
     }
 
     /**
-     * SiYuan editor markdown related configuration
+     * Sedge editor markdown related configuration
      */
     interface IMarkdown {
         /**
@@ -522,7 +522,7 @@ declare namespace Config {
     }
 
     /**
-     * SiYuan editor related configuration
+     * Sedge editor related configuration
      */
     export interface IEditor {
 
@@ -774,7 +774,7 @@ declare namespace Config {
     }
 
     /**
-     * SiYuan export related configuration
+     * Sedge export related configuration
      */
     export interface IExport {
         /**
@@ -1056,7 +1056,7 @@ declare namespace Config {
     }
 
     /**
-     * SiYuan graph related configuration
+     * Sedge graph related configuration
      */
     export interface IGraph {
         global: IGraphGlobal;
@@ -1122,7 +1122,7 @@ declare namespace Config {
     }
 
     /**
-     * SiYuan node type filter
+     * Sedge node type filter
      */
     export interface IGraphType {
         /**
@@ -1184,7 +1184,7 @@ declare namespace Config {
     }
 
     /**
-     * SiYuan keymap related configuration
+     * Sedge keymap related configuration
      */
     export interface IKeymap {
         editor: IKeymapEditor;
@@ -1193,7 +1193,7 @@ declare namespace Config {
     }
 
     /**
-     * SiYuan editor shortcut keys
+     * Sedge editor shortcut keys
      */
     export interface IKeymapEditor {
         general: IKeymapEditorGeneral;
@@ -1204,7 +1204,7 @@ declare namespace Config {
     }
 
     /**
-     * SiYuan editor general shortcut keys
+     * Sedge editor general shortcut keys
      */
     export interface IKeymapEditorGeneral extends IKeys {
         ai: IKey;
@@ -1272,14 +1272,14 @@ declare namespace Config {
     }
 
     /**
-     * SiYuan shortcut keys
+     * Sedge shortcut keys
      */
     export interface IKeys {
         [key: string]: IKey;
     }
 
     /**
-     * SiYuan shortcut key
+     * Sedge shortcut key
      */
     export interface IKey {
         /**
@@ -1293,7 +1293,7 @@ declare namespace Config {
     }
 
     /**
-     * SiYuan editor heading shortcut keys
+     * Sedge editor heading shortcut keys
      */
     export interface IKeymapEditorHeading extends IKeys {
         heading1: IKey;
@@ -1306,7 +1306,7 @@ declare namespace Config {
     }
 
     /**
-     * SiYuan editor insert shortcut keys
+     * Sedge editor insert shortcut keys
      */
     export interface IKeymapEditorInsert extends IKeys {
         appearance: IKey;
@@ -1332,7 +1332,7 @@ declare namespace Config {
     }
 
     /**
-     * SiYuan editor list shortcut keys
+     * Sedge editor list shortcut keys
      */
     export interface IKeymapEditorList extends IKeys {
         prependListItem: IKey;
@@ -1343,7 +1343,7 @@ declare namespace Config {
     }
 
     /**
-     * SiYuan editor table shortcut keys
+     * Sedge editor table shortcut keys
      */
     export interface IKeymapEditorTable extends IKeys {
         "delete-column": IKey;
@@ -1359,7 +1359,7 @@ declare namespace Config {
     }
 
     /**
-     * SiYuan general shortcut keys
+     * Sedge general shortcut keys
      */
     export interface IKeymapGeneral extends IKeys {
         mainMenu: IKey;
@@ -1435,7 +1435,7 @@ declare namespace Config {
     }
 
     /**
-     * SiYuan plugin shortcut keys
+     * Sedge plugin shortcut keys
      */
     export interface IKeymapPlugin {
         [key: string]: IKeys;
@@ -1534,7 +1534,7 @@ declare namespace Config {
     }
 
     /**
-     * SiYuan search related configuration
+     * Sedge search related configuration
      */
     export interface ISearch {
         /**
@@ -1682,7 +1682,7 @@ declare namespace Config {
     }
 
     /**
-     * SiYuan code snippets related configuration
+     * Sedge code snippets related configuration
      */
     export interface ISnippet {
         /**
@@ -1750,7 +1750,7 @@ declare namespace Config {
     }
 
     /**
-     * SiYuan workspace content statistics
+     * Sedge workspace content statistics
      */
     export interface IStat {
         /**
@@ -1788,7 +1788,7 @@ declare namespace Config {
     }
 
     /**
-     * SiYuan synchronization related configuration
+     * Sedge synchronization related configuration
      */
     export interface ISync {
         /**
@@ -1825,7 +1825,7 @@ declare namespace Config {
         perception: boolean;
         /**
          * Cloud storage service provider
-         * - `0`: SiYuan official cloud storage service
+         * - `0`: Sedge official cloud storage service
          * - `2`: Object storage service compatible with S3 protocol
          * - `3`: Network storage service using WebDAV protocol
          * - `4`: Local file system
@@ -1955,7 +1955,7 @@ declare namespace Config {
      */
     export interface ISystem {
         /**
-         * The absolute path of the `resources` directory under the SiYuan installation directory
+         * The absolute path of the `resources` directory under the Sedge installation directory
          */
         appDir: string;
         /**
@@ -2066,7 +2066,7 @@ declare namespace Config {
     export type TUpdateChannel = "stable" | "beta" | "alpha";
 
     /**
-     * SiYuan Network proxy configuration
+     * Sedge Network proxy configuration
      */
     export interface INetworkProxy {
         /**
@@ -2110,7 +2110,7 @@ declare namespace Config {
     export type TSystemOS = "android" | "darwin" | "ios" | "linux" | "windows";
 
     /**
-     * SiYuan tag dock related configuration
+     * Sedge tag dock related configuration
      */
     export interface ITag {
         /**
@@ -2126,7 +2126,7 @@ declare namespace Config {
     }
 
     /**
-     * SiYuan UI layout related configuration
+     * Sedge UI layout related configuration
      */
     export interface IUiLayout {
         bottom: IUILayoutDock;
@@ -2140,7 +2140,7 @@ declare namespace Config {
     }
 
     /**
-     * SiYuan dock related configuration
+     * Sedge dock related configuration
      */
     export interface IUILayoutDock {
         /**
@@ -2154,7 +2154,7 @@ declare namespace Config {
     }
 
     /**
-     * SiYuan dock tab data
+     * Sedge dock tab data
      */
     export interface IUILayoutDockTab {
         /**
@@ -2181,7 +2181,7 @@ declare namespace Config {
     }
 
     /**
-     * SiYuan dock tab size
+     * Sedge dock tab size
      */
     export interface IUILayoutDockPanelSize {
         /**
@@ -2195,7 +2195,7 @@ declare namespace Config {
     }
 
     /**
-     * SiYuan layout item
+     * Sedge layout item
      */
     export type TUILayoutItem = IUILayoutLayout
         | IUILayoutWnd
@@ -2212,7 +2212,7 @@ declare namespace Config {
         | IUILayoutTabSearch;
 
     /**
-     * SiYuan panel layout
+     * Sedge panel layout
      */
     export interface IUILayoutLayout {
         /**
@@ -2252,7 +2252,7 @@ declare namespace Config {
     }
 
     /**
-     * SiYuan window layout
+     * Sedge window layout
      */
     export interface IUILayoutWnd {
         /**
@@ -2322,7 +2322,7 @@ declare namespace Config {
     /**
      * Tab content
      *
-     * SiYuan asset file tab
+     * Sedge asset file tab
      */
     export interface IUILayoutTabAsset {
         /**
@@ -2341,7 +2341,7 @@ declare namespace Config {
 
 
     /**
-     * SiYuan back link tab
+     * Sedge back link tab
      */
     export interface IUILayoutTabBacklink {
         /**
@@ -2376,7 +2376,7 @@ declare namespace Config {
     export type TUILayoutTabBacklinkType = "pin" | "local";
 
     /**
-     * SiYuan bookmark tab
+     * Sedge bookmark tab
      */
     export interface IUILayoutTabBookmark {
         /**
@@ -2386,7 +2386,7 @@ declare namespace Config {
     }
 
     /**
-     * SiYuan custom tab
+     * Sedge custom tab
      */
     export interface IUILayoutTabCustom {
         /**
@@ -2404,7 +2404,7 @@ declare namespace Config {
     }
 
     /**
-     * SiYuan editor tab
+     * Sedge editor tab
      */
     export interface IUILayoutTabEditor {
         /**
@@ -2440,7 +2440,7 @@ declare namespace Config {
     }
 
     /**
-     * SiYuan filetree tab
+     * Sedge filetree tab
      */
     export interface IUILayoutTabFiles {
         /**
@@ -2451,7 +2451,7 @@ declare namespace Config {
 
 
     /**
-     * SiYuan graph tab
+     * Sedge graph tab
      */
     export interface IUILayoutTabGraph {
         /**
@@ -2489,7 +2489,7 @@ declare namespace Config {
     export type TUILayoutTabGraphType = "pin" | "local" | "global";
 
     /**
-     * SiYuan outline tab
+     * Sedge outline tab
      */
     export interface IUILayoutTabOutline {
         /**
@@ -2525,7 +2525,7 @@ declare namespace Config {
     export type TUILayoutTabOutlineType = "pin" | "local";
 
     /**
-     * SiYuan tag tab
+     * Sedge tag tab
      */
     export interface IUILayoutTabTag {
         /**
@@ -2535,7 +2535,7 @@ declare namespace Config {
     }
 
     /**
-     * SiYuan search tab
+     * Sedge search tab
      */
     export interface IUILayoutTabSearch {
         config: IUILayoutTabSearchConfig;
@@ -2546,7 +2546,7 @@ declare namespace Config {
     }
 
     /**
-     * SiYuan search tab configuration
+     * Sedge search tab configuration
      */
     export interface IUILayoutTabSearchConfig {
         /**

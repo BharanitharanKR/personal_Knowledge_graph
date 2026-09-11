@@ -33,7 +33,7 @@ export const useShell = (cmd: "showItemInFolder" | "openPath", filePath: string)
 };
 
 /**
- * Check if the given URI is a valid SiYuan URI protocol (siyuan:// or web+siyuan://)
+ * Check if the given URI is a valid SiYuan URI protocol (sedge:// or web+sedge://)
  * @param uri - the URI to check
  */
 export const isSiYuanUriProtocol = (uri: URL | string | null | undefined): boolean => {
@@ -41,7 +41,11 @@ export const isSiYuanUriProtocol = (uri: URL | string | null | undefined): boole
         if (uri == null) return false;
 
         const uriObj = uri instanceof URL ? uri : new URL(uri);
-        if (uriObj.protocol === "siyuan:" || uriObj.protocol === "web+siyuan:") {
+        // "siyuan:"/"web+siyuan:" are still accepted on read so that block links
+        // inside notes imported from upstream SiYuan keep resolving. Sedge only
+        // ever *writes* sedge:// links.
+        if (uriObj.protocol === "sedge:" || uriObj.protocol === "web+sedge:"
+            || uriObj.protocol === "siyuan:" || uriObj.protocol === "web+siyuan:") {
             return true;
         }
         return false;
@@ -51,7 +55,7 @@ export const isSiYuanUriProtocol = (uri: URL | string | null | undefined): boole
 };
 
 /**
- * Parse siyuan://blocks/20221031001313-rk7sd0e?focus=1&fullscreen=1
+ * Parse sedge://blocks/20221031001313-rk7sd0e?focus=1&fullscreen=1
  * @param uri - the siyuan block uri to parse
  * @returns the block id and other info, or null if the uri is not a valid siyuan block uri
  */

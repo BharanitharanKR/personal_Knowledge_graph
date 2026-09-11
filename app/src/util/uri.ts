@@ -85,13 +85,13 @@ const processSiYuanUriPlugins = (app: App, uriObj: URL): boolean => {
 
     const plugin = app.plugins.find(plugin => pluginNameOrTabType === plugin.name);
     if (plugin) {
-        // siyuan://plugins/plugin-name/foo?bar=baz
+        // sedge://plugins/plugin-name/foo?bar=baz
         plugin.eventBus.emit("open-siyuan-url-plugin", { url: uriObj.href });
     } else {
         if (!app.plugins.some(item => item.models[pluginNameOrTabType])) {
             return false;
         }
-        // siyuan://plugins/plugin-samplecustom_tab?title=自定义页签&icon=iconFace&data={"text": "This is the custom plugin tab I opened via protocol."}
+        // sedge://plugins/plugin-samplecustom_tab?title=自定义页签&icon=iconFace&data={"text": "This is the custom plugin tab I opened via protocol."}
         /// #if !MOBILE
         // https://github.com/siyuan-note/siyuan/pull/9256
         const data = (() => {
@@ -142,8 +142,8 @@ const processSiYuanUriBazaar = (app: App, uriObj: URL): boolean => {
     switch (target) {
         case "readme":
         case "readme-installed": {
-            // siyuan://bazaar/plugins/plugin-sample/readme
-            // siyuan://bazaar/plugins/plugin-sample/readme-installed
+            // sedge://bazaar/plugins/plugin-sample/readme
+            // sedge://bazaar/plugins/plugin-sample/readme-installed
             const from = target === "readme-installed" ? "downloaded" : "bazaar";
             (async () => {
                 const {openBazaarReadme} = await import("../config");

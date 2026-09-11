@@ -1707,7 +1707,7 @@ interface IKernelPluginRpc {
 }
 
 /**
- * SiYuan URI 块信息接口，用于描述通过 SiYuan URI 协议传递的块信息
+ * Sedge URI 块信息接口，用于描述通过 Sedge URI 协议传递的块信息
  */
 interface ISiYuanUriBlockInfo {
     /**

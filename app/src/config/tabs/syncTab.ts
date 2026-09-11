@@ -1,5 +1,4 @@
 import type {SettingTabBuilder} from "../setting/builder";
-import {registerAccountGroup} from "./accountUi";
 import {Constants} from "../../constants";
 import {fetchPost} from "../../util/fetch";
 import {confirmDialog} from "../../dialog/confirmDialog";
@@ -20,7 +19,7 @@ const registerSyncGroup = (tab: SettingTabBuilder) => {
         title: window.siyuan.languages.syncProvider,
         desc: window.siyuan.languages.syncProviderTip,
         options: [
-            {value: 0, label: "SiYuan"},
+            // Sedge has no hosted cloud; provider 0 (upstream SiYuan cloud) is not offered.
             {value: 2, label: "S3"},
             {value: 3, label: "WebDAV"},
             ...(["std", "docker"].includes(window.siyuan.config.system.container) ? [{value: 4, label: window.siyuan.languages.localFileSystem}] : []),
@@ -31,11 +30,6 @@ const registerSyncGroup = (tab: SettingTabBuilder) => {
         key: "syncProviderConfig",
         keywords: getSyncProviderConfigKeywords(),
         html: () => '<div id="syncProviderConfig" class="b3-label config-item"></div>',
-    });
-    group.slot({
-        key: "cloudSpace",
-        keywords: [window.siyuan.languages.cloudStorage, window.siyuan.languages.trafficStat, window.siyuan.languages.backup],
-        html: () => '<div id="cloudSpace" class="b3-label config-item"></div>',
     });
     group.switch("sync.enabled", {
         title: window.siyuan.languages.cloudSync,
@@ -280,7 +274,7 @@ const mountRepoKey = (root: HTMLElement) => {
 };
 
 export const registerSyncTab = (tab: SettingTabBuilder) => {
-    registerAccountGroup(tab);
+    // Sedge is local-first and has no account service, so no login group is registered.
     registerSyncGroup(tab);
     registerRepoGroup(tab);
 };

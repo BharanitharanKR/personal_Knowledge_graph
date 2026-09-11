@@ -11,7 +11,7 @@ export const genAVItemLink = (databaseBlockID: string, viewID: string, itemID: s
     if (groupID) {
         params.set("avGroupID", groupID);
     }
-    return `siyuan://blocks/${databaseBlockID}?${params.toString()}`;
+    return `sedge://blocks/${databaseBlockID}?${params.toString()}`;
 };
 
 export const escapeAVItemLinkText = (content: string) => content

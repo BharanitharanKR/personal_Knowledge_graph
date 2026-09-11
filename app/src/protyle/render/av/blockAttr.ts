@@ -89,7 +89,7 @@ const handleRichTextInteraction = (protyle: IProtyle, event: MouseEvent) => {
     const tagElement = target.closest<HTMLElement>('[data-type~="tag"]');
     const linkElement = target.closest<HTMLElement>('[data-type~="a"][data-href], a[href]');
     if (blockRefElement && richTextElement.contains(blockRefElement)) {
-        const link = getAVRichTextSafeURL(`siyuan://blocks/${blockRefElement.dataset.id}`);
+        const link = getAVRichTextSafeURL(`sedge://blocks/${blockRefElement.dataset.id}`);
         if (link) {
             openLink(protyle.app, link, event, event.ctrlKey || event.metaKey);
         }
@@ -385,7 +385,7 @@ export const renderAVAttribute = (element: HTMLElement, id: string, protyle: IPr
                         if (dialogElement) {
                             window.siyuan.dialogs.find(item => item.element === dialogElement)?.destroy();
                         }
-                        openLink(protyle.app, `siyuan://blocks/${databaseBlockID}`, event);
+                        openLink(protyle.app, `sedge://blocks/${databaseBlockID}`, event);
                         return;
                     }
                 }

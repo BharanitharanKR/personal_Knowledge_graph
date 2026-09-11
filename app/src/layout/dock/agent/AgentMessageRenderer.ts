@@ -54,7 +54,7 @@ export const renderWelcomeHTML = (hasModel = true): string => {
     const L = window.siyuan.languages;
     if (!hasModel) {
         return '<div class="agent-welcome">' +
-            '<div class="agent-welcome__greeting">' + (L.agentWelcomeGreeting || "Hello, I am SiYuan Agent") + "</div>" +
+            '<div class="agent-welcome__greeting">' + (L.agentWelcomeGreeting || "Hello, I am Sedge Agent") + "</div>" +
             '<div class="agent-welcome__no-model">' +
             '<div class="agent-welcome__no-model-title">' + (L.agentNoModel || "No model configured") + "</div>" +
             '<div class="agent-welcome__no-model-tip">' + L.agentNoModelTip + "</div>" +
@@ -63,7 +63,7 @@ export const renderWelcomeHTML = (hasModel = true): string => {
             "</div>";
     }
     return '<div class="agent-welcome">' +
-        '<div class="agent-welcome__greeting">' + (L.agentWelcomeGreeting || "Hello, I am SiYuan Agent") + "</div>" +
+        '<div class="agent-welcome__greeting">' + (L.agentWelcomeGreeting || "Hello, I am Sedge Agent") + "</div>" +
         '<div class="agent-welcome__examples">' +
         '<div class="agent-welcome__example" data-text="' + escapeHtml(L.agentExample1 || "") + '">' + (L.agentExample1 || "") + "</div>" +
         '<div class="agent-welcome__example" data-text="' + escapeHtml(L.agentExample2 || "") + '">' + (L.agentExample2 || "") + "</div>" +
@@ -311,7 +311,7 @@ export const postRender = (container: HTMLElement, app?: App, onNavigate?: () =>
     if (!app) {
         return;
     }
-    container.querySelectorAll<HTMLAnchorElement>('a[href^="siyuan://"]').forEach((link) => {
+    container.querySelectorAll<HTMLAnchorElement>('a[href^="sedge://"]').forEach((link) => {
         const href = link.getAttribute("href") || "";
         link.setAttribute("data-type", "a");
         link.setAttribute("data-href", href);
@@ -332,7 +332,7 @@ export const postRender = (container: HTMLElement, app?: App, onNavigate?: () =>
             event.preventDefault();
             event.stopPropagation();
             onNavigate?.();
-            void processSiYuanUri(app, "siyuan://blocks/" + refID);
+            void processSiYuanUri(app, "sedge://blocks/" + refID);
             return;
         }
         const fileRef = target.closest('[data-type~="file-annotation-ref"][data-id]') as HTMLElement;

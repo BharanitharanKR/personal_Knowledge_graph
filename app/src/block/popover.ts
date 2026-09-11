@@ -447,7 +447,7 @@ const hidePopover = (event: MouseEvent & { path: HTMLElement[] }) => {
         popoverTargetElement = hasClosestByClassName(target, "popover__block") as HTMLElement;
     }
     const linkElement = hasClosestByAttribute(target, "data-type", "a", true);
-    if (!popoverTargetElement && linkElement && linkElement.getAttribute("data-href")?.startsWith("siyuan://blocks")) {
+    if (!popoverTargetElement && linkElement && linkElement.getAttribute("data-href")?.startsWith("sedge://blocks")) {
         popoverTargetElement = linkElement;
     }
     if (!popoverTargetElement || (popoverTargetElement && window.siyuan.menus.menu.data && window.siyuan.menus.menu.data === popoverTargetElement)) {
@@ -545,11 +545,11 @@ const getTarget = (event: MouseEvent & { target: HTMLElement }, aElement: false 
         popoverTargetElement = hasClosestByClassName(event.target, "popover__block") as HTMLElement;
     }
     if (!popoverTargetElement && aElement) {
-        if (aElement.getAttribute("data-href")?.startsWith("siyuan://blocks") && aElement.getAttribute("prevent-popover") !== "true") {
+        if (aElement.getAttribute("data-href")?.startsWith("sedge://blocks") && aElement.getAttribute("prevent-popover") !== "true") {
             popoverTargetElement = aElement;
         } else if (aElement.classList.contains("av__cell")) {
             const textElement = aElement.querySelector(".av__celltext--url") as HTMLElement;
-            if (textElement && textElement.dataset.type === "url" && textElement.dataset.href?.startsWith("siyuan://blocks")) {
+            if (textElement && textElement.dataset.type === "url" && textElement.dataset.href?.startsWith("sedge://blocks")) {
                 popoverTargetElement = textElement;
             }
         }

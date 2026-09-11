@@ -25,7 +25,7 @@ export const AV_RICH_TEXT_PREVIEW_SANITIZE_OPTIONS = {
     ALLOWED_ATTR: AV_RICH_TEXT_PREVIEW_ALLOWED_ATTRIBUTES,
     ALLOW_ARIA_ATTR: false,
     ALLOW_DATA_ATTR: false,
-    ALLOWED_URI_REGEXP: /^(?:(?:https?|mailto|siyuan|tel|web\+siyuan):|[#/?]|\.\.?\/|[^a-z]|[a-z0-9._~-]+(?:[/?#]|$))/i,
+    ALLOWED_URI_REGEXP: /^(?:(?:https?|mailto|sedge|siyuan|tel|web\+sedge|web\+siyuan):|[#/?]|\.\.?\/|[^a-z]|[a-z0-9._~-]+(?:[/?#]|$))/i,
 };
 const BUILTIN_INLINE_COLOR_COUNT = 13;
 const MAX_INLINE_FONT_FAMILY_LENGTH = 256;
@@ -216,7 +216,8 @@ export const getAVRichTextSafeURL = (value?: string | null) => {
             const opaque = url.slice(scheme.length + 1);
             return opaque && !opaque.startsWith("/") ? url : "";
         }
-        if (scheme !== "http" && scheme !== "https" && scheme !== "siyuan" && scheme !== "web+siyuan") {
+        if (scheme !== "http" && scheme !== "https" && scheme !== "sedge" && scheme !== "web+sedge"
+            && scheme !== "siyuan" && scheme !== "web+siyuan") {
             return "";
         }
         if (!url.toLowerCase().startsWith(`${scheme}://`)) {

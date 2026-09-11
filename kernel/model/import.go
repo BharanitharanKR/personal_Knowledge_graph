@@ -582,12 +582,12 @@ func importSY0(zipPath, boxID, toPath string, createNotebook, autoDetect bool, s
 				if "" != newDefID {
 					n.TextMarkBlockRefID = newDefID
 				}
-			} else if ast.NodeTextMark == n.Type && n.IsTextMarkType("a") && strings.HasPrefix(n.TextMarkAHref, "siyuan://blocks/") {
+			} else if ast.NodeTextMark == n.Type && n.IsTextMarkType("a") && strings.HasPrefix(n.TextMarkAHref, "sedge://blocks/") {
 				// Block hyperlinks do not point to regenerated block IDs when importing .sy.zip https://github.com/siyuan-note/siyuan/issues/9083
-				defID := strings.TrimPrefix(n.TextMarkAHref, "siyuan://blocks/")
+				defID := strings.TrimPrefix(n.TextMarkAHref, "sedge://blocks/")
 				newDefID := blockIDs[defID]
 				if "" != newDefID {
-					n.TextMarkAHref = "siyuan://blocks/" + newDefID
+					n.TextMarkAHref = "sedge://blocks/" + newDefID
 				}
 			} else if ast.NodeBlockQueryEmbedScript == n.Type {
 				for oldID, newID := range blockIDs {

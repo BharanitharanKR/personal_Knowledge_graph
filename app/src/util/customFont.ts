@@ -1,6 +1,6 @@
 import {fetchSyncPost} from "./fetch";
 
-export const CUSTOM_FONT_FAMILY_PREFIX = "SiYuanCustomFont-";
+export const CUSTOM_FONT_FAMILY_PREFIX = "SedgeCustomFont-";
 
 export interface ICustomFont {
     id: string;

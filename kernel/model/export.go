@@ -2168,7 +2168,7 @@ func ExportStdMarkdown(id string, assetsDestSpace2Underscore, fillCSSVar, adjust
 
 				var defID string
 				if treenode.IsBlockLink(n) {
-					defID = strings.TrimPrefix(n.TextMarkAHref, "siyuan://blocks/")
+					defID = strings.TrimPrefix(n.TextMarkAHref, "sedge://blocks/")
 				} else if treenode.IsBlockRef(n) {
 					defID, _, _ = treenode.GetBlockRef(n)
 				}
@@ -3406,7 +3406,7 @@ func exportTree(tree *parse.Tree, wysiwyg, keepFold, avHiddenCol bool,
 
 		switch blockRefMode {
 		case 2: // 锚文本块链
-			blockRefLink := &ast.Node{Type: ast.NodeTextMark, TextMarkTextContent: linkText, TextMarkAHref: "siyuan://blocks/" + defID}
+			blockRefLink := &ast.Node{Type: ast.NodeTextMark, TextMarkTextContent: linkText, TextMarkAHref: "sedge://blocks/" + defID}
 			blockRefLink.KramdownIAL = n.KramdownIAL
 			blockRefLink.TextMarkType = "a " + n.TextMarkType
 			blockRefLink.TextMarkInlineMemoContent = n.TextMarkInlineMemoContent
@@ -4177,7 +4177,7 @@ func blockLink2Ref(currentTree *parse.Tree) {
 
 		if treenode.IsBlockLink(n) {
 			n.TextMarkType = strings.TrimSpace(strings.TrimPrefix(n.TextMarkType, "a") + " block-ref")
-			n.TextMarkBlockRefID = strings.TrimPrefix(n.TextMarkAHref, "siyuan://blocks/")
+			n.TextMarkBlockRefID = strings.TrimPrefix(n.TextMarkAHref, "sedge://blocks/")
 			n.TextMarkBlockRefSubtype = "s"
 		}
 		return ast.WalkContinue
@@ -4242,7 +4242,7 @@ func collectFootnotesDefs0(currentTree *parse.Tree, node *ast.Node, refFootnoteO
 			addRefFootnoteAndRecurse(currentTree, defID, refText, refFootnoteOrder, refFootnotesByID, depth)
 			return ast.WalkSkipChildren
 		} else if treenode.IsBlockLink(n) {
-			defID := strings.TrimPrefix(n.TextMarkAHref, "siyuan://blocks/")
+			defID := strings.TrimPrefix(n.TextMarkAHref, "sedge://blocks/")
 			anchorText := n.TextMarkTextContent
 			if "" == anchorText {
 				if IsEncryptedBox(currentTree.Box) {
@@ -4698,7 +4698,7 @@ func exportRefTrees(tree *parse.Tree, defBlockIDs *[]string, retTrees map[string
 			}
 			exportRefTrees(defTree, defBlockIDs, retTrees)
 		} else if treenode.IsBlockLink(n) {
-			defID := strings.TrimPrefix(n.TextMarkAHref, "siyuan://blocks/")
+			defID := strings.TrimPrefix(n.TextMarkAHref, "sedge://blocks/")
 			if "" == defID {
 				return ast.WalkContinue
 			}

@@ -7,8 +7,8 @@ describe("bazaarReadmeSanitize", () => {
         [
             "https://example.com",
             "mailto:test@example.com",
-            "siyuan://bazaar/themes/Whisper/readme",
-            "web+siyuan://bazaar/themes/Whisper/readme",
+            "sedge://bazaar/themes/Whisper/readme",
+            "web+sedge://bazaar/themes/Whisper/readme",
             "/relative/path",
             "#heading",
         ].forEach((uri) => assert.equal(BAZAAR_README_ALLOWED_URI_REGEXP.test(uri), true, uri));

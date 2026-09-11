@@ -36,7 +36,7 @@ import (
 
 const (
 	MaxCustomFontSize      int64 = 64 * 1024 * 1024
-	CustomFontFamilyPrefix       = "SiYuanCustomFont-"
+	CustomFontFamilyPrefix       = "SedgeCustomFont-"
 )
 
 type CustomFont struct {

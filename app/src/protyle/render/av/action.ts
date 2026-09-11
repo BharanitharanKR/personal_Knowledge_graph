@@ -313,7 +313,7 @@ export const avClick = (protyle: IProtyle, event: MouseEvent & { target: HTMLEle
         const linkElement = event.target.closest<HTMLElement>('[data-type~="a"][data-href], a[href]');
         let href = "";
         if (blockRefElement && richTextElement.contains(blockRefElement)) {
-            href = getAVRichTextSafeURL(`siyuan://blocks/${blockRefElement.dataset.id}`);
+            href = getAVRichTextSafeURL(`sedge://blocks/${blockRefElement.dataset.id}`);
         } else if (fileAnnotationElement && richTextElement.contains(fileAnnotationElement)) {
             href = getAVRichTextSafeURL(fileAnnotationElement.dataset.id);
         } else if (tagElement && richTextElement.contains(tagElement)) {
@@ -1001,7 +1001,7 @@ export const avContextmenu = (protyle: IProtyle, rowElement: HTMLElement | undef
                     if (primaryInfo.isDetached) {
                         text += primaryInfo.content;
                     } else {
-                        text += `siyuan://blocks/${id}`;
+                        text += `sedge://blocks/${id}`;
                     }
                     if (ids.length > 1 && index !== ids.length - 1) {
                         text += "\n";
@@ -1022,7 +1022,7 @@ export const avContextmenu = (protyle: IProtyle, rowElement: HTMLElement | undef
                     if (primaryInfo.isDetached) {
                         content = primaryInfo.content;
                     } else {
-                        content = `[${primaryInfo.content.replace(/[\n]+/g, " ")}](siyuan://blocks/${id})`;
+                        content = `[${primaryInfo.content.replace(/[\n]+/g, " ")}](sedge://blocks/${id})`;
                     }
                     if (ids.length > 1) {
                         text += "- ";

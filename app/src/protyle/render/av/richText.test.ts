@@ -359,7 +359,7 @@ describe("attribute view text source compatibility", () => {
         }
         for (const safe of [
             "https://example.com/a?q=v#f", "mailto:user@example.com", "tel:+12025550123",
-            "siyuan://blocks/20240101000000-abcdefg", "web+siyuan://blocks/20240101000000-abcdefg",
+            "sedge://blocks/20240101000000-abcdefg", "web+sedge://blocks/20240101000000-abcdefg",
             "../relative/note.md", "/relative/note.md", "#section", "?q=v", "//example.com/path",
             "assets/file with space.pdf", "assets/percent%25.txt",
         ]) {

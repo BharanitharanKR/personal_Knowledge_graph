@@ -809,7 +809,10 @@ func isAllowedValueTextRichLinkTarget(target string) bool {
 			strings.HasPrefix(strings.ToLower(target), scheme+"://")
 	case "mailto", "tel":
 		return "" != parsed.Opaque && strings.HasPrefix(strings.ToLower(target), scheme+":")
-	case "siyuan", "web+siyuan":
+	case "sedge", "web+sedge", "siyuan", "web+siyuan":
+		// siyuan/web+siyuan 仍然放行，以便从上游思源导入的笔记中的块链接继续可用。
+		// The legacy schemes stay allowed so block links inside notes imported
+		// from upstream SiYuan are not stripped as unsafe. Sedge only writes sedge://.
 		return "" != parsed.Host && "" == parsed.Opaque &&
 			strings.HasPrefix(strings.ToLower(target), scheme+"://")
 	case "":
