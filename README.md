@@ -44,6 +44,12 @@ stating plainly:
 The complete corresponding source for this project is at
 <https://github.com/BharanitharanKR/personal_Knowledge_graph>.
 
+> **Note:** that repository is currently private, which is fine while Sedge is not
+> being distributed — AGPL obligations attach to *distribution*, not to development.
+> Before you ship a build to anyone, or host Sedge where others can use it over a
+> network, that repository must be made public (or the source otherwise offered to
+> every recipient and network user).
+
 Third-party dependency licences are listed in
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
