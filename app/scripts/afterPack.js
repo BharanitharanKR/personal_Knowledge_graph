@@ -4,13 +4,50 @@ const path = require("path");
 const {Arch} = require("electron-builder");
 const unzipper = require("unzipper");
 const { trimChangelogs } = require("./trimChangelogs");
+const {execFileSync} = require("child_process");
 
 module.exports = async function afterPack(context) {
   const {appOutDir, arch, electronPlatformName, packager} = context;
   await extractPackagedPandoc(appOutDir, packager, electronPlatformName, arch);
   await removeLanguagePacks(appOutDir, packager, electronPlatformName);
   await trimPackagedChangelogs(appOutDir, packager, electronPlatformName);
+  await adhocSignMac(appOutDir, packager, electronPlatformName);
 };
+
+/**
+ * Ad-hoc sign the macOS bundle when no Developer ID is configured.
+ *
+ * electron-builder with `identity: null` leaves the bundle carrying Electron's
+ * original linker signature. Because we rename the app and add the kernel to
+ * Resources, that signature no longer matches its contents:
+ *
+ *   codesign --verify -> "code has no resources but signature indicates they must be present"
+ *
+ * On Apple Silicon a broken signature is fatal: macOS refuses to launch the app
+ * and it dies immediately with no error. An ad-hoc signature (`--sign -`) is
+ * enough to make it launchable. It is NOT notarised, so a downloader still has
+ * to clear the quarantine flag, but the app runs once they do.
+ *
+ * Extended attributes must be stripped first or codesign rejects the bundle
+ * with "resource fork, Finder information, or similar detritus not allowed".
+ */
+async function adhocSignMac(appOutDir, packager, platform) {
+  if (platform !== "darwin" || process.platform !== "darwin") {
+    return;
+  }
+  if (process.env.CSC_LINK || process.env.CSC_NAME) {
+    return; // a real certificate is configured; electron-builder signs it properly
+  }
+  const appPath = path.join(appOutDir, `${packager.appInfo.productFilename}.app`);
+  try {
+    execFileSync("xattr", ["-cr", appPath], {stdio: "inherit"});
+    execFileSync("codesign", ["--force", "--deep", "--sign", "-", appPath], {stdio: "inherit"});
+    execFileSync("codesign", ["--verify", "--deep", "--strict", appPath], {stdio: "inherit"});
+    console.log(`  • ad-hoc signed  ${appPath}`);
+  } catch (error) {
+    throw new Error(`ad-hoc signing failed for ${appPath}: ${error.message}`);
+  }
+}
 
 async function extractPackagedPandoc(appOutDir, packager, platform, arch) {
   const resourcePath = getPackagedResourcePath(appOutDir, packager, platform);
