@@ -51,14 +51,28 @@ jobs:
           go-version-file: kernel/go.mod
           cache-dependency-path: kernel/go.sum
 
-      - uses: pnpm/action-setup@v4
-        with: {version: 11.25.0}
-
+      # Node must come first and be >= 22.13: pnpm 11.25 crashes on Node 20 with
+      # ERR_UNKNOWN_BUILTIN_MODULE. setup-node's `cache: pnpm` also needs pnpm to
+      # already be on PATH, so the store is cached explicitly below instead.
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: pnpm
-          cache-dependency-path: app/pnpm-lock.yaml
+          node-version: 22
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.25.0
+          run_install: false
+
+      - name: Locate pnpm store
+        shell: bash
+        run: echo "STORE_PATH=$(pnpm store path --silent)" >> "$GITHUB_ENV"
+
+      - name: Cache pnpm store
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('app/pnpm-lock.yaml') }}
+          restore-keys: ${{ runner.os }}-pnpm-
 
       # The kernel uses cgo (sqlite with fts5), so each platform is built on its
       # own runner rather than cross-compiled.
