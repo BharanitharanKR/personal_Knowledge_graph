@@ -25,8 +25,11 @@ jobs:
             goos: darwin
             kernel_dir: kernel-darwin-arm64
             dist: dist-darwin-arm64
+          # Built on the arm64 runner: macos-13 (Intel) runners are being retired and
+          # queue for a long time. Go cross-compiles darwin/amd64 with cgo on an Apple
+          # silicon Mac, and electron-builder-darwin.yml already pins arch: x64.
           - name: macOS (Intel)
-            os: macos-13
+            os: macos-14
             goarch: amd64
             goos: darwin
             kernel_dir: kernel-darwin
