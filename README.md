@@ -53,6 +53,37 @@ The complete corresponding source for this project is at
 Third-party dependency licences are listed in
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
+## Running it locally
+
+```sh
+scripts/dev-run.sh
+```
+
+That builds the kernel and frontend on first run, starts the kernel, waits for it
+to come up, then opens the desktop UI. Options:
+
+```sh
+scripts/dev-run.sh --rebuild          # force a kernel rebuild
+scripts/dev-run.sh --port 6810        # different port
+scripts/dev-run.sh --workspace ~/Notes  # different workspace
+scripts/dev-run.sh --stop             # stop a running dev instance
+```
+
+**Why a script rather than `pnpm start`:** in development Electron does not start
+the kernel itself (see the `if (!isDevEnv || workspaces.length > 0)` guard around
+`childProcess.spawn` in `app/electron/main.js`). It connects to whatever is already
+listening on the kernel port. Run `pnpm start` alone and the UI sits retrying — or,
+worse, silently attaches to a SiYuan instance already using port 6806 and opens
+*its* workspace. `dev-run.sh` starts the kernel first and refuses to launch if
+another process owns the port.
+
+Packaged builds have none of this: they spawn their own kernel on an automatically
+selected free port, so installed Sedge and installed SiYuan coexist fine.
+
+> If you hit `TypeError: Cannot read properties of undefined (reading 'getAppPath')`,
+> your shell has `ELECTRON_RUN_AS_NODE=1` set, which forces Electron into plain-Node
+> mode. `dev-run.sh` clears it; for a manual run use `env -u ELECTRON_RUN_AS_NODE`.
+
 ## Building from source
 
 Requires Go 1.26+, Node.js 20+, and pnpm.
