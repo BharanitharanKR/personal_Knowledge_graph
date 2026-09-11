@@ -345,7 +345,7 @@ func refreshAnnouncement() {
 	defer logging.Recover()
 
 	time.Sleep(1 * time.Minute)
-	announcementConf := filepath.Join(util.HomeDir, ".config", "siyuan", "announcement.json")
+	announcementConf := filepath.Join(util.HomeDir, ".config", "sedge", "announcement.json")
 	var existingAnnouncements, newAnnouncements []*Announcement
 	if gulu.File.IsExist(announcementConf) {
 		data, err := os.ReadFile(announcementConf)

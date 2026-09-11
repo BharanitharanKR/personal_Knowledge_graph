@@ -1,9 +1,9 @@
 {
-  "name": "SiYuan",
-  "desktopName": "org.b3log.siyuan",
+  "name": "Sedge",
+  "desktopName": "app.sedge.desktop",
   "version": "3.8.3",
-  "description": "From thought to insight, with agents",
-  "homepage": "https://b3log.org/siyuan",
+  "description": "A local-first knowledge base",
+  "homepage": "https://github.com/BharanitharanKR/personal_Knowledge_graph",
   "main": "./electron/main.js",
   "packageManager": "pnpm@11.25.0",
   "scripts": {
@@ -37,22 +37,9 @@
     "notebook"
   ],
   "author": {
-    "name": "Yunnan Liandi Technology Co., Ltd.",
-    "email": "845765@qq.com",
-    "url": "https://ld246.com"
+    "name": "Bharanitharan KR",
+    "url": "https://github.com/BharanitharanKR"
   },
-  "maintainers": [
-    {
-      "name": "Liang Ding",
-      "email": "845765@qq.com",
-      "url": "https://ld246.com/member/88250"
-    },
-    {
-      "name": "Liyuan Li",
-      "email": "84588990@qq.com",
-      "url": "https://ld246.com/member/Vanessa"
-    }
-  ],
   "devDependencies": {
     "@breezystack/lamejs": "1.2.7",
     "@eslint/eslintrc": "^3.3.1",

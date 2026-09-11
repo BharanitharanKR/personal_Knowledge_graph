@@ -541,7 +541,7 @@ func ExportSystemLog() (zipPath string) {
 		return
 	}
 
-	appLog := filepath.Join(util.HomeDir, ".config", "siyuan", "app.log")
+	appLog := filepath.Join(util.HomeDir, ".config", "sedge", "app.log")
 	if gulu.File.IsExist(appLog) {
 		to := filepath.Join(exportFolder, "app.log")
 		if err := filelock.Copy(appLog, to); err != nil {
@@ -549,7 +549,7 @@ func ExportSystemLog() (zipPath string) {
 		}
 	}
 
-	kernelLog := filepath.Join(util.HomeDir, ".config", "siyuan", "kernel.log")
+	kernelLog := filepath.Join(util.HomeDir, ".config", "sedge", "kernel.log")
 	if gulu.File.IsExist(kernelLog) {
 		to := filepath.Join(exportFolder, "kernel.log")
 		if err := filelock.Copy(kernelLog, to); err != nil {
@@ -1690,7 +1690,7 @@ func ProcessPDF(id, p string, merge, removeAssets, watermark bool, mergeHeadingO
 		}
 
 		api.DisableConfigDir()
-		font.UserFontDir = filepath.Join(util.HomeDir, ".config", "siyuan", "fonts")
+		font.UserFontDir = filepath.Join(util.HomeDir, ".config", "sedge", "fonts")
 		if mkdirErr := os.MkdirAll(font.UserFontDir, 0755); nil != mkdirErr {
 			logging.LogErrorf("mkdir [%s] failed: %s", font.UserFontDir, mkdirErr)
 			return nil

@@ -2056,7 +2056,7 @@ const initMainWindow = (kernel = kernelPort, remoteAuthenticated = true) => {
         writeLog("window position [x=" + x + ", y=" + y + "]");
         currentWindow.setPosition(x, y);
     }
-    currentWindow.webContents.userAgent = "SiYuan/" + appVer + " https://b3log.org/siyuan Electron " + currentWindow.webContents.userAgent;
+    currentWindow.webContents.userAgent = "Sedge/" + appVer + " https://github.com/BharanitharanKR/personal_Knowledge_graph Electron " + currentWindow.webContents.userAgent;
 
     // 加载主界面。setProxy 用超时兜底包装：Electron 在某些系统代理配置下 session.setProxy 可能永久
     // pending（既不 resolve 也不 reject），会导致 loadURL 永不执行，主窗口卡在启动页无法显示。
@@ -3436,7 +3436,7 @@ app.whenReady().then(() => {
         });
         printWin.center();
         rememberWindowKernelTarget(printWin, kernelTarget || createLocalKernelTarget());
-        printWin.webContents.userAgent = "SiYuan/" + appVer + " https://b3log.org/siyuan Electron " + printWin.webContents.userAgent;
+        printWin.webContents.userAgent = "Sedge/" + appVer + " https://github.com/BharanitharanKR/personal_Knowledge_graph Electron " + printWin.webContents.userAgent;
         printWin.loadURL(data);
         windowNavigate(printWin, "export", (kernelTarget || createLocalKernelTarget()).origin);
     });
@@ -3524,7 +3524,7 @@ app.whenReady().then(() => {
             win.center();
         }
         win.setAlwaysOnTop(data.alwaysOnTop);
-        win.webContents.userAgent = "SiYuan/" + appVer + " https://b3log.org/siyuan Electron " + win.webContents.userAgent;
+        win.webContents.userAgent = "Sedge/" + appVer + " https://github.com/BharanitharanKR/personal_Knowledge_graph Electron " + win.webContents.userAgent;
         win.webContents.session.setSpellCheckerLanguages(["en-US"]);
         win.loadURL(windowURL.href);
         windowNavigate(win, "window", kernelTarget.origin, kernelTarget.mode === "remote");

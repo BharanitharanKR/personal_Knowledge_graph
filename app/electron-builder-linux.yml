@@ -1,10 +1,10 @@
-productName: "SiYuan"
-appId: "org.b3log.siyuan"
+productName: "Sedge"
+appId: "app.sedge.desktop"
 publish: null
 asar: false
 compression: "normal"
-copyright: "© 2020-present Yunnan Liandi Technology Co., Ltd."
-artifactName: "siyuan-${version}-${os}.${ext}"
+copyright: "© 2020-present b3log.org · © 2026-present Bharanitharan KR"
+artifactName: "sedge-${version}-${os}.${ext}"
 extraMetadata:
   main: "electron/main.js"
 directories:
@@ -22,11 +22,11 @@ linux:
   icon: "src/assets/icon/"
   category: "Utility"
   syncDesktopName: true
-  executableName: "siyuan"
+  executableName: "sedge"
   desktop: {
     entry: {
-      Name: "SiYuan",
-      Comment: "From thought to insight, with agents",
+      Name: "Sedge",
+      Comment: "A local-first knowledge base",
       Type: "Application",
       Categories: "Utility;"
     }

@@ -4,9 +4,9 @@ set -e
 # Default values
 PUID=${PUID:-1000}
 PGID=${PGID:-1000}
-USER_NAME=${USER_NAME:-siyuan}
-GROUP_NAME=${GROUP_NAME:-siyuan}
-WORKSPACE_DIR="/siyuan/workspace"
+USER_NAME=${USER_NAME:-sedge}
+GROUP_NAME=${GROUP_NAME:-sedge}
+WORKSPACE_DIR="/sedge/workspace"
 
 # Get or create group
 group_name="${GROUP_NAME}"
@@ -42,11 +42,11 @@ while [[ "$#" -gt 0 ]]; do
 done
 
 # Change ownership of relevant directories, including the workspace directory
-echo "Adjusting ownership of /opt/siyuan, /home/siyuan/, and ${WORKSPACE_DIR}"
-chown -R "${PUID}:${PGID}" /opt/siyuan
-chown -R "${PUID}:${PGID}" /home/siyuan/
+echo "Adjusting ownership of /opt/sedge, /home/sedge/, and ${WORKSPACE_DIR}"
+chown -R "${PUID}:${PGID}" /opt/sedge
+chown -R "${PUID}:${PGID}" /home/sedge/
 chown -R "${PUID}:${PGID}" "${WORKSPACE_DIR}"
 
 # Switch to the newly created user and start the main process with all arguments
-echo "Starting SiYuan with UID:${PUID} and GID:${PGID} in workspace ${WORKSPACE_DIR}"
-exec su-exec "${PUID}:${PGID}" /opt/siyuan/kernel --workspace="${WORKSPACE_DIR}" ${ARGS}
+echo "Starting Sedge with UID:${PUID} and GID:${PGID} in workspace ${WORKSPACE_DIR}"
+exec su-exec "${PUID}:${PGID}" /opt/sedge/kernel --workspace="${WORKSPACE_DIR}" ${ARGS}

@@ -158,7 +158,7 @@ func generateCACert(certPath, keyPath string) error {
 	template := x509.Certificate{
 		SerialNumber: serialNumber,
 		Subject: pkix.Name{
-			Organization: []string{"SiYuan"},
+			Organization: []string{"Sedge"},
 			CommonName:   "SiYuan Local CA",
 		},
 		NotBefore:             notBefore,
@@ -213,7 +213,7 @@ func createServerCertificate(caCert *x509.Certificate, caKey any, privateKey cry
 	template := x509.Certificate{
 		SerialNumber: serialNumber,
 		Subject: pkix.Name{
-			Organization: []string{"SiYuan"},
+			Organization: []string{"Sedge"},
 			CommonName:   "SiYuan Local Server",
 		},
 		NotBefore:             notBefore,

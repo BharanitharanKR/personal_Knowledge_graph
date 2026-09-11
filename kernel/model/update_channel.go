@@ -79,7 +79,7 @@ func SetUpdateChannel(channel string) error {
 }
 
 func globalUpdateConfPath() string {
-	return filepath.Join(util.HomeDir, ".config", "siyuan", "update.json")
+	return filepath.Join(util.HomeDir, ".config", "sedge", "update.json")
 }
 
 func isValidUpdateChannel(channel string) bool {

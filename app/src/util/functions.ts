@@ -22,13 +22,13 @@ export const getBackend = () => {
 // "desktop" | "desktop-window" | "mobile" | "browser-desktop" | "browser-mobile"
 export const getFrontend = () => {
     /// #if MOBILE
-    if (window.navigator.userAgent.startsWith("SiYuan/")) {
+    if (window.navigator.userAgent.startsWith("Sedge/")) {
         return "mobile";
     } else {
         return "browser-mobile";
     }
     /// #else
-    if (window.navigator.userAgent.startsWith("SiYuan/")) {
+    if (window.navigator.userAgent.startsWith("Sedge/")) {
         if (isWindow()) {
             return "desktop-window";
         }

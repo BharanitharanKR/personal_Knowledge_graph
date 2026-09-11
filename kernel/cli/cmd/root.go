@@ -83,7 +83,7 @@ var rootCmd = &cobra.Command{
 			workspacePath = os.Getenv("SIYUAN_WORKSPACE_PATH")
 		}
 		if workspacePath == "" {
-			workspacePath = filepath.Join(util.HomeDir, "SiYuan")
+			workspacePath = filepath.Join(util.HomeDir, "Sedge")
 		}
 
 		if _, err := os.Stat(workspacePath); os.IsNotExist(err) {

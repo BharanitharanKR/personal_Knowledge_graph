@@ -124,7 +124,7 @@ func Boot() {
 	IncBootProgress(3, BootL10n(299, "Booting kernel..."))
 
 	// 由标准库 flag 解析 os.Args，再走统一的 BootWithFlags。
-	workspacePath := flag.String("workspace", "", "dir path of the workspace, default to ~/SiYuan/")
+	workspacePath := flag.String("workspace", "", "dir path of the workspace, default to ~/Sedge/")
 	wdPath := flag.String("wd", WorkingDir, "working directory of SiYuan")
 	port := flag.String("port", "0", "port of the HTTP server")
 	readOnly := flag.String("readonly", "false", "read-only mode")
@@ -184,7 +184,7 @@ func BootWithFlags(workspacePath, wdPath, port, readOnly, accessAuthCode, lang, 
 	// 工作空间仅允许被一个内核进程伺服
 	tryLockWorkspace()
 
-	bootBanner := figure.NewColorFigure("SiYuan", "isometric3", "green", true)
+	bootBanner := figure.NewColorFigure("Sedge", "isometric3", "green", true)
 	logging.LogInfo("\n" + bootBanner.String())
 	logBootInfo()
 }
@@ -292,7 +292,7 @@ func UIProcessCount() (ret int) {
 }
 
 func initWorkspaceDir(workspaceArg string) {
-	userHomeConfDir := filepath.Join(HomeDir, ".config", "siyuan")
+	userHomeConfDir := filepath.Join(HomeDir, ".config", "sedge")
 	workspaceConf := filepath.Join(userHomeConfDir, "workspace.json")
 	logging.SetLogPath(filepath.Join(userHomeConfDir, "kernel.log"))
 
@@ -303,15 +303,15 @@ func initWorkspaceDir(workspaceArg string) {
 		}
 	}
 
-	defaultWorkspaceDir := filepath.Join(HomeDir, "SiYuan")
+	defaultWorkspaceDir := filepath.Join(HomeDir, "Sedge")
 	if gulu.OS.IsWindows() {
 		// 改进 Windows 端默认工作空间路径 https://github.com/siyuan-note/siyuan/issues/5622
 		if userProfile := os.Getenv("USERPROFILE"); "" != userProfile {
-			defaultWorkspaceDir = filepath.Join(userProfile, "SiYuan")
+			defaultWorkspaceDir = filepath.Join(userProfile, "Sedge")
 		}
 	} else if gulu.OS.IsDarwin() {
 		// Change the initial workspace path to ~/Library/Application Support/SiYuan on macOS https://github.com/siyuan-note/siyuan/issues/17095
-		defaultWorkspaceDir = filepath.Join(HomeDir, "Library", "Application Support", "SiYuan")
+		defaultWorkspaceDir = filepath.Join(HomeDir, "Library", "Application Support", "Sedge")
 	}
 
 	var workspacePaths []string
@@ -411,7 +411,7 @@ func RemoveWorkspacePath(paths []string, target string) []string {
 
 func ReadWorkspacePaths() (ret []string, err error) {
 	ret = []string{}
-	workspaceConf := filepath.Join(HomeDir, ".config", "siyuan", "workspace.json")
+	workspaceConf := filepath.Join(HomeDir, ".config", "sedge", "workspace.json")
 	data, err := os.ReadFile(workspaceConf)
 	if err != nil {
 		msg := fmt.Sprintf("read workspace conf [%s] failed: %s", workspaceConf, err)
@@ -451,7 +451,7 @@ func ReadWorkspacePaths() (ret []string, err error) {
 
 func WriteWorkspacePaths(workspacePaths []string) (err error) {
 	workspacePaths = DeduplicateWorkspacePaths(workspacePaths)
-	workspaceConf := filepath.Join(HomeDir, ".config", "siyuan", "workspace.json")
+	workspaceConf := filepath.Join(HomeDir, ".config", "sedge", "workspace.json")
 	data, err := gulu.JSON.MarshalJSON(workspacePaths)
 	if err != nil {
 		msg := fmt.Sprintf("marshal workspace conf [%s] failed: %s", workspaceConf, err)

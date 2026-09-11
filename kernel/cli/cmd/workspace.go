@@ -109,7 +109,7 @@ func resolveDefaultWorkspace() string {
 	if len(paths) > 0 {
 		return paths[len(paths)-1]
 	}
-	return filepath.Join(util.HomeDir, "SiYuan")
+	return filepath.Join(util.HomeDir, "Sedge")
 }
 
 func init() {

@@ -842,7 +842,7 @@ func getConf(c *gin.Context) {
 	}
 
 	// 浏览器环境下不返回工作空间绝对路径，避免泄露用户名等敏感信息
-	// 原生客户端（桌面 Electron、移动端）UA 以 "SiYuan/" 开头，照常返回真实路径
+	// 原生客户端（桌面 Electron、移动端）UA 以 "Sedge/" 开头，照常返回真实路径
 	// REF: https://github.com/siyuan-note/siyuan/issues/17410
 	if util.IsBrowserRequest(c) {
 		maskedConf.System.WorkspaceDir = ""
