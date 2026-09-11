@@ -283,8 +283,8 @@ func resolveWorkingDir() string {
 
 func init() {
 	rootCmd.Use = strings.TrimSuffix(filepath.Base(os.Args[0]), ".exe")
-	rootCmd.Short = "SiYuan Kernel v" + util.Ver
-	rootCmd.Long = "SiYuan Kernel v" + util.Ver + ". Manage workspace data directly or start the HTTP server."
+	rootCmd.Short = "Sedge Kernel v" + util.Ver
+	rootCmd.Long = "Sedge Kernel v" + util.Ver + ". Manage workspace data directly or start the HTTP server."
 
 	rootCmd.PersistentFlags().StringVarP(&workspacePath, "workspace", "w", "", "workspace path")
 	rootCmd.PersistentFlags().StringVarP(&outputFormat, "format", "f", "table", "output format: table | json")

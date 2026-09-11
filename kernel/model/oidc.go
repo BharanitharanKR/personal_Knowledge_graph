@@ -113,8 +113,8 @@ func OIDCValidateStart(c *gin.Context) {
 	mobileValidation := util.IsMobileContainer()
 	if mobileValidation && config.Provider == conf.OIDCProviderGoogle {
 		ret.Code = -1
-		ret.Msg = oidcLanguage(368, "This OIDC provider does not support the SiYuan mobile callback URI")
-		logging.LogErrorf("validate mobile OIDC candidate configuration failed [ip=%s]: Google does not support the fixed SiYuan mobile OIDC callback URI", c.ClientIP())
+		ret.Msg = oidcLanguage(368, "This OIDC provider does not support the Sedge mobile callback URI")
+		logging.LogErrorf("validate mobile OIDC candidate configuration failed [ip=%s]: Google does not support the fixed Sedge mobile OIDC callback URI", c.ClientIP())
 		return
 	}
 	requireRemoteAuthentication := util.ContainerDocker == util.Container || !IsLocalRequest(c)
@@ -205,8 +205,8 @@ func OIDCStart(c *gin.Context) {
 	}
 	if input.Flow == oidcFlowMobile && Conf.GetOIDC().Provider == conf.OIDCProviderGoogle {
 		ret.Code = -1
-		ret.Msg = oidcLanguage(368, "This OIDC provider does not support the SiYuan mobile callback URI")
-		logging.LogWarn("Google does not support the fixed SiYuan mobile OIDC callback URI")
+		ret.Msg = oidcLanguage(368, "This OIDC provider does not support the Sedge mobile callback URI")
+		logging.LogWarn("Google does not support the fixed Sedge mobile OIDC callback URI")
 		return
 	}
 
@@ -302,12 +302,12 @@ func OIDCCallback(c *gin.Context) {
 	}
 	if transaction.Flow == oidcFlowValidate {
 		completeOIDCTransaction(transaction.State, true, "")
-		writeOIDCCallbackPage(c, true, oidcLanguage(367, "You can close this window and return to SiYuan"))
+		writeOIDCCallbackPage(c, true, oidcLanguage(367, "You can close this window and return to Sedge"))
 		return
 	}
 	if transaction.Flow == oidcFlowDesktop {
 		completeOIDCTransaction(transaction.State, true, "")
-		writeOIDCCallbackPage(c, true, oidcLanguage(367, "You can close this window and return to SiYuan"))
+		writeOIDCCallbackPage(c, true, oidcLanguage(367, "You can close this window and return to Sedge"))
 		return
 	}
 	if err = authenticateOIDCSession(c, transaction.RememberMe); err != nil {
@@ -559,7 +559,7 @@ func ValidateOIDCMobileConfiguration(config *conf.OIDC) error {
 		return err
 	}
 	if config.Provider == conf.OIDCProviderGoogle {
-		return errors.New("Google does not support the fixed SiYuan mobile OIDC callback URI")
+		return errors.New("Google does not support the fixed Sedge mobile OIDC callback URI")
 	}
 	return nil
 }
@@ -878,7 +878,7 @@ func respondRepeatedOIDCCallback(c *gin.Context, transaction *oidcTransaction) {
 		return
 	}
 	if transaction.Flow == oidcFlowDesktop || transaction.Flow == oidcFlowValidate {
-		writeOIDCCallbackPage(c, true, oidcLanguage(367, "You can close this window and return to SiYuan"))
+		writeOIDCCallbackPage(c, true, oidcLanguage(367, "You can close this window and return to Sedge"))
 		return
 	}
 	if transaction.Flow != oidcFlowWeb {

@@ -159,7 +159,7 @@ func generateCACert(certPath, keyPath string) error {
 		SerialNumber: serialNumber,
 		Subject: pkix.Name{
 			Organization: []string{"Sedge"},
-			CommonName:   "SiYuan Local CA",
+			CommonName:   "Sedge Local CA",
 		},
 		NotBefore:             notBefore,
 		NotAfter:              notAfter,
@@ -214,7 +214,7 @@ func createServerCertificate(caCert *x509.Certificate, caKey any, privateKey cry
 		SerialNumber: serialNumber,
 		Subject: pkix.Name{
 			Organization: []string{"Sedge"},
-			CommonName:   "SiYuan Local Server",
+			CommonName:   "Sedge Local Server",
 		},
 		NotBefore:             notBefore,
 		NotAfter:              notAfter,

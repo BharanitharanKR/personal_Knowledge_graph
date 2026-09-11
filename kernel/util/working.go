@@ -125,7 +125,7 @@ func Boot() {
 
 	// 由标准库 flag 解析 os.Args，再走统一的 BootWithFlags。
 	workspacePath := flag.String("workspace", "", "dir path of the workspace, default to ~/Sedge/")
-	wdPath := flag.String("wd", WorkingDir, "working directory of SiYuan")
+	wdPath := flag.String("wd", WorkingDir, "working directory of Sedge")
 	port := flag.String("port", "0", "port of the HTTP server")
 	readOnly := flag.String("readonly", "false", "read-only mode")
 	accessAuthCode := flag.String("accessAuthCode", "", "access auth code")
@@ -310,7 +310,7 @@ func initWorkspaceDir(workspaceArg string) {
 			defaultWorkspaceDir = filepath.Join(userProfile, "Sedge")
 		}
 	} else if gulu.OS.IsDarwin() {
-		// Change the initial workspace path to ~/Library/Application Support/SiYuan on macOS https://github.com/siyuan-note/siyuan/issues/17095
+		// Change the initial workspace path to ~/Library/Application Support/Sedge on macOS https://github.com/siyuan-note/siyuan/issues/17095
 		defaultWorkspaceDir = filepath.Join(HomeDir, "Library", "Application Support", "Sedge")
 	}
 

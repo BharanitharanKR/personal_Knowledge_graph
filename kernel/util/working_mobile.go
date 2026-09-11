@@ -66,7 +66,7 @@ func BootMobile(container, appDir, workspaceBaseDir, lang string) {
 	initWorkspaceDirMobile(workspaceBaseDir)
 
 	initPathDir()
-	bootBanner := figure.NewFigure("SiYuan", "", true)
+	bootBanner := figure.NewFigure("Sedge", "", true)
 	logging.LogInfo("\n" + bootBanner.String())
 	logBootInfo()
 }

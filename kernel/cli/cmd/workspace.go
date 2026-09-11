@@ -33,7 +33,7 @@ import (
 
 var workspaceCmd = &cobra.Command{
 	Use:   "workspace",
-	Short: "Manage SiYuan workspaces",
+	Short: "Manage Sedge workspaces",
 }
 
 var workspaceListCmd = &cobra.Command{

@@ -132,7 +132,7 @@ func TestExportNotebooksSYKeepsCrossNotebookReferences(t *testing.T) {
 		targetArchivePath,
 	} {
 		if findArchiveFile(syArchive.File, expected) == nil {
-			t.Fatalf("missing SiYuan archive entry: %s", expected)
+			t.Fatalf("missing Sedge archive entry: %s", expected)
 		}
 	}
 	manifest := &syNotebookBundleManifest{}

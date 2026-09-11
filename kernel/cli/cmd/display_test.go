@@ -218,12 +218,12 @@ func TestTruncate(t *testing.T) {
 		length int
 		want   string
 	}{
-		{name: "ascii unchanged", value: "SiYuan", length: 6, want: "SiYuan"},
-		{name: "ascii truncated", value: "SiYuan", length: 2, want: "Si..."},
+		{name: "ascii unchanged", value: "Sedge", length: 6, want: "Sedge"},
+		{name: "ascii truncated", value: "Sedge", length: 2, want: "Se..."},
 		{name: "Chinese unchanged", value: "思源笔记", length: 4, want: "思源笔记"},
 		{name: "Chinese truncated", value: "思源笔记", length: 2, want: "思源..."},
 		{name: "mixed", value: "SiYuan思源", length: 7, want: "SiYuan思..."},
-		{name: "zero", value: "SiYuan", length: 0, want: "..."},
+		{name: "zero", value: "Sedge", length: 0, want: "..."},
 		{name: "empty", value: "", length: 0, want: ""},
 	}
 

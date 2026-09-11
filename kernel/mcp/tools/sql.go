@@ -31,7 +31,7 @@ const sqlQueryDefaultLimit = 100
 
 var SQLTool = &Tool{
 	Name:        "sql",
-	Description: "Read-only SQL on SiYuan's database. Action: query(stmt) — SELECT only. Results default to at most 100 rows; use explicit LIMIT and OFFSET clauses for pagination.",
+	Description: "Read-only SQL on Sedge's database. Action: query(stmt) — SELECT only. Results default to at most 100 rows; use explicit LIMIT and OFFSET clauses for pagination.",
 	InputSchema: ToolSchema{
 		Type: "object",
 		Properties: map[string]Property{

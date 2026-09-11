@@ -1031,7 +1031,7 @@ func closeSyncWebSocket() {
 // connectSyncWebSocket 在 Sedge 中为空操作。
 //
 // The sync WebSocket existed only to receive push notifications from the
-// upstream SiYuan cloud, which Sedge does not use. S3, WebDAV and local-filesystem
+// upstream Sedge cloud, which Sedge does not use. S3, WebDAV and local-filesystem
 // sync are all poll-based and need no socket. Returning early also avoids
 // dereferencing Conf.GetUser(), which is always nil without an account.
 func connectSyncWebSocket() {

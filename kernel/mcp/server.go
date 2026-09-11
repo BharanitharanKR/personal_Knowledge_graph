@@ -132,7 +132,7 @@ func (projection *toolProjection) refresh() {
 	}
 }
 
-// RefreshToolExposure 根据当前配置刷新 SiYuan MCP 服务对外提供的能力。
+// RefreshToolExposure 根据当前配置刷新 Sedge MCP 服务对外提供的能力。
 func RefreshToolExposure() {
 	externalToolProjectionMu.RLock()
 	projection := externalToolProjection
@@ -154,7 +154,7 @@ func externalMCPToolAllowed(tool *tools.Tool) bool {
 
 func newServer() *mcpsdk.Server {
 	server := mcpsdk.NewServer(&mcpsdk.Implementation{
-		Name:    "SiYuan",
+		Name:    "Sedge",
 		Version: util.Ver,
 	}, &mcpsdk.ServerOptions{
 		Capabilities: &mcpsdk.ServerCapabilities{},

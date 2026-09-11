@@ -123,15 +123,15 @@ func TestHideConfSecretHidesAbsolutePaths(t *testing.T) {
 	appConf := NewAppConf()
 	appConf.Export = &conf.Export{
 		AddTitle:  true,
-		PandocBin: `C:\Users\alice\SiYuan\temp\pandoc\bin\pandoc.exe`,
+		PandocBin: `C:\Users\alice\Sedge\temp\pandoc\bin\pandoc.exe`,
 	}
 	appConf.System = &conf.System{
 		KernelVersion: "3.3.0",
 		HomeDir:       `C:\Users\alice`,
-		WorkspaceDir:  `C:\Users\alice\SiYuan`,
-		AppDir:        `C:\Program Files\SiYuan`,
-		ConfDir:       `C:\Users\alice\SiYuan\conf`,
-		DataDir:       `C:\Users\alice\SiYuan\data`,
+		WorkspaceDir:  `C:\Users\alice\Sedge`,
+		AppDir:        `C:\Program Files\Sedge`,
+		ConfDir:       `C:\Users\alice\Sedge\conf`,
+		DataDir:       `C:\Users\alice\Sedge\data`,
 	}
 
 	HideConfSecret(appConf)

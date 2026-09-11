@@ -214,7 +214,7 @@ func RemoveWorkspaceSession(session *SessionData) {
 	delete(session.Workspaces, WorkspaceDir)
 }
 
-// IsBrowserRequest 判断请求是否来自浏览器（非 SiYuan 原生客户端）。
+// IsBrowserRequest 判断请求是否来自浏览器（非 Sedge 原生客户端）。
 // 原生客户端（桌面 Electron、Android/iOS/Harmony）的 User-Agent 均以 "Sedge/" 开头，
 // 其余视为浏览器。该口径与前端 getFrontend()、electron/main.js 设置的 UA 前缀、
 // 以及 session 鉴权中既有的 HasPrefix(ua, "Sedge/") 判断保持一致。

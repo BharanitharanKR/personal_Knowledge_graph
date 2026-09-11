@@ -1126,7 +1126,7 @@ func exportPreview(c *gin.Context) {
 	if userAgentStr != "" {
 		ua := useragent.New(userAgentStr)
 		name, _ := ua.Browser()
-		// Chrome、Edge、SiYuan 桌面端不需要替换 CSS 变量
+		// Chrome、Edge、Sedge 桌面端不需要替换 CSS 变量
 		if !ua.Mobile() && (name == "Chrome" || name == "Edge" || strings.Contains(userAgentStr, "Electron") || strings.Contains(userAgentStr, "Sedge/")) {
 			fillCSSVar = false
 		}

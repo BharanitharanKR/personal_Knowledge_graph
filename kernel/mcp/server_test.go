@@ -203,7 +203,7 @@ func TestToolProjectionPolicyAndExecutionRecheck(t *testing.T) {
 
 func TestExternalMCPToolsAreNotReexposed(t *testing.T) {
 	if externalMCPToolAllowed(&tools.Tool{Name: "remote", Source: "mcp", Runtime: "mcp"}) {
-		t.Fatal("external MCP capability was exposed through the SiYuan MCP server")
+		t.Fatal("external MCP capability was exposed through the Sedge MCP server")
 	}
 }
 
@@ -213,7 +213,7 @@ func TestAgentOnlyToolsAreNotExposed(t *testing.T) {
 			t.Fatalf("Agent session tool was not marked as Agent-only: %s", tool.Name)
 		}
 		if externalMCPToolAllowed(tool) {
-			t.Fatalf("Agent session tool was exposed through the SiYuan MCP server: %s", tool.Name)
+			t.Fatalf("Agent session tool was exposed through the Sedge MCP server: %s", tool.Name)
 		}
 	}
 }

@@ -58,7 +58,7 @@ var (
 
 var AgentLogTool = &Tool{
 	Name: "log",
-	Description: "Inspect the sanitized SiYuan kernel log. Actions: stat(), tail(limit=200), " +
+	Description: "Inspect the sanitized Sedge kernel log. Actions: stat(), tail(limit=200), " +
 		"read(offset, limit=200), search(query, context=2, limit=50). The path is fixed and known credentials are redacted.",
 	AgentOnly:    true,
 	ReadOnlyHint: true,

@@ -313,7 +313,7 @@ func InitConf() {
 			if len(bcp47Tags) > 0 {
 				matcher := language.NewMatcher(bcp47Tags)
 				_, matchIndex, confidence := matcher.Match(deviceLangTags...)
-				// 系统语言与 SiYuan 支持列表不存在有效匹配时 confidence 为 No，保持默认 en
+				// 系统语言与 Sedge 支持列表不存在有效匹配时 confidence 为 No，保持默认 en
 				if confidence != language.No {
 					util.Lang = siYuanLangNames[matchIndex]
 				}
@@ -618,11 +618,11 @@ func InitConf() {
 		Conf.Sync = conf.NewSync()
 	}
 	// 迁移：从上游思源导入的配置可能仍指向已不可用的官方云端，回落到本地文件系统同步。
-	// Migration: a config carried over from upstream SiYuan may still point at the
+	// Migration: a config carried over from upstream Sedge may still point at the
 	// official cloud, which Sedge cannot reach. Fall back to local-filesystem sync
 	// and disable it, so the user opts in again rather than hitting silent failures.
 	if conf.ProviderSiYuan == Conf.Sync.Provider {
-		logging.LogInfof("sync provider was the upstream SiYuan cloud, falling back to local filesystem")
+		logging.LogInfof("sync provider was the upstream Sedge cloud, falling back to local filesystem")
 		Conf.Sync.Provider = conf.ProviderLocal
 		Conf.Sync.Enabled = false
 	}

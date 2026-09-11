@@ -32,7 +32,7 @@ func TestLuteFactoriesEnableCustomBlock(t *testing.T) {
 		name string
 		new  func() *lute.Lute
 	}{
-		{name: "SiYuan", new: NewLute},
+		{name: "Sedge", new: NewLute},
 		{name: "standard import", new: NewStdLute},
 	}
 

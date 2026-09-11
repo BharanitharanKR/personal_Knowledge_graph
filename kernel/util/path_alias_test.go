@@ -64,7 +64,7 @@ func TestSensitivePathAliases(t *testing.T) {
 			}
 			// 新导出目标尚不存在时也应保留相同的目录访问规则。
 			for _, rel := range []string{"data/emojis/robot.svg", "conf/conf.json", "temp/private.txt", "temp/export/doc.html", "conf/new.json", "temp/export/new.html"} {
-				want := layout == ".config/SiYuan" || rel == "conf/conf.json" || rel == "conf/new.json" || rel == "temp/private.txt"
+				want := layout == ".config/Sedge" || rel == "conf/conf.json" || rel == "conf/new.json" || rel == "temp/private.txt"
 				for _, home := range []string{alias, realHome} {
 					HomeDir = home
 					if layout == "siyuan" {

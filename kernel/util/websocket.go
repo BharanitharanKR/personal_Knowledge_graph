@@ -631,7 +631,7 @@ func ClosePublishServiceSessions() {
 		event := NewResult()
 		event.Cmd = "closepublishpage"
 		event.Code = 0
-		event.Msg = "SiYuan publish service closed"
+		event.Msg = "Sedge publish service closed"
 		event.Data = map[string]any{
 			"reason": "publish service closed",
 		}

@@ -114,7 +114,7 @@ func agentChat(c *gin.Context) {
 		streamIdleTimeout = 120 * time.Second
 	}
 
-	app := c.GetHeader("X-SiYuan-App-ID")
+	app := c.GetHeader("X-Sedge-App-ID")
 
 	// 实例级互斥：同一 session 同时只允许一个活跃流。
 	// 检查和占用在同一把锁内完成，成功占用后才启动 Agent goroutine。
@@ -308,7 +308,7 @@ func setAgentSessionPermission(c *gin.Context) {
 	}
 	ret.Data = map[string]string{"permissionMode": req.PermissionMode}
 	c.JSON(http.StatusOK, ret)
-	broadcastAgentSessionChanged(c.GetHeader("X-SiYuan-App-ID"), req.SessionID, "permission")
+	broadcastAgentSessionChanged(c.GetHeader("X-Sedge-App-ID"), req.SessionID, "permission")
 }
 
 type agentQuestionReq struct {
@@ -513,7 +513,7 @@ func removeSession(c *gin.Context) {
 		return
 	}
 	// 通知其他实例：会话已删除，刷新列表；若为当前会话则清空视图。
-	broadcastAgentSessionChanged(c.GetHeader("X-SiYuan-App-ID"), req.ID, "delete")
+	broadcastAgentSessionChanged(c.GetHeader("X-Sedge-App-ID"), req.ID, "delete")
 	ret := gulu.Ret.NewResult()
 	c.JSON(http.StatusOK, ret)
 }
@@ -537,7 +537,7 @@ func saveSession(c *gin.Context) {
 	}
 	sessionsMu.Lock()
 	running := runningSessions[meta.ID]
-	if running != nil && running.app != c.GetHeader("X-SiYuan-App-ID") {
+	if running != nil && running.app != c.GetHeader("X-Sedge-App-ID") {
 		sessionsMu.Unlock()
 		ret := gulu.Ret.NewResult()
 		ret.Code = -1
@@ -549,7 +549,7 @@ func saveSession(c *gin.Context) {
 	if commitTurnID == "" {
 		commitTurnID = meta.RecoveryTurnID
 	}
-	if running != nil && commitTurnID == "" && c.GetHeader("X-SiYuan-Agent-Checkpoint") != "2" && running.terminal && running.turnID != "" {
+	if running != nil && commitTurnID == "" && c.GetHeader("X-Sedge-Agent-Checkpoint") != "2" && running.terminal && running.turnID != "" {
 		var payload map[string]any
 		if err := gulu.JSON.UnmarshalJSON(body, &payload); err != nil {
 			sessionsMu.Unlock()
@@ -582,7 +582,7 @@ func saveSession(c *gin.Context) {
 		}
 		// 旧前端没有 commitTurnID。流已真正结束后，从终止检查点补出提交标识；SaveSession 仍会
 		// 用 runtime 重建权威内容，因此不会信任旧前端可能不完整的流式快照。
-		if commitTurnID == "" && c.GetHeader("X-SiYuan-Agent-Checkpoint") != "2" {
+		if commitTurnID == "" && c.GetHeader("X-Sedge-Agent-Checkpoint") != "2" {
 			recoverableTurnID, runtimeErr := agent.RecoverableTurnID(meta.ID)
 			if runtimeErr != nil {
 				sessionsMu.Unlock()
@@ -662,7 +662,7 @@ func saveSession(c *gin.Context) {
 	}
 	// 从 body 解出 sessionID 用于广播。update 仅触发其他实例刷新会话列表元数据，
 	// 不触发当前视图重绘（重绘由 streamEnd 负责），回避流式中途半截数据的时序问题。
-	broadcastAgentSessionChanged(c.GetHeader("X-SiYuan-App-ID"), meta.ID, "update")
+	broadcastAgentSessionChanged(c.GetHeader("X-Sedge-App-ID"), meta.ID, "update")
 	ret := gulu.Ret.NewResult()
 	data := map[string]any{"revision": revision}
 	if canonicalSession != nil {

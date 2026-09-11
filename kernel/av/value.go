@@ -538,7 +538,7 @@ type ValueTextRichFormat string
 
 const ValueTextRichFormatKramdown ValueTextRichFormat = "kramdown"
 
-// ValueTextRich 描述文本字段的富文本源，Content 是 SiYuan Kramdown 片段。
+// ValueTextRich 描述文本字段的富文本源，Content 是 Sedge Kramdown 片段。
 type ValueTextRich struct {
 	Spec    int                 `json:"spec"`
 	Format  ValueTextRichFormat `json:"format"`
@@ -812,7 +812,7 @@ func isAllowedValueTextRichLinkTarget(target string) bool {
 	case "sedge", "web+sedge", "siyuan", "web+siyuan":
 		// siyuan/web+siyuan 仍然放行，以便从上游思源导入的笔记中的块链接继续可用。
 		// The legacy schemes stay allowed so block links inside notes imported
-		// from upstream SiYuan are not stripped as unsafe. Sedge only writes sedge://.
+		// from upstream Sedge are not stripped as unsafe. Sedge only writes sedge://.
 		return "" != parsed.Host && "" == parsed.Opaque &&
 			strings.HasPrefix(strings.ToLower(target), scheme+"://")
 	case "":
@@ -1374,7 +1374,7 @@ var (
 	valueTextRichFontSizeEMPattern = regexp.MustCompile(`^(?:(\d+)(?:\.(\d{1,2}))?|\.(\d{1,2}))em$`)
 )
 
-// RenderValueTextRich 将经过校验的富文本语法树序列化为 SiYuan Kramdown。
+// RenderValueTextRich 将经过校验的富文本语法树序列化为 Sedge Kramdown。
 func RenderValueTextRich(tree *parse.Tree) (content string, err error) {
 	if err = validateValueTextRichTree(tree); nil != err {
 		return
@@ -2095,7 +2095,7 @@ func newValueTextRichBackslashSentinel(content string) string {
 	return prefix + strings.Repeat(suffix, maxSuffixes+1)
 }
 
-// NormalizeValueTextRich 校验并将文本字段的富文本源规范化为 SiYuan Kramdown。
+// NormalizeValueTextRich 校验并将文本字段的富文本源规范化为 Sedge Kramdown。
 func NormalizeValueTextRich(rich *ValueTextRich) (tree *parse.Tree, err error) {
 	_, tree, err = parseValueTextRich(rich)
 	if nil != err || nil == rich {

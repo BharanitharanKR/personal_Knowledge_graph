@@ -1435,7 +1435,7 @@ func uploadAssets2Cloud(assetPaths []string, bizType string, ignorePushMsg bool)
 
 	// metaType 为服务端 Filemeta.FILEMETA_TYPE，这里只有两个值：
 	//
-	//	5: SiYuan，表示为 SiYuan 上传图床
+	//	5: Sedge，表示为 Sedge 上传图床
 	//	4: Client，表示作为客户端分享发布帖子时上传的文件
 	var metaType = "5"
 	if bizTypeUploadAssets == bizType {
@@ -2695,7 +2695,7 @@ func getRemoteAssetsLinkDestsInTree(tree *parse.Tree, onlyImg bool) (nodes []*as
 	return
 }
 
-// allAssetAbsPaths 返回 asset 相对路径（assets/xxx）到绝对路径（F:\SiYuan\data\assets\xxx）的映射。
+// allAssetAbsPaths 返回 asset 相对路径（assets/xxx）到绝对路径（F:\Sedge\data\assets\xxx）的映射。
 func allAssetAbsPaths() (assetsAbsPathMap map[string]string, err error) {
 	notebooks, err := ListNotebooks()
 	if err != nil {

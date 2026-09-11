@@ -184,7 +184,7 @@ func GetChildDocDepth(treeAbsPath string) (ret int) {
 
 func NormalizeConcurrentReqs(concurrentReqs int, provider int) int {
 	switch provider {
-	case 0: // SiYuan
+	case 0: // Sedge
 		switch {
 		case concurrentReqs < 1:
 			concurrentReqs = 8

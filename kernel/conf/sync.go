@@ -91,7 +91,7 @@ const (
 func ProviderToStr(provider int) string {
 	switch provider {
 	case ProviderSiYuan:
-		return "SiYuan"
+		return "Sedge"
 	case ProviderS3:
 		return "S3"
 	case ProviderWebDAV:

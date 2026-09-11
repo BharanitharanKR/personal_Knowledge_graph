@@ -293,6 +293,13 @@ func refreshSubscriptionExpirationRemind() {
 
 	defer logging.Recover()
 
+	// Sedge 没有订阅服务，不存在到期提醒。
+	// Sedge has no subscription service, so there is no expiry to remind about.
+	// This also avoids dereferencing Conf.GetUser(), which is always nil here.
+	if true {
+		return
+	}
+
 	if IsSubscriber() && -1 != Conf.GetUser().UserSiYuanProExpireTime {
 		expired := int64(Conf.GetUser().UserSiYuanProExpireTime)
 		now := time.Now().UnixMilli()

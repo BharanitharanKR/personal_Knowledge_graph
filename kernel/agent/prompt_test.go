@@ -52,10 +52,10 @@ func TestTurnContextStaysInUserMessage(t *testing.T) {
 
 func TestSystemPromptDocumentsBlockReferenceSyntax(t *testing.T) {
 	if !strings.Contains(systemPrompt, `((<blockID> "<static anchor text>"))`) {
-		t.Fatal("system prompt is missing the static SiYuan block-reference syntax")
+		t.Fatal("system prompt is missing the static Sedge block-reference syntax")
 	}
 	if !strings.Contains(systemPrompt, `((<blockID> '<dynamic anchor text>'))`) {
-		t.Fatal("system prompt is missing the dynamic SiYuan block-reference syntax")
+		t.Fatal("system prompt is missing the dynamic Sedge block-reference syntax")
 	}
 	if !strings.Contains(systemPrompt, `for fixed text`) ||
 		!strings.Contains(systemPrompt, `for text that follows the target block's content`) {
@@ -130,7 +130,7 @@ func TestSystemPromptUsesAppearanceLanguage(t *testing.T) {
 	})
 
 	prompt := buildSystemPrompt("en", nil)
-	if !strings.Contains(prompt, "Reply in the language configured in SiYuan's appearance settings.") {
+	if !strings.Contains(prompt, "Reply in the language configured in Sedge's appearance settings.") {
 		t.Fatalf("appearance language instruction is missing from system prompt: %q", prompt)
 	}
 	if !strings.Contains(prompt, "Reply in 简体中文.") {
@@ -196,7 +196,7 @@ func TestUserTurnContextSurvivesCheckpointRoundTrip(t *testing.T) {
 }
 
 func TestAssistantContextSurvivesCheckpointRoundTrip(t *testing.T) {
-	const argumentsJSON = "{\n  \"query\": \"SiYuan\",\n  \"limit\": 9007199254740993\n}"
+	const argumentsJSON = "{\n  \"query\": \"Sedge\",\n  \"limit\": 9007199254740993\n}"
 	entries := []SessionEntry{{
 		ID:            "assistant-1",
 		Type:          "assistant",
@@ -206,7 +206,7 @@ func TestAssistantContextSurvivesCheckpointRoundTrip(t *testing.T) {
 		ToolCalls: []AgentToolCall{{
 			ID:            "call-original",
 			Name:          "search",
-			Arguments:     map[string]any{"query": "SiYuan", "limit": float64(9007199254740992)},
+			Arguments:     map[string]any{"query": "Sedge", "limit": float64(9007199254740992)},
 			ArgumentsJSON: argumentsJSON,
 			Result:        "search result",
 			State:         "finished",
