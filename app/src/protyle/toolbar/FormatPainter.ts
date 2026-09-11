@@ -186,12 +186,9 @@ class FormatPainterController {
                 event.stopPropagation();
                 this.deactivate();
             });
-            const helpElement = statusElement.querySelector("#statusHelp");
-            if (helpElement) {
-                helpElement.before(element);
-            } else {
-                statusElement.append(element);
-            }
+            // The status bar help button was removed in Sedge, so the format
+            // painter indicator is simply the last item in the bar.
+            statusElement.append(element);
         }
         element.setAttribute("aria-label", this.mode === "continuous" ?
             window.siyuan.languages.formatPainterContinuousActive : window.siyuan.languages.formatPainterActive);

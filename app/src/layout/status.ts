@@ -3,16 +3,11 @@ import {getDockByType} from "./tabUtil";
 import {toggleDockBar} from "./dock/util";
 import {hasClosestByClassName} from "../protyle/util/hasClosest";
 import {fetchPost} from "../util/fetch";
-import {mountHelp} from "../util/mount";
-/// #if !BROWSER
-import {ipcRenderer} from "electron";
-/// #endif
 /// #endif
 import {MenuItem} from "../menus/Menu";
 import {Constants} from "../constants";
 import {updateHotkeyTip} from "../protyle/util/compatibility";
 import {escapeAriaLabel} from "../util/escape";
-import {openLink} from "../editor/openLink";
 import {waitForPendingTransactions} from "../protyle/util/transactionQueue";
 
 export const initStatus = (isWindow = false) => {
@@ -29,10 +24,7 @@ export const initStatus = (isWindow = false) => {
 <div class="status__msg"></div>
 <div class="fn__flex-1"></div>
 <div class="status__backgroundtask fn__none"></div>
-<div class="status__counter"></div>
-<div id="statusHelp" class="toolbar__item ariaLabel" aria-label="${window.siyuan.languages.help}">
-    <svg><use xlink:href="#iconHelp"></use></svg>
-</div>`;
+<div class="status__counter"></div>`;
     document.querySelector("#status").addEventListener("click", (event) => {
         let target = event.target as HTMLElement | null;
         while (target && target.id !== "status") {
@@ -55,60 +47,6 @@ export const initStatus = (isWindow = false) => {
                         label: item.action
                     }).element);
                 });
-                const rect = target.getBoundingClientRect();
-                window.siyuan.menus.menu.popup({x: rect.right, y: rect.top, isLeft: true});
-                event.stopPropagation();
-                break;
-            } else if (target.id === "statusHelp") {
-                if (!window.siyuan.menus.menu.element.classList.contains("fn__none") &&
-                    window.siyuan.menus.menu.element.getAttribute("data-name") === Constants.MENU_STATUS_HELP) {
-                    window.siyuan.menus.menu.remove();
-                    return;
-                }
-                window.siyuan.menus.menu.remove();
-                window.siyuan.menus.menu.element.setAttribute("data-name", Constants.MENU_STATUS_HELP);
-                window.siyuan.menus.menu.append(new MenuItem({
-                    label: window.siyuan.languages.userGuide,
-                    icon: "iconHelp",
-                    ignore: window.siyuan.config.readonly,
-                    click: () => {
-                        mountHelp();
-                    }
-                }).element);
-                window.siyuan.menus.menu.append(new MenuItem({
-                    label: window.siyuan.languages.feedback,
-                    icon: "iconFeedback",
-                    click: () => {
-                        if ("zh-CN" === window.siyuan.config.lang) {
-                            openLink(window.siyuan.ws.app, "https://ld246.com/article/1649901726096");
-                        } else {
-                            openLink(window.siyuan.ws.app, "https://liuyun.io/article/1686530886208");
-                        }
-                    }
-                }).element);
-                /// #if !BROWSER
-                window.siyuan.menus.menu.append(new MenuItem({
-                    label: window.siyuan.languages.debug,
-                    icon: "iconBug",
-                    click: () => {
-                        ipcRenderer.send(Constants.SIYUAN_CMD, "toggleDevTools");
-                    }
-                }).element);
-                /// #endif
-                window.siyuan.menus.menu.append(new MenuItem({
-                    label: window.siyuan.languages["_trayMenu"].officialWebsite,
-                    icon: "iconSiYuan",
-                    click: () => {
-                        openLink(window.siyuan.ws.app, "https://b3log.org/siyuan");
-                    }
-                }).element);
-                window.siyuan.menus.menu.append(new MenuItem({
-                    label: window.siyuan.languages["_trayMenu"].openSource,
-                    icon: "iconGithub",
-                    click: () => {
-                        openLink(window.siyuan.ws.app, "https://github.com/siyuan-note/siyuan");
-                    }
-                }).element);
                 const rect = target.getBoundingClientRect();
                 window.siyuan.menus.menu.popup({x: rect.right, y: rect.top, isLeft: true});
                 event.stopPropagation();
