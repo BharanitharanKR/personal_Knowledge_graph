@@ -15,11 +15,11 @@ import (
 	"github.com/siyuan-note/dejavu"
 	"github.com/siyuan-note/dejavu/entity"
 	dejavuutil "github.com/siyuan-note/dejavu/util"
-	"github.com/siyuan-note/siyuan/kernel/cache"
-	"github.com/siyuan-note/siyuan/kernel/filesys"
-	"github.com/siyuan-note/siyuan/kernel/sql"
-	"github.com/siyuan-note/siyuan/kernel/treenode"
-	"github.com/siyuan-note/siyuan/kernel/util"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/cache"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/filesys"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/sql"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/treenode"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/util"
 )
 
 func TestAssetDownloadRecoveryUpdatesDocumentCache(t *testing.T) {

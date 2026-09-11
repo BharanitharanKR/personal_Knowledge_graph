@@ -1,5 +1,8 @@
-// SiYuan - From thought to insight, with agents
+// Sedge - A local-first knowledge base
 // Copyright (c) 2020-present, b3log.org
+// Copyright (c) 2026-present, Bharanitharan KR
+//
+// This file is part of Sedge, a fork of SiYuan (https://github.com/siyuan-note/siyuan).
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as published by
@@ -26,14 +29,14 @@ import (
 	"github.com/88250/gulu"
 	"github.com/gin-gonic/gin"
 	"github.com/siyuan-note/logging"
-	"github.com/siyuan-note/siyuan/kernel/conf"
-	mcpserver "github.com/siyuan-note/siyuan/kernel/mcp"
-	mcpclient "github.com/siyuan-note/siyuan/kernel/mcp/client"
-	"github.com/siyuan-note/siyuan/kernel/model"
-	"github.com/siyuan-note/siyuan/kernel/server/proxy"
-	"github.com/siyuan-note/siyuan/kernel/sql"
-	"github.com/siyuan-note/siyuan/kernel/task"
-	"github.com/siyuan-note/siyuan/kernel/util"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/conf"
+	mcpserver "github.com/BharanitharanKR/personal_Knowledge_graph/kernel/mcp"
+	mcpclient "github.com/BharanitharanKR/personal_Knowledge_graph/kernel/mcp/client"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/model"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/server/proxy"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/sql"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/task"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/util"
 )
 
 var (

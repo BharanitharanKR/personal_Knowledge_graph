@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/siyuan-note/dejavu"
-	"github.com/siyuan-note/siyuan/kernel/util"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/util"
 )
 
 func TestAssetRepositoryCreationWaitsForSourceChange(t *testing.T) {

@@ -1,5 +1,8 @@
-// SiYuan - From thought to insight, with agents
+// Sedge - A local-first knowledge base
 // Copyright (c) 2020-present, b3log.org
+// Copyright (c) 2026-present, Bharanitharan KR
+//
+// This file is part of Sedge, a fork of SiYuan (https://github.com/siyuan-note/siyuan).
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as published by
@@ -26,10 +29,10 @@ import (
 	"github.com/88250/gulu"
 	"github.com/88250/lute/ast"
 	"github.com/emirpasic/gods/sets/hashset"
-	"github.com/siyuan-note/siyuan/kernel/search"
-	"github.com/siyuan-note/siyuan/kernel/sql"
-	"github.com/siyuan-note/siyuan/kernel/treenode"
-	"github.com/siyuan-note/siyuan/kernel/util"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/search"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/sql"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/treenode"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/util"
 )
 
 func RemoveTag(label string) (err error) {

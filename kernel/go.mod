@@ -1,4 +1,4 @@
-module github.com/siyuan-note/siyuan/kernel
+module github.com/BharanitharanKR/personal_Knowledge_graph/kernel
 
 go 1.26.5
 

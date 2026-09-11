@@ -1,5 +1,8 @@
-// SiYuan - From thought to insight, with agents
+// Sedge - A local-first knowledge base
 // Copyright (c) 2020-present, b3log.org
+// Copyright (c) 2026-present, Bharanitharan KR
+//
+// This file is part of Sedge, a fork of SiYuan (https://github.com/siyuan-note/siyuan).
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 package model
@@ -13,7 +16,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/siyuan-note/siyuan/kernel/util"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/util"
 )
 
 // legacyEncryptedAssetFixture 按无版本字段的资源格式生成样本，不调用当前资源编码器。

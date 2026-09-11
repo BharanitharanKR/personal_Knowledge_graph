@@ -11,10 +11,10 @@ import (
 	"github.com/88250/lute/parse"
 	"github.com/88250/lute/render"
 	"github.com/siyuan-note/logging"
-	"github.com/siyuan-note/siyuan/kernel/av"
-	"github.com/siyuan-note/siyuan/kernel/filesys"
-	"github.com/siyuan-note/siyuan/kernel/treenode"
-	"github.com/siyuan-note/siyuan/kernel/util"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/av"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/filesys"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/treenode"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/util"
 )
 
 func RenderAttributeViewGallery(attrView *av.AttributeView, view *av.View, query string, depth *int, cachedAttrViews map[string]*av.AttributeView, ignoreRows bool) (ret *av.Gallery) {

@@ -1,5 +1,8 @@
-// SiYuan - From thought to insight, with agents
+// Sedge - A local-first knowledge base
 // Copyright (c) 2020-present, b3log.org
+// Copyright (c) 2026-present, Bharanitharan KR
+//
+// This file is part of Sedge, a fork of SiYuan (https://github.com/siyuan-note/siyuan).
 //
 // 本文件为加密笔记本的 AV 定义提供笔记本级存储与 DEK 加解密支持。
 // 与 filesys/crypto_hook.go 同模式：av 包不直接 import model（避免循环依赖），
@@ -17,7 +20,7 @@ import (
 	"github.com/88250/lute/ast"
 	"github.com/siyuan-note/filelock"
 	"github.com/siyuan-note/logging"
-	"github.com/siyuan-note/siyuan/kernel/util"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/util"
 	"github.com/vmihailenco/msgpack/v5"
 )
 

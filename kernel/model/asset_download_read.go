@@ -1,5 +1,8 @@
-// SiYuan - From thought to insight, with agents
+// Sedge - A local-first knowledge base
 // Copyright (c) 2020-present, b3log.org
+// Copyright (c) 2026-present, Bharanitharan KR
+//
+// This file is part of Sedge, a fork of SiYuan (https://github.com/siyuan-note/siyuan).
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 package model
@@ -20,11 +23,11 @@ import (
 	"github.com/88250/lute/parse"
 	"github.com/emirpasic/gods/sets/hashset"
 	"github.com/siyuan-note/dejavu/entity"
-	"github.com/siyuan-note/siyuan/kernel/av"
-	"github.com/siyuan-note/siyuan/kernel/filesys"
-	"github.com/siyuan-note/siyuan/kernel/sql"
-	"github.com/siyuan-note/siyuan/kernel/treenode"
-	"github.com/siyuan-note/siyuan/kernel/util"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/av"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/filesys"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/sql"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/treenode"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/util"
 )
 
 // ResolveAssetPathWithMissingLeaf 校验尚未下载的路径，已存在的父目录仍须通过符号链接校验。

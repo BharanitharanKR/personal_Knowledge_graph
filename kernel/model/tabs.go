@@ -1,5 +1,8 @@
-// SiYuan - From thought to insight, with agents
+// Sedge - A local-first knowledge base
 // Copyright (c) 2020-present, b3log.org
+// Copyright (c) 2026-present, Bharanitharan KR
+//
+// This file is part of Sedge, a fork of SiYuan (https://github.com/siyuan-note/siyuan).
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 package model
@@ -8,7 +11,7 @@ import (
 	"strings"
 
 	"github.com/88250/lute/ast"
-	"github.com/siyuan-note/siyuan/kernel/treenode"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/treenode"
 )
 
 // remapTabTitleBlockIDs 改写页签标题内的块引用和块链接，保留对外部块的引用。

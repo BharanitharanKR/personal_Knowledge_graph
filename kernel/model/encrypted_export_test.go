@@ -8,8 +8,8 @@ import (
 	"time"
 
 	"github.com/88250/gulu"
-	"github.com/siyuan-note/siyuan/kernel/conf"
-	"github.com/siyuan-note/siyuan/kernel/util"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/conf"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/util"
 )
 
 func TestManagedEncryptedExportRevocation(t *testing.T) {

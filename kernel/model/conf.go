@@ -1,5 +1,8 @@
-// SiYuan - From thought to insight, with agents
+// Sedge - A local-first knowledge base
 // Copyright (c) 2020-present, b3log.org
+// Copyright (c) 2026-present, Bharanitharan KR
+//
+// This file is part of Sedge, a fork of SiYuan (https://github.com/siyuan-note/siyuan).
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as published by
@@ -37,12 +40,12 @@ import (
 	"github.com/Xuanwo/go-locale"
 	"github.com/siyuan-note/filelock"
 	"github.com/siyuan-note/logging"
-	"github.com/siyuan-note/siyuan/kernel/conf"
-	"github.com/siyuan-note/siyuan/kernel/heif"
-	"github.com/siyuan-note/siyuan/kernel/sql"
-	"github.com/siyuan-note/siyuan/kernel/task"
-	"github.com/siyuan-note/siyuan/kernel/treenode"
-	"github.com/siyuan-note/siyuan/kernel/util"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/conf"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/heif"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/sql"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/task"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/treenode"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/util"
 	"golang.org/x/mod/semver"
 	"golang.org/x/text/language"
 )
@@ -613,6 +616,15 @@ func InitConf() {
 
 	if nil == Conf.Sync {
 		Conf.Sync = conf.NewSync()
+	}
+	// 迁移：从上游思源导入的配置可能仍指向已不可用的官方云端，回落到本地文件系统同步。
+	// Migration: a config carried over from upstream SiYuan may still point at the
+	// official cloud, which Sedge cannot reach. Fall back to local-filesystem sync
+	// and disable it, so the user opts in again rather than hitting silent failures.
+	if conf.ProviderSiYuan == Conf.Sync.Provider {
+		logging.LogInfof("sync provider was the upstream SiYuan cloud, falling back to local filesystem")
+		Conf.Sync.Provider = conf.ProviderLocal
+		Conf.Sync.Enabled = false
 	}
 	if 0 == Conf.Sync.Mode {
 		Conf.Sync.Mode = 1
@@ -1338,21 +1350,19 @@ func InitBoxes() {
 	logging.LogInfof("tree/block count [%d/%d]", treenode.CountTrees(), blockCount)
 }
 
+// IsSubscriber 在 Sedge 中恒为 true。
+//
+// Sedge is a local-first fork with no account service and no subscription tier.
+// The features these gates guarded (block reminders, export options, custom
+// block attributes) all run entirely on the user's own machine, so with the
+// upstream billing service removed there is nothing left for them to protect.
 func IsSubscriber() bool {
-	u := Conf.GetUser()
-	return nil != u && (-1 == u.UserSiYuanProExpireTime || 0 < u.UserSiYuanProExpireTime) && 0 == u.UserSiYuanSubscriptionStatus
+	return true
 }
 
+// IsPaidUser 在 Sedge 中恒为 true。参见 IsSubscriber。
 func IsPaidUser() bool {
-	if IsSubscriber() {
-		return true
-	}
-
-	u := Conf.GetUser()
-	if nil == u {
-		return false
-	}
-	return 1 == u.UserSiYuanOneTimePayStatus
+	return true
 }
 
 const (

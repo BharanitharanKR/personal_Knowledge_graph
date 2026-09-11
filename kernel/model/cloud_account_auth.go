@@ -5,8 +5,8 @@ import (
 	"sync"
 
 	"github.com/siyuan-note/dejavu/cloud"
-	"github.com/siyuan-note/siyuan/kernel/conf"
-	"github.com/siyuan-note/siyuan/kernel/util"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/conf"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/util"
 )
 
 // 账号状态变更单独串行化，认证失败处理不重复获取同步锁或资源来源锁。

@@ -1,5 +1,8 @@
-// SiYuan - From thought to insight, with agents
+// Sedge - A local-first knowledge base
 // Copyright (c) 2020-present, b3log.org
+// Copyright (c) 2026-present, Bharanitharan KR
+//
+// This file is part of Sedge, a fork of SiYuan (https://github.com/siyuan-note/siyuan).
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as published by
@@ -16,7 +19,7 @@
 
 package conf
 
-import "github.com/siyuan-note/siyuan/kernel/util"
+import "github.com/BharanitharanKR/personal_Knowledge_graph/kernel/util"
 
 // NotebookCrypto 维护加密笔记本的全局密钥管理参数，随 conf.json 持久化。
 // MasterSalt 与 KEKVerifier 设计为可明文存储：salt 不保密，verifier 本身是密文（用 KEK 加密的固定魔数）。

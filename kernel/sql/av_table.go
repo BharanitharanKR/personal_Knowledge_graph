@@ -16,7 +16,7 @@ package sql
 
 import (
 	"github.com/88250/lute/ast"
-	"github.com/siyuan-note/siyuan/kernel/av"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/av"
 )
 
 func RenderAttributeViewTable(attrView *av.AttributeView, view *av.View, query string, depth *int, cachedAttrViews map[string]*av.AttributeView, ignoreRows bool) (ret *av.Table) {

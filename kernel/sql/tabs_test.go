@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	"github.com/88250/lute/ast"
-	"github.com/siyuan-note/siyuan/kernel/treenode"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/treenode"
 )
 
 func TestTabsIndexIncludesEveryTitleAndBody(t *testing.T) {

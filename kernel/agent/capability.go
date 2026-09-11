@@ -1,5 +1,8 @@
-// SiYuan - From thought to insight, with agents
+// Sedge - A local-first knowledge base
 // Copyright (c) 2020-present, b3log.org
+// Copyright (c) 2026-present, Bharanitharan KR
+//
+// This file is part of Sedge, a fork of SiYuan (https://github.com/siyuan-note/siyuan).
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as published by
@@ -16,9 +19,9 @@ import (
 	"unicode"
 
 	"github.com/sashabaranov/go-openai"
-	"github.com/siyuan-note/siyuan/kernel/conf"
-	"github.com/siyuan-note/siyuan/kernel/mcp/tools"
-	kernelModel "github.com/siyuan-note/siyuan/kernel/model"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/conf"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/mcp/tools"
+	kernelModel "github.com/BharanitharanKR/personal_Knowledge_graph/kernel/model"
 )
 
 const maxCapabilityModelNameLen = 64

@@ -8,7 +8,7 @@ import (
 	"github.com/88250/gulu"
 	"github.com/siyuan-note/filelock"
 	"github.com/siyuan-note/logging"
-	"github.com/siyuan-note/siyuan/kernel/util"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/util"
 	"github.com/vmihailenco/msgpack/v5"
 )
 

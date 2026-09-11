@@ -1,5 +1,8 @@
-// SiYuan - From thought to insight, with agents
+// Sedge - A local-first knowledge base
 // Copyright (c) 2020-present, b3log.org
+// Copyright (c) 2026-present, Bharanitharan KR
+//
+// This file is part of Sedge, a fork of SiYuan (https://github.com/siyuan-note/siyuan).
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as published by
@@ -40,7 +43,7 @@ func NewSync() *Sync {
 		Perception:          false,
 		Mode:                1,
 		GenerateConflictDoc: false,
-		Provider:            ProviderSiYuan,
+		Provider:            ProviderLocal,
 		Interval:            30,
 		LAN:                 &LANSync{MaxConcurrentReqs: 16},
 	}
@@ -79,7 +82,7 @@ type Local struct {
 }
 
 const (
-	ProviderSiYuan = 0 // ProviderSiYuan 为思源官方提供的云端存储服务
+	ProviderSiYuan = 0 // 已废弃：上游思源官方云端存储服务，Sedge 中不可用 (deprecated, unavailable in Sedge)
 	ProviderS3     = 2 // ProviderS3 为 S3 协议对象存储提供的云端存储服务
 	ProviderWebDAV = 3 // ProviderWebDAV 为 WebDAV 协议提供的云端存储服务
 	ProviderLocal  = 4 // ProviderLocal 为本地文件系统提供的存储服务

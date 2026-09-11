@@ -1,5 +1,8 @@
-// SiYuan - From thought to insight, with agents
+// Sedge - A local-first knowledge base
 // Copyright (c) 2020-present, b3log.org
+// Copyright (c) 2026-present, Bharanitharan KR
+//
+// This file is part of Sedge, a fork of SiYuan (https://github.com/siyuan-note/siyuan).
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as published by
@@ -36,12 +39,12 @@ import (
 	"github.com/siyuan-note/dejavu/cloud"
 	"github.com/siyuan-note/eventbus"
 	"github.com/siyuan-note/logging"
-	"github.com/siyuan-note/siyuan/kernel/cache"
-	"github.com/siyuan-note/siyuan/kernel/conf"
-	"github.com/siyuan-note/siyuan/kernel/filesys"
-	"github.com/siyuan-note/siyuan/kernel/sql"
-	"github.com/siyuan-note/siyuan/kernel/treenode"
-	"github.com/siyuan-note/siyuan/kernel/util"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/cache"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/conf"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/filesys"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/sql"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/treenode"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/util"
 )
 
 func SyncDataDownload() {
@@ -365,24 +368,9 @@ func checkSync(boot, exit, byHand bool) bool {
 		}
 		return false
 	}
-	if nil == Conf.GetUser() {
-		return false
-	}
-
-	switch Conf.Sync.Provider {
-	case conf.ProviderSiYuan:
-		if !IsSubscriber() {
-			Conf.Sync.Enabled = false
-			Conf.Save()
-			return false
-		}
-	case conf.ProviderWebDAV, conf.ProviderS3, conf.ProviderLocal:
-		if !IsPaidUser() {
-			Conf.Sync.Enabled = false
-			Conf.Save()
-			return false
-		}
-	}
+	// Sedge 不需要登录账号即可同步：S3/WebDAV/本地文件系统均由用户自行配置。
+	// Sedge has no account service. S3, WebDAV and local-filesystem sync are all
+	// user-configured and need no credentials from us, so there is no login gate here.
 
 	if 7 < autoSyncErrCount && !byHand {
 		logging.LogErrorf("failed to auto-sync too many times, delay auto-sync 64 minutes")
@@ -1040,10 +1028,16 @@ func closeSyncWebSocket() {
 	logging.LogInfof("sync websocket closed")
 }
 
+// connectSyncWebSocket 在 Sedge 中为空操作。
+//
+// The sync WebSocket existed only to receive push notifications from the
+// upstream SiYuan cloud, which Sedge does not use. S3, WebDAV and local-filesystem
+// sync are all poll-based and need no socket. Returning early also avoids
+// dereferencing Conf.GetUser(), which is always nil without an account.
 func connectSyncWebSocket() {
 	defer logging.Recover()
 
-	if !Conf.Sync.Enabled || !IsSubscriber() || conf.ProviderSiYuan != Conf.Sync.Provider {
+	if true {
 		return
 	}
 

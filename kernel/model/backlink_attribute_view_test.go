@@ -4,8 +4,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/siyuan-note/siyuan/kernel/av"
-	"github.com/siyuan-note/siyuan/kernel/sql"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/av"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/sql"
 )
 
 func TestBacklinkAttributeViewMatches(t *testing.T) {

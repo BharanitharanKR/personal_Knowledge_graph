@@ -1,5 +1,8 @@
-// SiYuan - From thought to insight, with agents
+// Sedge - A local-first knowledge base
 // Copyright (c) 2020-present, b3log.org
+// Copyright (c) 2026-present, Bharanitharan KR
+//
+// This file is part of Sedge, a fork of SiYuan (https://github.com/siyuan-note/siyuan).
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as published by
@@ -28,7 +31,7 @@ import (
 	"runtime"
 
 	"github.com/disintegration/imaging"
-	goheic "github.com/siyuan-note/siyuan/kernel/heif/internal/h265heic"
+	goheic "github.com/BharanitharanKR/personal_Knowledge_graph/kernel/heif/internal/h265heic"
 )
 
 const (

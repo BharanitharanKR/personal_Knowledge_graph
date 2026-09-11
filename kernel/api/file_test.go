@@ -9,8 +9,8 @@ import (
 	"testing"
 
 	"github.com/gin-gonic/gin"
-	"github.com/siyuan-note/siyuan/kernel/model"
-	"github.com/siyuan-note/siyuan/kernel/util"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/model"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/util"
 )
 
 func TestGetFileAllowsWorkspaceTemp(t *testing.T) {

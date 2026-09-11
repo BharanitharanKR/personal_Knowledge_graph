@@ -17,8 +17,8 @@ import (
 
 	"github.com/siyuan-note/dejavu/cloud"
 	"github.com/siyuan-note/httpclient"
-	"github.com/siyuan-note/siyuan/kernel/conf"
-	"github.com/siyuan-note/siyuan/kernel/util"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/conf"
+	"github.com/BharanitharanKR/personal_Knowledge_graph/kernel/util"
 )
 
 func setupCloudAccountAuthTest(t *testing.T) *conf.User {
