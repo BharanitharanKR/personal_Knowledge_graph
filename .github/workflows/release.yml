@@ -1,0 +1,141 @@
+name: Release
+
+# Tag a version to cut a release:
+#   git tag v3.8.3-sedge.1 && git push origin v3.8.3-sedge.1
+# or run it by hand from the Actions tab.
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: macOS (Apple silicon)
+            os: macos-14
+            goarch: arm64
+            goos: darwin
+            kernel_dir: kernel-darwin-arm64
+            dist: dist-darwin-arm64
+          - name: macOS (Intel)
+            os: macos-13
+            goarch: amd64
+            goos: darwin
+            kernel_dir: kernel-darwin
+            dist: dist-darwin
+          - name: Windows (x64)
+            os: windows-2022
+            goarch: amd64
+            goos: windows
+            kernel_dir: kernel
+            dist: dist
+          - name: Linux (x64)
+            os: ubuntu-22.04
+            goarch: amd64
+            goos: linux
+            kernel_dir: kernel-linux
+            dist: dist-linux
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: kernel/go.mod
+          cache-dependency-path: kernel/go.sum
+
+      - uses: pnpm/action-setup@v4
+        with: {version: 11.25.0}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+          cache-dependency-path: app/pnpm-lock.yaml
+
+      # The kernel uses cgo (sqlite with fts5), so each platform is built on its
+      # own runner rather than cross-compiled.
+      - name: Build kernel
+        shell: bash
+        working-directory: kernel
+        env:
+          CGO_ENABLED: "1"
+          GOOS: ${{ matrix.goos }}
+          GOARCH: ${{ matrix.goarch }}
+        run: |
+          mkdir -p "../app/${{ matrix.kernel_dir }}"
+          EXT=""; [ "${{ matrix.goos }}" = "windows" ] && EXT=".exe"
+          go build -tags "fts5" -ldflags "-s -w" \
+            -o "../app/${{ matrix.kernel_dir }}/Sedge-Kernel$EXT" .
+
+      - name: Build frontend
+        working-directory: app
+        run: |
+          pnpm install --frozen-lockfile
+          pnpm run build
+
+      - name: Package desktop app
+        working-directory: app
+        run: pnpm run ${{ matrix.dist }}
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sedge-${{ matrix.goos }}-${{ matrix.goarch }}
+          # Installers only - skip the unpacked directories and update metadata.
+          path: |
+            app/build/*.dmg
+            app/build/*.exe
+            app/build/*.AppImage
+            app/build/*.deb
+            app/build/*.tar.gz
+          if-no-files-found: error
+
+  release:
+    name: Publish release
+    needs: build
+    runs-on: ubuntu-22.04
+    if: startsWith(github.ref, 'refs/tags/')
+    steps:
+      - uses: actions/download-artifact@v4
+        with: {path: artifacts, merge-multiple: true}
+
+      - name: Checksums
+        run: |
+          cd artifacts
+          ls -la
+          sha256sum * > SHA256SUMS.txt
+          cat SHA256SUMS.txt
+
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: artifacts/*
+          generate_release_notes: true
+          body: |
+            ## Installing
+
+            Sedge is **not code-signed**, so your OS will warn you on first launch.
+
+            **macOS** — after dragging Sedge to Applications, run once:
+            ```sh
+            xattr -dr com.apple.quarantine /Applications/Sedge.app
+            ```
+            Then open it normally. (Right-click → Open also works.)
+
+            **Windows** — SmartScreen will show "Windows protected your PC".
+            Click *More info* → *Run anyway*.
+
+            **Linux** — `chmod +x` the AppImage, or install the `.deb`.
+
+            Verify your download against `SHA256SUMS.txt`.
+
+            ---
+            Sedge is a fork of [SiYuan](https://github.com/siyuan-note/siyuan),
+            © 2020-present b3log.org, and is licensed under the
+            [GNU AGPL v3](https://www.gnu.org/licenses/agpl-3.0.html).

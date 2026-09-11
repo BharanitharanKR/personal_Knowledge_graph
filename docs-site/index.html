@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sedge — a local-first knowledge base</title>
+<meta name="description" content="Sedge is a local-first, block-based knowledge base. No account, no subscription, your notes stay in your own files.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='114' fill='%233E7F68'/%3E%3Cg fill='none' stroke='%23EAF3EE' stroke-width='26' stroke-linecap='round'%3E%3Cpath d='M256 410 C 256 300, 238 212, 188 140'/%3E%3Cpath d='M256 410 C 256 318, 300 232, 358 176'/%3E%3Cpath d='M256 410 C 256 344, 214 306, 150 284'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Literata:opsz,wght@7..72,400;7..72,600;7..72,700&family=Public+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --paper:#EFF3F0; --surface:#FFFFFF; --surface-2:#E4EBE6;
+  --ink:#141C18; --ink-2:#4A5A52; --ink-3:#7A8A81;
+  --rule:#D4DED8; --rule-2:#BCCAC2;
+  --green:#255246; --accent:#3E7F68; --node:#6FBFA4;
+  --amber:#7E5A18; --amber-soft:#F6EEDC; --amber-rule:#D9B562;
+  --display:"Literata",Georgia,serif;
+  --ui:"Public Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0E1412; --surface:#161E1A; --surface-2:#1E2823;
+  --ink:#E7EDEA; --ink-2:#A6B4AD; --ink-3:#75857D;
+  --rule:#26322C; --rule-2:#35443C;
+  --green:#9BD9BC; --accent:#6FBFA4; --node:#9BD9BC;
+  --amber:#D9AC5C; --amber-soft:#2A2210; --amber-rule:#6B551F;
+}}
+:root[data-theme="dark"]{
+  --paper:#0E1412; --surface:#161E1A; --surface-2:#1E2823;
+  --ink:#E7EDEA; --ink-2:#A6B4AD; --ink-3:#75857D;
+  --rule:#26322C; --rule-2:#35443C;
+  --green:#9BD9BC; --accent:#6FBFA4; --node:#9BD9BC;
+  --amber:#D9AC5C; --amber-soft:#2A2210; --amber-rule:#6B551F;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--display);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding-inline:22px;padding-block:0 80px}
+a{color:var(--accent);text-underline-offset:2px}
+
+/* hero */
+header{padding-block:72px 40px;text-align:center}
+.mark{width:76px;height:76px;display:block;margin:0 auto 22px}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(2.6rem,8vw,3.6rem);
+  letter-spacing:-.03em;margin:0;line-height:1}
+.tag{font-family:var(--ui);font-size:1.12rem;color:var(--ink-2);margin:16px auto 0;max-width:34ch}
+.pills{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:22px}
+.pill{font-family:var(--ui);font-size:12px;font-weight:600;letter-spacing:.04em;
+  background:var(--surface-2);color:var(--ink-2);padding:5px 11px;border-radius:99px}
+
+/* download */
+.dl{background:var(--surface);border:1px solid var(--rule);border-radius:10px;
+  padding:26px 24px;margin-top:36px}
+.dl h2{font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-3);margin:0 0 18px}
+.primary{display:flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;background:var(--accent);color:#fff;border:0;border-radius:8px;
+  font-family:var(--ui);font-size:1.05rem;font-weight:600;padding:16px 20px;
+  text-decoration:none;cursor:pointer;transition:background .15s}
+.primary:hover{background:var(--green)}
+:root[data-theme="dark"] .primary{color:#0E1412}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .primary{color:#0E1412}}
+.primary .sz{font-family:var(--mono);font-size:12px;opacity:.8;font-weight:400}
+.others{display:grid;gap:0;margin-top:18px}
+.other{display:flex;align-items:baseline;justify-content:space-between;gap:14px;
+  padding:11px 2px;border-top:1px solid var(--rule);font-family:var(--ui);font-size:14.5px}
+.other:first-child{border-top:1px solid var(--rule-2)}
+.other span{color:var(--ink-2)}
+.other .sz{font-family:var(--mono);font-size:12px;color:var(--ink-3);white-space:nowrap}
+.empty{font-family:var(--ui);font-size:15px;color:var(--ink-2);text-align:center;padding:8px 0}
+.empty code{font-size:13px}
+
+/* install warning */
+.warn{border:1px solid var(--amber-rule);background:var(--amber-soft);
+  border-radius:10px;padding:22px 24px;margin-top:28px}
+.warn h2{font-family:var(--ui);font-size:1rem;font-weight:700;color:var(--amber);margin:0 0 10px}
+.warn p{font-family:var(--ui);font-size:15px;color:var(--ink-2);margin:0 0 14px;max-width:62ch}
+.warn p:last-child{margin-bottom:0}
+.os{font-family:var(--ui);font-size:13px;font-weight:700;color:var(--ink);
+  margin:16px 0 6px;letter-spacing:.01em}
+pre{background:var(--surface);border:1px solid var(--rule);border-radius:6px;
+  padding:12px 14px;overflow-x:auto;margin:0 0 6px;
+  font-family:var(--mono);font-size:13px;line-height:1.6;color:var(--ink)}
+code{font-family:var(--mono);font-size:.87em;background:var(--surface-2);
+  padding:1.5px 5px;border-radius:4px}
+pre code{background:none;padding:0}
+
+/* sections */
+section{padding-block:44px 0}
+h2.sec{font-family:var(--display);font-weight:700;font-size:1.55rem;letter-spacing:-.015em;
+  margin:0 0 14px;text-wrap:balance}
+p{margin:0 0 16px;max-width:64ch}
+.lede{color:var(--ink-2)}
+.feat{display:grid;gap:0;margin-top:8px}
+.feat div{border-top:1px solid var(--rule);padding:15px 0;display:grid;
+  grid-template-columns:auto minmax(0,1fr);gap:4px 14px;align-items:start}
+.feat div:last-child{border-bottom:1px solid var(--rule)}
+.feat b{font-family:var(--ui);font-size:15px;font-weight:600;grid-column:2}
+.feat p{grid-column:2;margin:2px 0 0;font-family:var(--ui);font-size:14.5px;color:var(--ink-2)}
+.feat svg{grid-row:span 2;width:18px;height:18px;margin-top:3px;color:var(--accent)}
+
+footer{margin-top:56px;padding-top:24px;border-top:1px solid var(--rule);
+  font-family:var(--ui);font-size:13.5px;color:var(--ink-3);line-height:1.75}
+footer a{color:var(--ink-2)}
+footer strong{color:var(--ink-2);font-weight:600}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  header{padding-block:52px 30px}
+  .other{flex-direction:column;gap:2px}
+}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <svg class="mark" viewBox="0 0 512 512" aria-label="Sedge">
+    <rect width="512" height="512" rx="114" fill="var(--accent)"></rect>
+    <g fill="none" stroke="#EAF3EE" stroke-width="26" stroke-linecap="round">
+      <path d="M256 410 C 256 300, 238 212, 188 140"></path>
+      <path d="M256 410 C 256 318, 300 232, 358 176"></path>
+      <path d="M256 410 C 256 344, 214 306, 150 284"></path>
+    </g>
+    <g fill="#9BD9BC">
+      <circle cx="188" cy="140" r="21"></circle>
+      <circle cx="358" cy="176" r="21"></circle>
+      <circle cx="150" cy="284" r="21"></circle>
+    </g>
+    <circle cx="256" cy="410" r="24" fill="#EAF3EE"></circle>
+  </svg>
+  <h1>Sedge</h1>
+  <p class="tag">A local-first knowledge base. Your notes stay in your own files, on your own machine.</p>
+  <div class="pills">
+    <span class="pill">No account</span>
+    <span class="pill">No subscription</span>
+    <span class="pill">Open source</span>
+  </div>
+</header>
+
+<div class="dl">
+  <h2>Download</h2>
+  <div id="downloads">
+    <div class="empty" id="loading">Loading the latest release…</div>
+  </div>
+</div>
+
+<div class="warn">
+  <h2>First launch: your OS will warn you</h2>
+  <p>Sedge isn't code-signed — signing certificates cost money and this is a personal
+     project. Your operating system can't tell "unsigned" from "unsafe", so it will
+     object the first time. Here's how to get past it.</p>
+
+  <div class="os">macOS</div>
+  <p style="margin-bottom:8px">Drag Sedge to Applications, then run this once in Terminal:</p>
+  <pre><code>xattr -dr com.apple.quarantine /Applications/Sedge.app</code></pre>
+  <p>Or right-click the app → <strong>Open</strong> → <strong>Open</strong> in the dialog.</p>
+
+  <div class="os">Windows</div>
+  <p>SmartScreen shows “Windows protected your PC”. Click <strong>More info</strong>,
+     then <strong>Run anyway</strong>.</p>
+
+  <div class="os">Linux</div>
+  <p>Make the AppImage executable (<code>chmod +x Sedge-*.AppImage</code>) and run it,
+     or install the <code>.deb</code>.</p>
+
+  <p style="margin-top:16px">Every release ships a <code>SHA256SUMS.txt</code> so you can verify
+     what you downloaded.</p>
+</div>
+
+<section>
+  <h2 class="sec">What it is</h2>
+  <p class="lede">A block-based editor for notes that link to each other — outlines,
+     documents, daily notes, a searchable graph of everything you've written. It runs
+     entirely on your machine, and your notes are plain files in a folder you choose.</p>
+  <div class="feat">
+    <div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M12 3v18"/></svg>
+      <b>Nothing to sign up for</b>
+      <p>There is no account system at all. Open it and start writing.</p>
+    </div>
+    <div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+      <b>Your files, your disk</b>
+      <p>Notes live in a normal folder. Back them up however you already back things up.</p>
+    </div>
+    <div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12a9 9 0 1 1-9-9"/><path d="M21 3v6h-6"/></svg>
+      <b>Sync is optional and yours</b>
+      <p>Point it at your own S3 bucket, a WebDAV server, or a synced folder. No middleman.</p>
+    </div>
+    <div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg>
+      <b>Plugins and themes work</b>
+      <p>Reads the same public community index, so existing extensions keep working.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p style="max-width:64ch;margin-bottom:12px">
+    <strong>Sedge is a fork of <a href="https://github.com/siyuan-note/siyuan">SiYuan</a></strong>,
+    © 2020–present b3log.org. It is an independent project and is not affiliated with or
+    endorsed by the SiYuan project — please don't send them Sedge bug reports.
+  </p>
+  <p style="margin:0">
+    Free software under the <a href="https://www.gnu.org/licenses/agpl-3.0.html">GNU AGPL v3</a>.
+    Source: <a id="repoLink" href="#">github.com/BharanitharanKR/personal_Knowledge_graph</a>
+  </p>
+</footer>
+
+</div>
+
+<script>
+const REPO = "BharanitharanKR/personal_Knowledge_graph";
+document.getElementById("repoLink").href = "https://github.com/" + REPO;
+
+const PLATFORMS = [
+  {id:"mac-arm",  label:"macOS · Apple silicon", match:f => /mac.*arm64\.dmg$/i.test(f)},
+  {id:"mac-x64",  label:"macOS · Intel",         match:f => /mac(?!.*arm64).*\.dmg$/i.test(f)},
+  {id:"win",      label:"Windows · x64",         match:f => /\.exe$/i.test(f)},
+  {id:"linux",    label:"Linux · AppImage",      match:f => /\.AppImage$/i.test(f)},
+  {id:"linux-deb",label:"Linux · .deb",          match:f => /\.deb$/i.test(f)},
+];
+
+// navigator.platform reports "MacIntel" on Apple silicon too, so it cannot tell
+// the two Macs apart. UA Client Hints can (Chromium only); everywhere else we
+// default to Apple silicon, which is the large majority of Macs in use, and the
+// Intel build stays one click away in the list below.
+const detect = async () => {
+  const ua = navigator.userAgent;
+  if (/Mac/i.test(ua)) {
+    try {
+      const hints = await navigator.userAgentData?.getHighEntropyValues(["architecture"]);
+      if (hints?.architecture === "x86") return "mac-x64";
+    } catch { /* not supported - fall through */ }
+    return "mac-arm";
+  }
+  if (/Win/i.test(ua)) return "win";
+  if (/Linux|X11/i.test(ua)) return "linux";
+  return null;
+};
+
+const mb = n => (n / 1048576).toFixed(0) + " MB";
+
+const render = async (assets, tag) => {
+  const box = document.getElementById("downloads");
+  const found = PLATFORMS
+    .map(p => ({...p, asset: assets.find(a => p.match(a.name))}))
+    .filter(p => p.asset);
+
+  if (!found.length) { renderEmpty("The latest release has no installers attached yet."); return; }
+
+  const mine = await detect();
+  const primary = found.find(p => p.id === mine) || found[0];
+  const rest = found.filter(p => p !== primary);
+
+  box.innerHTML =
+    `<a class="primary" href="${primary.asset.browser_download_url}">
+       <span>Download for ${primary.label.split(" · ")[0]}</span>
+       <span class="sz">${primary.label.split(" · ")[1] || ""} · ${mb(primary.asset.size)}</span>
+     </a>
+     <div class="others">` +
+    rest.map(p => `<a class="other" href="${p.asset.browser_download_url}">
+        <span>${p.label}</span><span class="sz">${mb(p.asset.size)}</span></a>`).join("") +
+    `</div>
+     <p style="font-family:var(--ui);font-size:12.5px;color:var(--ink-3);margin:14px 0 0;text-align:center">
+       ${tag} · <a href="https://github.com/${REPO}/releases">all releases</a>
+     </p>`;
+};
+
+const renderEmpty = (msg) => {
+  document.getElementById("downloads").innerHTML =
+    `<div class="empty">
+       <p style="margin:0 0 10px">${msg}</p>
+       <p style="margin:0;font-size:13.5px;color:var(--ink-3)">
+         You can still <a href="https://github.com/${REPO}">build it from source</a>.
+       </p>
+     </div>`;
+};
+
+fetch(`https://api.github.com/repos/${REPO}/releases/latest`)
+  .then(r => {
+    if (r.status === 404) throw new Error("no-release");
+    if (!r.ok) throw new Error("http-" + r.status);
+    return r.json();
+  })
+  .then(rel => render(rel.assets || [], rel.tag_name || ""))
+  .catch(err => {
+    renderEmpty(err.message === "no-release"
+      ? "No public release yet — check back shortly."
+      : "Couldn't reach GitHub to list releases.");
+  });
+</script>
+</body>
+</html>
