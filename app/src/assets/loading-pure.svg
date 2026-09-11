@@ -6,7 +6,7 @@
                           keyTimes="0;1" dur="1.5s" begin="0s" repeatCount="indefinite"></animateTransform>
     </circle>
     <circle cx="32" cy="32" fill="none" stroke-linecap="round" r="29"
-            stroke-width="1" stroke="#d23f31" stroke-dasharray="40 64">
+            stroke-width="1" stroke="#3E7F68" stroke-dasharray="40 64">
         <animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 32 32;-360 32 32"
                           keyTimes="0;1" dur="1.5s" begin="0s" repeatCount="indefinite"></animateTransform>
     </circle>

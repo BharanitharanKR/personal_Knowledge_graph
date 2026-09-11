@@ -81,7 +81,8 @@
         }
 
         /* logo 碎片成型：光带汇聚末期柔和浮现，之后静止 */
-        #bg svg .logo path {
+        #bg svg .logo path,
+        #bg svg .logo circle {
             opacity: 0;
             transform-box: fill-box;
             transform-origin: center;
@@ -144,10 +145,17 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
         <g class="streaks"></g>
         <g class="logo">
-            <path fill="#d23f31" d="M37.052 371.676l269.857-269.857v550.507l-269.857 269.857z"></path>
-            <path fill="#3b3e43" d="M306.909 101.818l205.091 205.091v550.507l-205.091-205.091z"></path>
-            <path fill="#d23f31" d="M512 306.909l205.091-205.091v550.507l-205.091 205.091z"></path>
-            <path fill="#3b3e43" d="M717.091 101.818l269.857 269.857v550.507l-269.857-269.857z"></path>
+            <!-- Sedge: three blades rising from a shared root; terminals double as graph nodes -->
+            <path fill="none" stroke="#EAF3EE" stroke-width="52" stroke-linecap="round"
+                  d="M512 820 C 512 600, 476 424, 376 280"></path>
+            <path fill="none" stroke="#EAF3EE" stroke-width="52" stroke-linecap="round"
+                  d="M512 820 C 512 636, 600 464, 716 352"></path>
+            <path fill="none" stroke="#EAF3EE" stroke-width="52" stroke-linecap="round"
+                  d="M512 820 C 512 688, 428 612, 300 568"></path>
+            <circle fill="#6FBFA4" cx="376" cy="280" r="42"></circle>
+            <circle fill="#6FBFA4" cx="716" cy="352" r="42"></circle>
+            <circle fill="#6FBFA4" cx="300" cy="568" r="42"></circle>
+            <circle fill="#EAF3EE" cx="512" cy="820" r="48"></circle>
         </g>
     </svg>
 </div>
@@ -164,20 +172,22 @@
             return;
         }
         const svgNS = "http://www.w3.org/2000/svg";
-        // logo 4 块碎片的斜边：每条 [x1,y1,x2,y2] + 主色，方向沿该块折页的倾斜
+        // Sedge 三条叶片的走向：每条 [x1,y1,x2,y2] + 主色，光带沿叶片方向汇聚。
+        // Each edge traces one blade of the Sedge mark, so the streaks converge
+        // onto the logo that actually appears.
         const edges = [
-            // 块1（红）：右上倾斜，顶/底两条斜边
-            {x1: 37, y1: 372, x2: 307, y2: 102, color: "#d23f31"},
-            {x1: 37, y1: 922, x2: 307, y2: 652, color: "#d23f31"},
-            // 块2（灰）：右下倾斜
-            {x1: 307, y1: 102, x2: 512, y2: 307, color: "#3b3e43"},
-            {x1: 307, y1: 652, x2: 512, y2: 857, color: "#3b3e43"},
-            // 块3（红）：右上倾斜
-            {x1: 512, y1: 307, x2: 717, y2: 102, color: "#d23f31"},
-            {x1: 512, y1: 857, x2: 717, y2: 652, color: "#d23f31"},
-            // 块4（灰）：右下倾斜
-            {x1: 717, y1: 102, x2: 987, y2: 372, color: "#3b3e43"},
-            {x1: 717, y1: 652, x2: 987, y2: 922, color: "#3b3e43"},
+            // 左上叶片 / upper-left blade
+            {x1: 512, y1: 820, x2: 376, y2: 280, color: "#EAF3EE"},
+            {x1: 460, y1: 640, x2: 376, y2: 280, color: "#6FBFA4"},
+            // 右上叶片 / upper-right blade
+            {x1: 512, y1: 820, x2: 716, y2: 352, color: "#EAF3EE"},
+            {x1: 580, y1: 620, x2: 716, y2: 352, color: "#6FBFA4"},
+            // 左下叶片 / lower-left blade
+            {x1: 512, y1: 820, x2: 300, y2: 568, color: "#EAF3EE"},
+            {x1: 420, y1: 700, x2: 300, y2: 568, color: "#6FBFA4"},
+            // 根部 / root
+            {x1: 512, y1: 980, x2: 512, y2: 820, color: "#EAF3EE"},
+            {x1: 512, y1: 660, x2: 512, y2: 820, color: "#6FBFA4"},
         ];
         const perEdge = 12; // 每条斜边上的光带数
         edges.forEach((e) => {
