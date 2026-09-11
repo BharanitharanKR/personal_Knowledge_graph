@@ -48,3 +48,6 @@ muslbin/
 
 # Workflows
 **/__pycache__
+
+# locally built kernel binary (staged for `pnpm start`)
+app/kernel/

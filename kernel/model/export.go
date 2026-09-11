@@ -566,9 +566,9 @@ func ExportSystemLog() (zipPath string) {
 		}
 	}
 
-	siyuanLog := filepath.Join(util.TempDir, "siyuan.log")
+	siyuanLog := filepath.Join(util.TempDir, "sedge.log")
 	if gulu.File.IsExist(siyuanLog) {
-		to := filepath.Join(exportFolder, "siyuan.log")
+		to := filepath.Join(exportFolder, "sedge.log")
 		if err := filelock.Copy(siyuanLog, to); err != nil {
 			logging.LogErrorf("copy kernel log from [%s] to [%s] failed: %s", err, siyuanLog, to)
 		}

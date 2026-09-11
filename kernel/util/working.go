@@ -117,7 +117,7 @@ func InitWorkspace(workspacePath, wdPath string) {
 		IconsPath = filepath.Join(AppearancePath, "icons")
 	}
 
-	LogPath = filepath.Join(TempDir, "siyuan.log")
+	LogPath = filepath.Join(TempDir, "sedge.log")
 }
 
 func Boot() {
@@ -264,7 +264,7 @@ var (
 	HistoryDir         string        // 数据历史目录路径
 	TempDir            string        // 临时目录路径
 	QueueDir           string        // 队列目录路径
-	LogPath            string        // 配置目录下的日志文件 siyuan.log 路径
+	LogPath            string        // 配置目录下的日志文件 sedge.log 路径
 	DBName             = "siyuan.db" // SQLite 数据库文件名
 	DBPath             string        // SQLite 数据库文件路径
 	HistoryDBPath      string        // SQLite 历史数据库文件路径
