@@ -2,6 +2,8 @@
 
 This document provides a comprehensive technical architecture and development guide for **Sedge**, as well as the complete engineering specification for the **Associative / Guided Reading Trails (`feat-trail`)** feature.
 
+
+podu amuku dumuku amal duam;
 ---
 
 ## Part 1: Sedge System Architecture
